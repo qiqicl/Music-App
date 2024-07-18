@@ -29,13 +29,6 @@
 				"navigationBarBackgroundColor":"#BA4D47",
 				"navigationBarTextStyle":"white"
 			}
-		},
-		{
-			"path" : "pages/login/components/Tel/Tel",
-			"style" : 
-			{
-				"navigationBarTitleText" : ""
-			}
 		}
 	],
 	 "tabBar": {
