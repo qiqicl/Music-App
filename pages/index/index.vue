@@ -1,52 +1,47 @@
+
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
+	<view class="app">
+		<view class="search">
+			<uni-icons type="bars" size="30"></uni-icons>
+			<view class="input" @click="goSearch"></view>
+		</view>
+		<view class="content">
+			
 		</view>
 	</view>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
-		}
+<script setup>
+	import { ref } from "vue"
+	import { uesSearchStore } from "../../../Music-App/stroe/searchDate"
+	import { useRouter, useRoute } from "vue-router"
+	const searchStore = uesSearchStore()
+	const router = useRouter()
+	const route = useRoute()
+	const goSearch = () => {
+		router.push("/pages/search/search")
 	}
 </script>
 
-<style>
-	.content {
+<style lang="scss" scoped>
+	.app {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		justify-content: space-between;
+		height: 100%;
 	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
+	.search{
+		width: 100%;
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
+		padding: 20rpx 40rpx;
+		align-items: center;
+		height: 100rpx;
+	}
+	.input{
+		width: 600rpx;
+		height: 60rpx;
+	    border: 2rpx solid #005500;
 	}
 
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
 </style>
