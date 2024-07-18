@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/toplist/toplist",
+    "pages/songlist/songlist"
   ],
   "window": {
     "navigationBarTextStyle": "black",
