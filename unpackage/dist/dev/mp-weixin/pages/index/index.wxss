@@ -23,13 +23,14 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.app.data-v-1cf27b2a {
+.app {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  width: 750rpx;
 }
-.search.data-v-1cf27b2a {
+.search {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -37,7 +38,7 @@
   align-items: center;
   height: 100rpx;
 }
-.input.data-v-1cf27b2a {
+.input {
   width: 600rpx;
   height: 60rpx;
 }
