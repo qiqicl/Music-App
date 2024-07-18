@@ -8,13 +8,19 @@ App.mpType = 'app'
 const app = new Vue({
   ...App
 })
+
 app.$mount()
 // #endif
 
 // #ifdef VUE3
 import { createSSRApp } from 'vue'
+import 'vant/lib/index.css';
+import { Tab, Tabs } from 'vant';
 export function createApp() {
   const app = createSSRApp(App)
+  
+  app.use(Tab);
+  app.use(Tabs);
   return {
     app
   }

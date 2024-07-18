@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 {
 	"easycom": {
 		"autoscan": true,
@@ -16,6 +16,22 @@
 		},
 		{
 			"path" : "pages/mine/mine",
+			"style" : 
+			{
+				"navigationBarTitleText" : ""
+			}
+		},
+		{
+			"path" : "pages/login/login",
+			"style" : 
+			{
+				"navigationBarTitleText" : "登录",
+				"navigationBarBackgroundColor":"#BA4D47",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path" : "pages/login/components/Tel/Tel",
 			"style" : 
 			{
 				"navigationBarTitleText" : ""
@@ -40,24 +56,10 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-	"uniIdRouter": {}
+	"uniIdRouter": {},
+	"usingComponents": {
+	  "van-tab": "@vant/weapp/tab/index",
+	  "van-tabs": "@vant/weapp/tabs/index"
+	}
 }
-=======
-{
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
-		}
-	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	},
-	"uniIdRouter": {}
-}
->>>>>>> main
+
