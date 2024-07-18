@@ -12,6 +12,10 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	/*每个页面公共css */
+	// page,body{
+	// 	height: 750rpx;
+	// 	width: 100%;
+	// }
 </style>
