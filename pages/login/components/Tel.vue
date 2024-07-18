@@ -53,7 +53,6 @@
 		}
 	})
 	const getCode = async() => {
-		// formData.value.code = Math.random().toString(16).slice(2, 8)
 		const code = await getCodeApi()
 		console.log(code)
 	}
@@ -62,12 +61,11 @@
 			const time = new Date()*1
 			const xhr = new XMLHttpRequest()
 			xhr.open('get',`https://zyxcl.xyz/music/api/captcha/sent?timestamp=${time}&phone=${formData.value.tel}`)
-			xhr.onreadystatechange = function() {
+			xhr.onreadystatechange = () => {
 			    // 请求完成且响应状态为 200 表示成功
 			    if (xhr.readyState == 4 && xhr.status == 200) {
 			      // 解析服务器响应的 JSON 数据
 			      let data = JSON.parse(xhr.responseText);
-				  console.log(data)
 				  resolve(data)
 					// formData.value.code = data
 			    }
@@ -85,7 +83,7 @@
 </script>
 
 <style lang="scss">
-	.van-tabs__wrap {
+	::v-deep .van-tabs__wrap {
 		margin-bottom: 20rpx;
 	}
 
