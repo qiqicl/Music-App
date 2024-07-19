@@ -1,19 +1,13 @@
 <template>
 	<view class="player">
-		<!-- <view class="title">
+		<view class="title">
 
 		</view>
 		<view class="section" style="background-image: url(&quot;http://p1.music.126.net/uicjMeijprOJqVYEwY2ZQw==/109951169524907299.jpg&quot;);">
-<<<<<<< HEAD
-			
-		</view> -->
-		
-=======
 			<view class="disc">
 				
 			</view>
 		</view>
->>>>>>> 8eb75523d32404d5c3a4e6481154e69796d9a324
 	</view>
 </template>
 
