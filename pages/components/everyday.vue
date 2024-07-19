@@ -18,6 +18,7 @@
 					<image src="https://p1.music.126.net/uG5p6CnwAHrLqOkaSeRlnA==/109951163986649164.jpg"></image>
 					<view class="text">歌单</view>
 				</view>
+				
 			</view>
 			<view class="Com-d">
 				<view class="itemCom">
