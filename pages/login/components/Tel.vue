@@ -8,7 +8,7 @@
 				<uni-easyinput type="text" v-model="formData.code" placeholder="请输入验证码" />
 			</uni-forms-item>
 			<button @click="getCode">获取验证码</button>
-		</view </uni-forms>
+		</view>
 		<button @click="submit" class="login">登录</button>
 	</uni-forms>
 </template>
@@ -82,7 +82,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.code {
 		display: flex;
 		justify-content: space-between;
@@ -98,9 +98,16 @@
 			background: #BA4D47;
 			color: white;
 			margin-left: 20rpx;
+			padding: 0 20rpx;
 		}
 	}
-
+	::v-deep button{
+		color: white;
+		background: #BA4D47;
+		height: 100rpx;
+		line-height: 100rpx;
+		padding: 0;
+	}
 	.lgoin {
 		margin-top: 20rpx;
 		background: #BA4D47;
