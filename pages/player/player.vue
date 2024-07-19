@@ -1,26 +1,57 @@
 <template>
 	<view class="player">
-		<view class="section" style="background-image: url(&quot;http://p1.music.126.net/uicjMeijprOJqVYEwY2ZQw==/109951169524907299.jpg&quot;);">
-			<view class="disc">
-				<view class="song">
-					<view class="pole">
-						<image src="../../assets/needle-ab-63009d3f.png" mode=""></image>
+		<view class="section"
+			style="background-image: url(&quot;http://p1.music.126.net/uicjMeijprOJqVYEwY2ZQw==/109951169524907299.jpg&quot;);">
+		</view>
+		<view class="disc">
+			<view class="song">
+				<view class="pole">
+					<image src="../../assets/needle-ab-63009d3f.png" mode=""></image>
+				</view>
+				<view class="vinyl">
+					<image src="../../assets/disc-23c9ad09.png" mode=""></image>
+					<view class="songImg">
+						<image :src="play.playItem.al.picUrl" mode=""></image>
 					</view>
 				</view>
 			</view>
 		</view>
-
+		<view>
+			<view class="audio">
+			</view>
+		</view>
 	</view>
 </template>
 
 <script setup>
 	// /playlist/cover/update?id=3143833470&imgSize=200
-	import { playListStore } from "../../store/playList"
+	import {
+		playListStore
+	} from "../../store/playList"
 	import {
 		ref
 	} from "vue"
+	const play = playListStore()
+	console.log(play.playList)
+	console.log(play.playItem)
+	console.log(play.playIndex)
+	// const innerAudioContext = uni.createInnerAudioContext();
+	// innerAudioContext.autoplay = true;
+	// innerAudioContext.src = 'https://web-ext-storage.dcloud.net.cn/uni-app/ForElise.mp3';
+	// innerAudioContext.onPlay(() => {
+	//   console.log('开始播放');
+	// });
+	// if (innerAudioContext) {
+	//   try {
+	//     innerAudioContext.pause();
+	//     innerAudioContext.destroy()
+	//     innerAudioContext = null
+	//   } catch (e) {
+	//     //TODO handle the exception
+	//   }
+	// }
 	uni.setNavigationBarTitle({
-		title: "歌名",
+		title: play.playItem.name,
 		success: () => {
 			console.log('标题设置成功');
 		},
@@ -56,6 +87,47 @@
 		flex-direction: column;
 		justify-content: space-between;
 		overflow: hidden;
+		position: relative;
+	}
+	.songImg{
+		width: 400rpx;
+		height: 400rpx;
+		top: 420rpx;
+		left: 180rpx;
+		position: absolute;
+		overflow: hidden;
+		border-radius: 50%;
+		image{
+			width: 400rpx;
+			height: 400rpx;
+		}
+	}
+	.disc {
+		position: absolute;
+		z-index: 3;
+
+		.pole {
+			>image {
+				position: absolute;
+				top: 100rpx;
+				left: 300rpx;
+				width: 300rpx;
+				z-index: 2;
+			}
+		}
+
+		.vinyl {
+			position: relative;
+			>image {
+				user-select: none;
+				display: block;
+				position: absolute;
+				width: 640rpx;
+				height: 640rpx;
+				top: 300rpx;
+				left: 60rpx;
+			}
+		}
 	}
 
 	.section {

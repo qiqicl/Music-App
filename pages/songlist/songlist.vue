@@ -10,7 +10,7 @@ onLoad((option) => {
 		// console.log(getDataApi())
 		await nextTick()
 		data.value = await getDataApi()
-		console.log(data.value)
+		// console.log(data.value)
 	}
 	const getDataApi = () =>{
 		return new Promise((resolve,reject)=>{
@@ -39,11 +39,11 @@ const goPlayer = (index) => {
 	});
 	playList.playList = data.value.playlist.tracks
 	playList.playIndex = index
-	console.log("列表",playList.playList,"下标",playList.playIndex,"id",playList.playItem)
+	// console.log("列表",playList.playList,"下标",playList.playIndex,"id",playList.playItem)
 	
 }
 
-console.log(data)
+// console.log(data)
 
 const arName = (arr) => {
 	let name = []
