@@ -3,19 +3,52 @@
 import { nextTick, ref ,reactive } from 'vue'
 
 const data = ref([])
+const detailData = ref([])
+const playList = ref([])
 const storage = ref(decodeURIComponent(uni.getStorageSync('key')))
 
-console.log(storage.value)
+
 const getData = async() => {	await nextTick()
 	data.value = await getDataApi()
-	console.log(data.value)}const getDataApi = () =>{	return new Promise((resolve,reject)=>{		const time = new Date()*1		const xhr = new XMLHttpRequest()		xhr.open('get',`http://121.89.213.194:5001/login/status?curCookie=${decodeURIComponent(uni.getStorageSync('key'))}`)		xhr.onreadystatechange = function() {			// 请求完成且响应状态为 200 表示成功			if (xhr.readyState == 4 && xhr.status == 200) {			  // 解析服务器响应的 JSON 数据			  let data = JSON.parse(xhr.responseText);			  console.log(data)			  resolve(data)			}		  };		xhr.send()	})}
+	uni.request({
+		url:`https://zyxcl.xyz/music/api/user/detail?uid=${data.value.data.data.account.id}`,	
+		withCredentials	:true,
+		success: (res) => {
+			// console.log(res.data);
+			detailData.value = res.data
+		}
+	})
+	uni.request({
+		url:`https://zyxcl.xyz/music/api/user/playlist?uid=${data.value.data.data.account.id}`,	
+		withCredentials	:true,
+		success: (res) => {
+			console.log(res.data);
+			playList.value = res.data
+		}
+	})}
+
+const getDataApi = () =>{	return new Promise((resolve,reject)=>{
+		let data = uni.request({
+			url:"https://zyxcl.xyz/music/api/login/status",
+			withCredentials	:true
+		})
+		resolve(data)	})}
+
 getData()
+
 
 const goLogin = () =>{
 	uni.navigateTo({
 		url: `/pages/login/login`
 	});
 }
+
+const goDetail = ref((id) => {
+	console.log(id)
+	uni.navigateTo({
+		url: `/pages/songlist/songlist?id=${id}`
+	});
+})
 
 
 
@@ -24,27 +57,27 @@ const goLogin = () =>{
 <template>
 	<view class="mine" v-if="storage">
 		<view class="header">
-			<view class="user">
-				<image src="../../static/logo.png" mode=""></image>
-				<view class="nickname">你好</view>
+			<view class="user"  :style="{backgroundImage:`url(${detailData.profile?.backgroundUrl})`}">
+				<image :src="data.data?.data.profile.avatarUrl" mode=""></image>
+				<view class="nickname">{{data.data?.data.profile.nickname}}</view>
 				<view class="desc">
-					<view class="desc_tag"><text>123</text>关注</view>
-					<view class="desc_tag"><text>123</text>粉丝</view>
-					<view class="desc_tag"><text>123</text>等级</view>
-					<view class="desc_tag"><text>123</text>听歌</view>
+					<view class="desc_tag"><text>{{detailData.profile?.follows}}</text>关注</view>
+					<view class="desc_tag"><text>{{detailData.profile?.followeds}}</text>粉丝</view>
+					<view class="desc_tag"><text>LV{{detailData.level}}</text>等级</view>
+					<view class="desc_tag"><text>{{detailData.listenSongs}}</text>听歌</view>
 				</view>
 			</view>
 		</view>
-		{{data.data}}
+		<!-- {{data.data.data}} -->
 		<view class="main">
 			<view class="lists">
-				<view class="list">
+				<view class="list" v-for="list in playList.playlist" @click="goDetail(list.id)">
 					<view class="pic">
-						<image src="../../static/logo.png" mode=""></image>
+						<image :src="list.coverImgUrl" mode=""></image>
 					</view>
 					<view class="list_item">
-						<text class="listName">喜欢的音乐</text>
-						<text class="rec">0 首 0 次播放</text>
+						<text class="listName">{{list.name}}</text>
+						<text class="rec">{{list.trackCount}} 首 {{list.playCount}} 次播放</text>
 					</view>
 				</view>
 			</view>
@@ -66,7 +99,6 @@ const goLogin = () =>{
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			background-color: tomato;
 			.nickname{
 				color: #fff;
 				font-weight: 700;
@@ -143,6 +175,9 @@ const goLogin = () =>{
 				}
 			}
 		}
+	}
+	.user{
+		background-position: center;
 	}
 
 </style>

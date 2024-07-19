@@ -53,7 +53,10 @@ const goDetail = ref((id) => {
 			</view>
 			<view class="topTitle">其他榜单</view>
 			<view class="else">
-				<view class="else_img" v-for="item in data.filter((i,index) =>  index > 3)">
+				<view class="else_img"
+				v-for="item in data.filter((i,index) =>  index > 3)"
+				@click="goDetail(item.id)"
+				>
 					<image :src="item.coverImgUrl" mode=""></image>
 				</view>
 			</view>

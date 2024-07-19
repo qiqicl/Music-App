@@ -4,7 +4,6 @@ import { onLoad } from "@dcloudio/uni-app"
 const data = ref([])
 
 onLoad((option) => {
-	
 	const getData = async() => {
 		// console.log(getDataApi())
 		await nextTick()
@@ -33,32 +32,53 @@ onLoad((option) => {
 
 console.log(data)
 
+const arName = (arr) => {
+	let name = []
+	arr.forEach((i) => {
+		name.push(i.name)
+	})
+	return name.join(" / ")
+}
+
 </script>
 
 <template>
 	<view class="songList">
-		<view class="songList_top" :style="{backgroundImage:`url(${data.playlist.coverImgUrl})`}">
+		<view class="songList_top" :style="{backgroundImage:`url(${data.playlist?.coverImgUrl})`}">
 			<view class="songList_top_box">
 				<view class="songList_top_info">
 					<view class="songList_top_info_img">
-						<image :src="data.playlist.coverImgUrl" mode=""></image>
+						<image :src="data.playlist?.coverImgUrl" mode=""></image>
 					</view>
 					<view class="songList_top_info_right">
-						<view class="songList_name">{{data.playlist.name}}</view>	
+						<view class="songList_name">{{data.playlist?.name}}</view>	
 						<view class="songlist_creator">
-							<image :src="data.playlist.creator.avatarUrl" mode=""></image>
-							<text>{{data.playlist.creator.nickname}}</text>
+							<image :src="data.playlist?.creator.avatarUrl" mode=""></image>
+							<text>{{data.playlist?.creator.nickname}}</text>
 						</view>
 					</view>
 				</view>
 				<view class="description">
-					{{data.playlist.description}}
+					{{data.playlist?.description}}
 				</view>
 				<view class="btns">
-					<view class="btn"><uni-icons type="undo-filled" size="25"></uni-icons>{{data.playlist.shareCount}}</view>
-					<view class="btn"><uni-icons type="chat-filled" size="25"></uni-icons>{{data.playlist.commentCount}}</view>
-					<view class="btn"><uni-icons type="folder-add-filled" size="25"></uni-icons>{{data.playlist.subscribedCount}}</view>
+					<view class="btn"><uni-icons type="undo-filled" size="25"></uni-icons>{{data.playlist?.shareCount}}</view>
+					<view class="btn"><uni-icons type="chat-filled" size="25"></uni-icons>{{data.playlist?.commentCount}}</view>
+					<view class="btn"><uni-icons type="folder-add-filled" size="25"></uni-icons>{{data.playlist?.subscribedCount}}</view>
 				</view>
+			</view>
+		</view>
+		<view class="list">
+			<view class="songList_all"> <uni-icons type="checkbox" size="25"></uni-icons> 播放全部( {{data.playlist?.tracks.length}} )</view>
+			<view class="songList_item" v-for=" (item,index) in data.playlist?.tracks " :key="item.id">
+				<view class="songList_item_count">{{index+1}}</view>
+				<view class="songList_item_content">
+					<view class="songName">{{item.name}}</view>
+					<view class="songAr">
+						{{arName(item.ar)}}
+					</view>
+				</view>
+				<uni-icons type="right" size="20"></uni-icons>
 			</view>
 		</view>
 	</view>
@@ -74,12 +94,13 @@ view{
 	height: 100vh;
 	overflow: auto;
 	.songList_top{
-		height: 430rpx;
+		height: 445rpx;
+		background-position: center;
 		.songList_top_box{
 			padding: 30rpx;
 			width: 100%;
 			height: 100%;
-			background: rgba(0, 0, 0, .25);
+			background: rgba(0, 0, 0, .75);
 			.songList_top_info{
 				display: flex;
 				.songList_top_info_img{
@@ -143,6 +164,59 @@ view{
 				}
 			}
 		}
+	}
+}
+.songList_all{
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 24rpx 30rpx;
+	font-size: 28rpx;
+	.uni-icons::before{
+		color: #c84341;
+		margin-right: 20rpx;
+	}
+}
+.list >view::before{
+	  content: '';
+	  position: absolute;
+	  width: 200%;
+	  height: 200%;
+	  top: 0;
+	  left: 0;
+	  border-bottom: 1px solid #999;
+	  transform: scale(0.5); 
+	  transform-origin: 0 0;
+	  box-sizing: border-box;		
+	}
+.songList_item{
+	display: flex;
+	align-items: center;
+	padding: 24rpx 30rpx;
+	position: relative;
+	.songList_item_count{
+		width: 80rpx;
+		height: 80rpx;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 700;
+		font-size: 32rpx;
+	}
+	.songList_item_content{
+		flex: 1;
+		.songName{
+			font-size: 28rpx;
+			color: #3b4144;
+		}
+		.songAr{
+			color: #999;
+			font-size: 24rpx;
+			margin-top: 10rpx;
+		}
+	}
+	>.uni-icons::before{
+		color: #999;
 	}
 }
 </style>
