@@ -3,20 +3,20 @@
 		<uni-icons type="search" size="30" color="#666"></uni-icons>
 		<input class="searchInp" placeholder="请输入要搜索的歌曲/歌手" v-model="searchStore.con" @input="focus" @keydown="keydowns"/>
 		<view class="close" @click="searchStore.con=''"  v-if="searchStore.con!==''">x</view>
-		<view class="cancal" v-if="searchStore.con!==''">取消</view>
+		<view class="cancal" v-if="searchStore.con!==''" @click="cancalInp">取消</view>
 	</view>
 	<view class="history">
 		<view class="searchHistory">搜索历史</view>
-		<uni-icons type="trash" size="25" color="#666"></uni-icons>
+		<uni-icons type="trash" size="25" color="#666" v-if="searchMemory.length!==0"  @click="delAll"></uni-icons>
 	</view>
 	<view class="historyCon">
-		<view class="text">刘德华</view>
+		<view class="text" @click="memory" v-for="item in searchMemory">{{item.name}}</view>
 	</view>
 	<view class="history">
 		<view class="hotHistory">热门搜索</view>
 	</view>
 	<view class="hotCon">
-		<view v-for="(item, index) in searchStore.data.result.hots" class="hotText" ><view :class="[ 'hotNum','num' + (index + 1)]">{{index + 1}}.</view>{{item.first}}</view>
+		<view v-for="(item, index) in searchStore.data.data" class="hotText" ><view :class="[ 'hotNum','num' + (index + 1)]">{{index + 1}}.</view>{{item.searchWord}}</view>
 	</view>
 	
 	<view class="sL" v-if="flag===1">
@@ -30,20 +30,41 @@
 
 <script setup>
 	import { ref } from "vue"
-	import  searchList from "../../component/searchList.vue"
-	import  songSinger from "../../component/songSinger.vue"
+	import  searchList from "./component/searchList.vue"
+	import  songSinger from "./component/songSinger.vue"
 	import { uesSearchStore } from "../../../Music-App/stroe/searchDate"
 	const searchStore = uesSearchStore()
 	const flag = ref(0)
+	
+	const searchMemory =ref(JSON.parse(localStorage.getItem("searchMemory")) || [])
 	searchStore.getCode()
-	 const keydowns = (e) => {
+	 const keydowns = async(e) => {
 	 	const key = e.code
 		flag.value = 2
-		searchStore.getSongsData()
+		await searchStore.getSongsData()
+		if (key === "Enter") {
+		    const existingItem = searchMemory.value.find(item => item.name === searchStore.con);
+		    if (existingItem) {
+		      existingItem.name = searchStore.con;
+		    } else {
+		      searchMemory.value.push({ name: searchStore.con });
+			  localStorage.setItem('searchMemory' , JSON.stringify(searchMemory.value))
+		      console.log(searchMemory.value)
+		    }
+		  }
 	 }
 	 const focus = () =>{
 		 flag.value = 1
 		 searchStore.getSearchData()
+	 }
+	 const delAll = () => {
+		searchMemory.value = []
+		localStorage.setItem('searchMemory' , JSON.stringify(searchMemory.value))
+		console.log(searchMemory.value)
+	 }
+	 const cancalInp = () => {
+		 flag.value = 0
+		 searchStore.con = ''
 	 }
 </script>
 

@@ -1,5 +1,6 @@
 <template>
 	<view lass="songSinger">
+		<!-- {{searchStore.searchData.result.songs}} -->
 		<view class="songLast" v-for="item in songsData.result.songs">
 			<view>{{item.name}}</view>
 			<view>{{item.album.name}}</view>
@@ -10,8 +11,11 @@
 </template>
 
 <script setup>
+	// import { uesSearchStore } from "../../Music-App/stroe/searchDate/"
+	// const searchStore = uesSearchStore()
 	const props = defineProps(['songsData'])
 	// const songsList = props.songsData
+	// console.log(props.songsData.result)
 </script>
 
 <style  lang="scss" scoped>
