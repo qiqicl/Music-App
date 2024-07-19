@@ -62,7 +62,6 @@ export const useSearchStore = defineStore('searchStore', () => {
 		})
 	}
 	
-	
 	  
 	  return{
 		  con,

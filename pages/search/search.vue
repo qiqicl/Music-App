@@ -20,7 +20,7 @@
 	</view>
 	
 	<view class="sL" v-if="flag===1">
-		<searchList  :searchData="searchStore.searchData"/>
+		<searchList  :searchData="searchStore.searchData" @pushInp="pushInp"/>
 	</view>
 	<view class="songs" v-if='flag===2'>
 		<songSinger :songsData="searchStore.songsData"/>
@@ -35,14 +35,16 @@
 	import { useSearchStore } from "../../store/searchDate.js"
 	const searchStore = useSearchStore()
 	const flag = ref(0)
-	const searchMemory =ref(JSON.parse(localStorage.getItem("searchMemory")) || [])
+	const searchMemory =ref(JSON.parse(localStorage.getItem("searchMemory")))
 	searchStore.getCode()
 	const enter = () => {
-		const existingItem = searchMemory.value.find(item => item.name === searchStore.con);
-		if (existingItem) {
-		  existingItem.name = searchStore.con;
+		const existingItem = searchMemory.value.findIndex(item => item.name === searchStore.con);
+		if (existingItem > -1) {
+		  searchMemory.value.splice(existingItem, 1)
+		  enter()
+		  localStorage.setItem('searchMemory' , JSON.stringify(searchMemory.value))
 		} else {
-		  searchMemory.value.push({ name: searchStore.con });
+		  searchMemory.value.unshift({ name: searchStore.con });
 		  localStorage.setItem('searchMemory' , JSON.stringify(searchMemory.value))
 		  console.log(searchMemory.value)
 		}
@@ -52,7 +54,7 @@
 		flag.value = 2
 		await searchStore.getSongsData()
 		if (key === "Enter") {
-		    enter()
+			enter()
 		  }
 	 }
 	 const focus = () =>{
@@ -73,21 +75,12 @@
 		 searchStore.con = el
 		 await searchStore.getSongsData()
 		 enter()
-		 // if(searchStore.con.length !== 0) {
-			// await searchStore.getSearchData()
-		 //    console.log(searchStore.con) 
-		 // }
-		 
 	 }
 	 const memoryPushInp = async(el) => {
 		 flag.value = 2
 		 searchStore.con = el
 		 await searchStore.getSongsData()
 		 enter()
-		 // if(searchStore.con.length !== 0) {
-		 // 	await searchStore.getSearchData()
-		 //    console.log(searchStore.con) 
-		 // }
 	 }
 </script>
 
@@ -181,14 +174,6 @@
 		height: calc(100% - 100rpx);
 		background: #ffffff;
 	}
-	// .sL{
-	// 	position: absolute;
-	// 	top: 100rpx;
-	// 	width: 100%;
-	// 	height: calc(100% - 350rpx);
-	// 	overflow-y: auto;
-	// 	background: #ffffff;
-	// }
 	.songs{
 		// @extend .sL;
 		position: absolute;

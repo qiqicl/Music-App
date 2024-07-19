@@ -1,12 +1,20 @@
 <template>
 	<view class="searchList">
-		<view class="searchSinger" v-for="item in searchData.result.allMatch">{{item.keyword}}</view>
+		<view class="searchSinger" v-for="item in searchData.result.allMatch" @click="abc(item.keyword)">{{item.keyword}}</view>
 	</view>
 </template>
-
+// @click = emits/$emit('pushInp', 100)
 <script setup>
-	import {ref} from "vue"
+	import {ref, defineProps, defineEmits} from "vue"
+	import { useSearchStore } from "../../../store/searchDate.js"
+	
+	const searchStore = useSearchStore()
 	const props = defineProps(['searchData'])
+	const Emits = defineEmits(['pushInp'])
+	const abc = (i) => {
+		console.log(i)
+		Emits('pushInp', i)
+	}
 
 </script>
 
