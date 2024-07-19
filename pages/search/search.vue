@@ -32,7 +32,7 @@
 	import { ref } from "vue"
 	import  searchList from "./component/searchList.vue"
 	import  songSinger from "./component/songSinger.vue"
-	import { uesSearchStore } from "../../../MusicApp/stroe/searchDate"
+	import { uesSearchStore } from "../../stroe/searchDate.js"
 	const searchStore = uesSearchStore()
 	const flag = ref(0)
 	

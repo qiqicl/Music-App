@@ -1,13 +1,13 @@
 <template>
 	<view class="content">
 		<view class="Com">
-			<view class="Com-a">
+			<view class="Com-a" v-for="item in everyDay1">
 				<view class="itemCom" @click="getSongs">
 					<image src="https://p1.music.126.net/4DpSgAVpJny4Ewf-Xw_WQQ==/109951163986641971.jpg"></image>
 					<view class="text">每日推荐</view>
 				</view>
 			</view>
-			<view class="Com-b">
+			<!-- <view class="Com-b">
 				<view class="itemCom">
 					<image src="https://p1.music.126.net/Shi7cRT1bDhwpVDM7AOFXg==/109951165265330616.jpg"></image>
 					<view class="text">私人FM</view>
@@ -31,17 +31,19 @@
 					<image src="https://p1.music.126.net/Kb4oK0m_ocs3FR3lo-r9yg==/109951167319110429.jpg"></image>
 					<view class="text">有声书</view>
 				</view>
-			</view>
+			</view> -->
 		</view>
    </view>
 
 </template>
 
 <script setup>
-import { nextTick, ref } from 'vue'
-const song = ref([])
+import { nextTick, ref,watch } from 'vue'
+
 import { getSongsApi, getPaihangApi } from '../../services'
 
+
+const song = ref([])
 const getSongs = async () =>{
 	const res = await getSongsApi()
 	nextTick(()=>{
@@ -49,14 +51,22 @@ const getSongs = async () =>{
 	})
 }
 const getPaihang = async () =>{
-	const res = await getPaihangApi()
+	// const res = await getPaihangApi()
 	nextTick(()=>{
-		console.log(res);
+		uni.navigateTo({
+			url: `/pages/toplist/toplist`
+		});
 	})
 }
-
+const props = defineProps(["everyDay1"])
+// console.log(props.everyDay1)
+const everyDay = ref()
+watch(props.everyDay1,()=>{
+	everyDay.value = props.everyDay1
+	console.log(everyDay.value)
+},{deep:true})
 // getSongs()
-getPaihang()
+// getPaihang()
 </script>
 
 <style lang="scss" scoped>
