@@ -1,7 +1,6 @@
 <template>
 	<view class="player">
-		<view class="section"
-			style="background-image: url(&quot;http://p1.music.126.net/uicjMeijprOJqVYEwY2ZQw==/109951169524907299.jpg&quot;);">
+		<view class="section" style="background-image: url(&quot;http://p1.music.126.net/uicjMeijprOJqVYEwY2ZQw==/109951169524907299.jpg&quot;);">
 			<view class="disc">
 				<view class="song">
 					<view class="pole">
@@ -10,11 +9,13 @@
 				</view>
 			</view>
 		</view>
+
 	</view>
 </template>
 
 <script setup>
 	// /playlist/cover/update?id=3143833470&imgSize=200
+	import { playListStore } from "../../store/playList"
 	import {
 		ref
 	} from "vue"
