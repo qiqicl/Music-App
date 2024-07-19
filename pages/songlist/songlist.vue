@@ -34,9 +34,9 @@ onLoad((option) => {
 
 const goPlayer = (index) => {
 	// /song/detail
-	// uni.navigateTo({
-	// 	url: `/pages/player/player`,
-	// });
+	uni.navigateTo({
+		url: `/pages/player/player`,
+	});
 	playList.playList = data.value.playlist.tracks
 	playList.playIndex = index
 	console.log("列表",playList.playList,"下标",playList.playIndex,"id",playList.playItem)

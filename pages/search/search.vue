@@ -32,13 +32,8 @@
 	import { ref } from "vue"
 	import  searchList from "./component/searchList.vue"
 	import  songSinger from "./component/songSinger.vue"
-<<<<<<< HEAD
-	import { uesSearchStore } from "../../stroe/searchDate.js"
-	const searchStore = uesSearchStore()
-=======
 	import { useSearchStore } from "../../store/searchDate.js"
 	const searchStore = useSearchStore()
->>>>>>> main
 	const flag = ref(0)
 	const searchMemory =ref(JSON.parse(localStorage.getItem("searchMemory")) || [])
 	searchStore.getCode()

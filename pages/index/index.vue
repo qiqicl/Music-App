@@ -12,7 +12,7 @@
 		<view class="uni-margin-wrap" style="border-radius: 20rpx;">
 			<swiper class="swiper" circular :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 				:duration="duration" style="width: 100%;height: 240rpx !important ;">
-				<swiper-item v-for="item in banners" :key="item.bannerId"
+				<swiper-item v-for="item in everyStore.banners" :key="item.bannerId"
 					style="width: 100%;height: 260rpx !important ;">
 					<view class="swiper-item uni-bg-red">
 						<image :src="item.pic" mode="widthFix" class="img"></image>
@@ -41,31 +41,24 @@
 	import leida from '../components/leida.vue'
 	import zhuanshu from '../components/zhuanshu.vue'
 	import heji from '../components/heji.vue'
-
-	import {
-		useSearchStore
-	} from "../../../MusicApp/store/searchDate"
-	import {
-		useRouter,
-		useRoute
-	} from "vue-router"
+	import {useSearchStore} from "../../../MusicApp/store/searchDate"
+	import {useRouter,useRoute} from "vue-router"
 	import {useEveryStore}from "../../store/everyData.js"
+	
+	
 	const everyStore = useEveryStore()
 	const searchStore = useSearchStore()
 	const router = useRouter()
 	const route = useRoute()
-	const goSearch = () => {
-		router.push("/pages/search/search")
-	}
-
 	const title = ref('Hello')
 	const background = ref(['color1', 'color2', 'color3'])
 	const indicatorDots = ref(true)
 	const autoplay = ref(true)
 	const interval = ref(2000)
 	const duration = ref(500)
-
-
+	const goSearch = () => {
+		router.push("/pages/search/search")
+	}
 	const changeIndicatorDots = e => {
 		indicatorDots.value = !indicatorDots.value
 	}
@@ -89,20 +82,12 @@
 	// 	// console.log(banners.value)
 	// }
 
-
-
     everyStore.getAll()
-	// getBanners()
+	
+	
 </script>
 
 <style lang="scss">
-	// .app {
-	// 	display: flex;
-	// 	flex-direction: column;
-	// 	justify-content: space-between;
-	// 	height: 100%;
-	// 	width: 750rpx;
-	// }
 	.uni-icons {
 		margin-right: 20rpx;
 	} 
@@ -110,7 +95,6 @@
 	.search {
 		width: 100%;
 		display: flex;
-		// justify-content: space-between;
 		padding: 20rpx 40rpx;
 		align-items: center;
 		height: 100rpx;
@@ -137,10 +121,11 @@
 		width: 750rpx;
 		border-radius: 10rpx;
 		overflow: hidden;
+		padding: 0 25rpx;
+		box-sizing: border-box;
 		::v-deep img{
 			width: 710rpx;
 		}
-		// padding:30rpx
 	}
 
 	.img {
@@ -156,7 +141,10 @@
 	}
 
 	.swiper {
+		width: 100%;
 		height: 550rpx;
+		border-radius: 20rpx;
+		overflow: hidden;
 
 	}
 
