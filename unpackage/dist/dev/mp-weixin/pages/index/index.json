@@ -1,4 +1,15 @@
 {
   "navigationBarTitleText": "uni-app",
+<<<<<<< HEAD
   "usingComponents": {}
+=======
+<<<<<<< HEAD
+  "usingComponents": {}
+=======
+  "usingComponents": {
+    "uni-icons": "../../node-modules/@dcloudio/uni-ui/lib/uni-icons/uni-icons",
+    "uni-search-bar": "../../node-modules/@dcloudio/uni-ui/lib/uni-search-bar/uni-search-bar"
+  }
+>>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 }

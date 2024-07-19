@@ -1,5 +1,28 @@
+
+<script setup>
+import { nextTick, ref ,reactive } from 'vue'
+
+const data = ref([])
+const storage = ref(decodeURIComponent(uni.getStorageSync('key')))
+
+console.log(storage.value)
+const getData = async() => {	await nextTick()
+	data.value = await getDataApi()
+	console.log(data.value)}const getDataApi = () =>{	return new Promise((resolve,reject)=>{		const time = new Date()*1		const xhr = new XMLHttpRequest()		xhr.open('get',`http://121.89.213.194:5001/login/status?curCookie=${decodeURIComponent(uni.getStorageSync('key'))}`)		xhr.onreadystatechange = function() {			// 请求完成且响应状态为 200 表示成功			if (xhr.readyState == 4 && xhr.status == 200) {			  // 解析服务器响应的 JSON 数据			  let data = JSON.parse(xhr.responseText);			  console.log(data)			  resolve(data)			}		  };		xhr.send()	})}
+getData()
+
+const goLogin = () =>{
+	uni.navigateTo({
+		url: `/pages/login/login`
+	});
+}
+
+
+
+</script>
+
 <template>
-	<view class="mine">
+	<view class="mine" v-if="storage">
 		<view class="header">
 			<view class="user">
 				<image src="../../static/logo.png" mode=""></image>
@@ -12,6 +35,7 @@
 				</view>
 			</view>
 		</view>
+		{{data.data}}
 		<view class="main">
 			<view class="lists">
 				<view class="list">
@@ -26,20 +50,9 @@
 			</view>
 		</view>
 	</view>
+	<button  v-else @click="goLogin">去登录</button>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				
-			}
-		},
-		methods: {
-			
-		}
-	}
-</script>
 
 <style lang="scss">
 	

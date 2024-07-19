@@ -34,6 +34,15 @@
 			{
 				"navigationBarTitleText" : "歌单"
 			}
+		},
+		{
+			"path" : "pages/login/login",
+			"style" : 
+			{
+				"navigationBarTitleText" : "登录",
+				"navigationBarBackgroundColor":"#BA4D47",
+				"navigationBarTextStyle":"white"
+			}
 		}
 	],
 	 "tabBar": {
@@ -54,5 +63,10 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-	"uniIdRouter": {}
+	"uniIdRouter": {},
+	"usingComponents": {
+	  "van-tab": "@vant/weapp/tab/index",
+	  "van-tabs": "@vant/weapp/tabs/index"
+	}
 }
+

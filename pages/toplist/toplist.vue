@@ -4,8 +4,7 @@ const data = ref([])
 
 
 
-const getData = async() => {
-	// console.log(getDataApi())	await nextTick()
+const getData = async() => {	await nextTick()
 	data.value = await getDataApi()
 	console.log(data.value)}const getDataApi = () =>{	return new Promise((resolve,reject)=>{		const time = new Date()*1		const xhr = new XMLHttpRequest()		xhr.open('get',`http://121.89.213.194:5001/toplist/detail`)		xhr.onreadystatechange = function() {			// 请求完成且响应状态为 200 表示成功			if (xhr.readyState == 4 && xhr.status == 200) {			  // 解析服务器响应的 JSON 数据			  let data = JSON.parse(xhr.responseText).list;			  // console.log(data)			  resolve(data)			}		  };		xhr.send()	})}
 getData()

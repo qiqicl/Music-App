@@ -1,9 +1,17 @@
 {
   "pages": [
+<<<<<<< HEAD
+    "pages/index/index"
+=======
     "pages/index/index",
+<<<<<<< HEAD
     "pages/mine/mine",
     "pages/toplist/toplist",
     "pages/songlist/songlist"
+=======
+    "pages/mine/mine"
+>>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -11,6 +19,8 @@
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
+<<<<<<< HEAD
+=======
   "tabBar": {
     "list": [
       {
@@ -23,5 +33,6 @@
       }
     ]
   },
+>>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
   "usingComponents": {}
 }
