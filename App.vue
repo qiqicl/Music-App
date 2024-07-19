@@ -14,7 +14,9 @@
 
 <style lang="scss">
 	/*每个页面公共css */
-	page{
+	page,body{
 		height: 100%;
+		width: 100%;
+		padding: 0;
 	}
 </style>

@@ -1,4 +1,3 @@
-
 {
 	"easycom": {
 		"autoscan": true,
@@ -18,37 +17,49 @@
 			"path" : "pages/mine/mine",
 			"style" : 
 			{
-				"navigationBarTitleText" : "我的音乐"
+				"navigationBarTitleText" : "我的音乐",
+				"navigationBarBackgroundColor":"#BA4D47",
+				"navigationBarTextStyle":"white"
 			}
 		},
 		{
 			"path" : "pages/toplist/toplist",
 			"style" : 
 			{
-				"navigationBarTitleText" : "排行榜"
+				"navigationBarTitleText" : "排行榜",
+				"navigationBarBackgroundColor":"#BA4D47",
+				"navigationBarTextStyle":"white"
 			}
 		},
 		{
 			"path" : "pages/songlist/songlist",
 			"style" : 
 			{
-				"navigationBarTitleText" : "歌单"
-			}
-		},
-		{
-			"path" : "pages/login/login",
-			"style" : 
-			{
-				"navigationBarTitleText" : "登录",
+				"navigationBarTitleText" : "歌单",
 				"navigationBarBackgroundColor":"#BA4D47",
 				"navigationBarTextStyle":"white"
 			}
 		},
 		{
-			"path" : "pages/search/search",
-			"style" : 
-			{
-				"navigationBarTitleText" : "搜索",
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationBarBackgroundColor": "#BA4D47",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#C94442"
+			}
+		},
+		{
+			"path": "pages/player/player",
+			"style": {
+				"navigationBarTitleText": "",
 				"navigationBarTextStyle": "white",
 				"navigationBarBackgroundColor": "#C94442"
 			}
@@ -58,10 +69,15 @@
 	    "list": [
 	      {
 	        "pagePath": "pages/index/index",
-	        "text": "首页"
+			"iconPath": "https://zyxcl.github.io/music/static/icon/faxian.png",
+			"selectedIconPath": "https://zyxcl.github.io/music/static/icon/faxian_1.png",
+	        "text": "发现"
+			
 	      },
 	      {
 	        "pagePath": "pages/mine/mine",
+			"iconPath": "https://zyxcl.github.io/music/static/icon/wode.png",
+			"selectedIconPath": "https://zyxcl.github.io/music/static/icon/wode_1.png",
 	        "text": "我的"
 	      }
 	    ]
@@ -74,8 +90,7 @@
 	},
 	"uniIdRouter": {},
 	"usingComponents": {
-	  "van-tab": "@vant/weapp/tab/index",
-	  "van-tabs": "@vant/weapp/tabs/index"
+		"van-tab": "@vant/weapp/tab/index",
+		"van-tabs": "@vant/weapp/tabs/index"
 	}
 }
-
