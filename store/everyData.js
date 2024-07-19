@@ -11,7 +11,7 @@ export const useEveryStore = defineStore('everyStore', () => {
 			all.value = res.data.data.blocks
 			// console.log(all.value[0].extInfo.banners)
 			banners.value=all.value[0].extInfo.banners
-			console.log(banners)
+			console.log(banners.value)
 			everyDay.value=all.value[1].creatives[0].resources
 			console.log(everyDay.value)
 		}

@@ -1,10 +1,10 @@
 <template>
 	<view class="content">
 		<view class="Com">
-			<view class="Com-a" v-for="item in everyDay1">
+			<view class="Com-a" v-for="item in everyStore.everyDay" >
 				<view class="itemCom" @click="getSongs">
-					<image src="https://p1.music.126.net/4DpSgAVpJny4Ewf-Xw_WQQ==/109951163986641971.jpg"></image>
-					<view class="text">每日推荐</view>
+					<image :src="item.uiElement.image.imageUrl"></image>
+					<view class="text">{{item.uiElement.mainTitle.title}}</view>
 				</view>
 			</view>
 			<!-- <view class="Com-b">
@@ -43,6 +43,7 @@ import { nextTick, ref,watch,onMounted } from 'vue'
 import { getSongsApi, getPaihangApi } from '../../services'
 import {useEveryStore}from "../../store/everyData.js"
 const everyStore = useEveryStore()
+
 const song = ref([])
 const getSongs = async () =>{
 	const res = await getSongsApi()
@@ -59,13 +60,13 @@ const getPaihang = async () =>{
 		});
 	})
 }
-const props = defineProps(["everyDay1"])
+// const props = defineProps(["everyDay1"])
 // console.log(props.everyDay1)
-const everyDay = ref()
-watch(props.everyDay1,()=>{
-	everyDay.value = props.everyDay1
-	console.log(everyDay.value)
-},{deep:true})
+// const everyDay = ref()
+// watch(props.everyDay1,()=>{
+// 	everyDay.value = props.everyDay1
+// 	console.log(everyDay.value)
+// },{deep:true})
 
 
 const goTopList = () => {
@@ -76,6 +77,7 @@ const goTopList = () => {
 
 onMounted(()=>{
 	everyStore.getAll()
+	console.log(everyStore.everyDay)
 })
 // getSongs()
 // getPaihang()
