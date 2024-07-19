@@ -97,6 +97,9 @@
 		form.value.validate().then(res => {
 			getEmail(res.email, res.pwd)
 			console.log('表单数据信息：', res);
+			uni.switchTab({
+				url: '/pages/index/index'
+			});
 		}).catch(err => {
 			console.log('表单错误信息：', err);
 		})
