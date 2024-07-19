@@ -7,20 +7,19 @@ const detailData = ref([])
 const playList = ref([])
 const storage = ref(decodeURIComponent(uni.getStorageSync('key')))
 
-
 const getData = async() => {	await nextTick()
 	data.value = await getDataApi()
 	uni.request({
-		url:`https://zyxcl.xyz/music/api/user/detail?uid=${data.value.data.data.account.id}`,	
-		withCredentials	:true,
+		url:`https://zyxcl.xyz/music/api/user/detail?uid=${data.value.data.data.account.id}&cookie=${storage.value}`,	
+		// withCredentials	:true,
 		success: (res) => {
 			// console.log(res.data);
 			detailData.value = res.data
 		}
 	})
 	uni.request({
-		url:`https://zyxcl.xyz/music/api/user/playlist?uid=${data.value.data.data.account.id}`,	
-		withCredentials	:true,
+		url:`https://zyxcl.xyz/music/api/user/playlist?uid=${data.value.data.data.account.id}&cookie=${storage.value}`,	
+		// withCredentials	:true,
 		success: (res) => {
 			console.log(res.data);
 			playList.value = res.data
@@ -29,8 +28,8 @@ const getData = async() => {	await nextTick()
 
 const getDataApi = () =>{	return new Promise((resolve,reject)=>{
 		let data = uni.request({
-			url:"https://zyxcl.xyz/music/api/login/status",
-			withCredentials	:true
+			url:`https://zyxcl.xyz/music/api/login/status?cookie=${storage.value}`,
+			// withCredentials	:true
 		})
 		resolve(data)	})}
 

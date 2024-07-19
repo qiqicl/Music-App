@@ -30,6 +30,10 @@ onLoad((option) => {
 	getData()
 })
 
+const goPlayer = () => {
+	
+}
+
 console.log(data)
 
 const arName = (arr) => {
