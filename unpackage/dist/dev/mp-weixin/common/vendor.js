@@ -34,9 +34,14 @@ const remove = (arr, el) => {
 const hasOwnProperty$1 = Object.prototype.hasOwnProperty;
 const hasOwn = (val, key) => hasOwnProperty$1.call(val, key);
 =======
+<<<<<<< HEAD
+const hasOwnProperty$1 = Object.prototype.hasOwnProperty;
+const hasOwn = (val, key) => hasOwnProperty$1.call(val, key);
+=======
 const hasOwnProperty$2 = Object.prototype.hasOwnProperty;
 const hasOwn$1 = (val, key) => hasOwnProperty$2.call(val, key);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 const isArray = Array.isArray;
 const isMap = (val) => toTypeString(val) === "[object Map]";
 const isSet = (val) => toTypeString(val) === "[object Set]";
@@ -48,10 +53,16 @@ const isObject = (val) => val !== null && typeof val === "object";
 const isPromise = (val) => {
   return (isObject(val) || isFunction(val)) && isFunction(val.then) && isFunction(val.catch);
 =======
+<<<<<<< HEAD
+const isObject = (val) => val !== null && typeof val === "object";
+const isPromise = (val) => {
+  return (isObject(val) || isFunction(val)) && isFunction(val.then) && isFunction(val.catch);
+=======
 const isObject$1 = (val) => val !== null && typeof val === "object";
 const isPromise = (val) => {
   return (isObject$1(val) || isFunction(val)) && isFunction(val.then) && isFunction(val.catch);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 };
 const objectToString = Object.prototype.toString;
 const toTypeString = (value) => objectToString.call(value);
@@ -90,9 +101,14 @@ const toHandlerKey = cacheStringFunction((str) => {
   const s = str ? `on${capitalize(str)}` : ``;
   return s;
 =======
+<<<<<<< HEAD
+  const s = str ? `on${capitalize(str)}` : ``;
+  return s;
+=======
   const s2 = str ? `on${capitalize(str)}` : ``;
   return s2;
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 });
 const hasChanged = (value, oldValue) => !Object.is(value, oldValue);
 const invokeArrayFns$1 = (fns, arg) => {
@@ -112,14 +128,23 @@ const looseToNumber = (val) => {
   const n = parseFloat(val);
   return isNaN(n) ? val : n;
 =======
+<<<<<<< HEAD
+  const n = parseFloat(val);
+  return isNaN(n) ? val : n;
+=======
   const n2 = parseFloat(val);
   return isNaN(n2) ? val : n2;
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 };
 let _globalThis;
 const getGlobalThis = () => {
   return _globalThis || (_globalThis = typeof globalThis !== "undefined" ? globalThis : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : {});
 };
+<<<<<<< HEAD
+const toDisplayString = (val) => {
+  return isString(val) ? val : val == null ? "" : isArray(val) || isObject(val) && (val.toString === objectToString || !isFunction(val.toString)) ? JSON.stringify(val, replacer, 2) : String(val);
+=======
 <<<<<<< HEAD
 const toDisplayString = (val) => {
   return isString(val) ? val : val == null ? "" : isArray(val) || isObject(val) && (val.toString === objectToString || !isFunction(val.toString)) ? JSON.stringify(val, replacer, 2) : String(val);
@@ -177,6 +202,7 @@ function normalizeClass(value) {
 const toDisplayString = (val) => {
   return isString(val) ? val : val == null ? "" : isArray(val) || isObject$1(val) && (val.toString === objectToString || !isFunction(val.toString)) ? JSON.stringify(val, replacer, 2) : String(val);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 };
 const replacer = (_key, val) => {
   if (val && val.__v_isRef) {
@@ -200,8 +226,12 @@ const replacer = (_key, val) => {
 <<<<<<< HEAD
   } else if (isObject(val) && !isArray(val) && !isPlainObject(val)) {
 =======
+<<<<<<< HEAD
+  } else if (isObject(val) && !isArray(val) && !isPlainObject(val)) {
+=======
   } else if (isObject$1(val) && !isArray(val) && !isPlainObject(val)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     return String(val);
   }
   return val;
@@ -399,9 +429,14 @@ E.prototype = {
     var e = this.e || (this.e = {});
     (e[name] || (e[name] = [])).push({
 =======
+<<<<<<< HEAD
+    var e = this.e || (this.e = {});
+    (e[name] || (e[name] = [])).push({
+=======
     var e2 = this.e || (this.e = {});
     (e2[name] || (e2[name] = [])).push({
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       fn: callback,
       ctx
     });
@@ -431,9 +466,14 @@ E.prototype = {
     var e = this.e || (this.e = {});
     var evts = e[name];
 =======
+<<<<<<< HEAD
+    var e = this.e || (this.e = {});
+    var evts = e[name];
+=======
     var e2 = this.e || (this.e = {});
     var evts = e2[name];
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     var liveEvents = [];
     if (evts && callback) {
       for (var i = evts.length - 1; i >= 0; i--) {
@@ -447,12 +487,18 @@ E.prototype = {
 <<<<<<< HEAD
     liveEvents.length ? e[name] = liveEvents : delete e[name];
 =======
+<<<<<<< HEAD
+    liveEvents.length ? e[name] = liveEvents : delete e[name];
+=======
     liveEvents.length ? e2[name] = liveEvents : delete e2[name];
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     return this;
   }
 };
 var E$1 = E;
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 const isObject = (val) => val !== null && typeof val === "object";
@@ -538,6 +584,7 @@ function compile$1(tokens, values) {
   return compiled;
 }
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 const LOCALE_ZH_HANS = "zh-Hans";
 const LOCALE_ZH_HANT = "zh-Hant";
 const LOCALE_EN = "en";
@@ -545,10 +592,13 @@ const LOCALE_FR = "fr";
 const LOCALE_ES = "es";
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 const hasOwnProperty$1 = Object.prototype.hasOwnProperty;
 const hasOwn = (val, key) => hasOwnProperty$1.call(val, key);
 const defaultFormatter = new BaseFormatter();
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 function include(str, parts) {
   return !!parts.find((part) => str.indexOf(part) !== -1);
 }
@@ -558,8 +608,12 @@ function startsWith(str, parts) {
 <<<<<<< HEAD
 function normalizeLocale(locale, messages) {
 =======
+<<<<<<< HEAD
+function normalizeLocale(locale, messages) {
+=======
 function normalizeLocale(locale, messages2) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
   if (!locale) {
     return;
   }
@@ -567,8 +621,12 @@ function normalizeLocale(locale, messages2) {
 <<<<<<< HEAD
   if (messages && messages[locale]) {
 =======
+<<<<<<< HEAD
+  if (messages && messages[locale]) {
+=======
   if (messages2 && messages2[locale]) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     return locale;
   }
   locale = locale.toLowerCase();
@@ -592,15 +650,22 @@ function normalizeLocale(locale, messages2) {
   if (messages && Object.keys(messages).length > 0) {
     locales = Object.keys(messages);
 =======
+<<<<<<< HEAD
+  if (messages && Object.keys(messages).length > 0) {
+    locales = Object.keys(messages);
+=======
   if (messages2 && Object.keys(messages2).length > 0) {
     locales = Object.keys(messages2);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
   }
   const lang = startsWith(locale, locales);
   if (lang) {
     return lang;
   }
 }
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 class I18n {
@@ -761,6 +826,7 @@ function initVueI18n(locale, messages2 = {}, fallbackLocale, watcher) {
   };
 }
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 function getBaseSystemInfo() {
   return wx.getSystemInfoSync();
 }
@@ -775,8 +841,12 @@ function validateProtocol(name, data, protocol, onFail) {
 <<<<<<< HEAD
     const errMsg = validateProp$1(key, data[key], protocol[key], !hasOwn(data, key));
 =======
+<<<<<<< HEAD
+    const errMsg = validateProp$1(key, data[key], protocol[key], !hasOwn(data, key));
+=======
     const errMsg = validateProp$1(key, data[key], protocol[key], !hasOwn$1(data, key));
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     if (isString(errMsg)) {
       onFail(name, errMsg);
     }
@@ -842,8 +912,12 @@ function assertType$1(value, type) {
 <<<<<<< HEAD
     valid = isObject(value);
 =======
+<<<<<<< HEAD
+    valid = isObject(value);
+=======
     valid = isObject$1(value);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
   } else if (expectedType === "Array") {
     valid = isArray(value);
   } else {
@@ -899,9 +973,14 @@ function tryCatch(fn) {
     } catch (e) {
       console.error(e);
 =======
+<<<<<<< HEAD
+    } catch (e) {
+      console.error(e);
+=======
     } catch (e2) {
       console.error(e2);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     }
   };
 }
@@ -1087,9 +1166,14 @@ function promisify$1(name, fn) {
     return wrapperReturnValue(name, handlePromise(new Promise((resolve, reject) => {
       invokeApi(name, fn, extend(args, { success: resolve, fail: reject }), rest);
 =======
+<<<<<<< HEAD
+    return wrapperReturnValue(name, handlePromise(new Promise((resolve, reject) => {
+      invokeApi(name, fn, extend(args, { success: resolve, fail: reject }), rest);
+=======
     return wrapperReturnValue(name, handlePromise(new Promise((resolve2, reject) => {
       invokeApi(name, fn, extend(args, { success: resolve2, fail: reject }), rest);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     })));
   };
 }
@@ -1112,8 +1196,12 @@ function formatApiArgs(args, options) {
 <<<<<<< HEAD
       if (!hasOwn(params, name)) {
 =======
+<<<<<<< HEAD
+      if (!hasOwn(params, name)) {
+=======
       if (!hasOwn$1(params, name)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
         params[name] = formatterOrDefaultValue;
       }
     }
@@ -1343,8 +1431,12 @@ const $off = defineSyncApi(API_OFF, (name, callback) => {
 <<<<<<< HEAD
   name.forEach((n) => emitter.off(n, callback));
 =======
+<<<<<<< HEAD
+  name.forEach((n) => emitter.off(n, callback));
+=======
   name.forEach((n2) => emitter.off(n2, callback));
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 }, OffProtocol);
 const $emit = defineSyncApi(API_EMIT, (name, ...args) => {
   emitter.emit(name, ...args);
@@ -1358,8 +1450,12 @@ function normalizePushMessage(message) {
 <<<<<<< HEAD
   } catch (e) {
 =======
+<<<<<<< HEAD
+  } catch (e) {
+=======
   } catch (e2) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
   }
   return message;
 }
@@ -1402,8 +1498,12 @@ const API_GET_PUSH_CLIENT_ID = "getPushClientId";
 <<<<<<< HEAD
 const getPushClientId = defineAsyncApi(API_GET_PUSH_CLIENT_ID, (_, { resolve, reject }) => {
 =======
+<<<<<<< HEAD
+const getPushClientId = defineAsyncApi(API_GET_PUSH_CLIENT_ID, (_, { resolve, reject }) => {
+=======
 const getPushClientId = defineAsyncApi(API_GET_PUSH_CLIENT_ID, (_, { resolve: resolve2, reject }) => {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
   Promise.resolve().then(() => {
     if (typeof enabled === "undefined") {
       enabled = false;
@@ -1415,8 +1515,12 @@ const getPushClientId = defineAsyncApi(API_GET_PUSH_CLIENT_ID, (_, { resolve: re
 <<<<<<< HEAD
         resolve({ cid: cid2 });
 =======
+<<<<<<< HEAD
+        resolve({ cid: cid2 });
+=======
         resolve2({ cid: cid2 });
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       } else {
         reject(errMsg);
       }
@@ -1486,10 +1590,16 @@ function promisify(name, api) {
       invokeApi(name, api, extend({}, options, {
         success: resolve,
 =======
+<<<<<<< HEAD
+    return wrapperReturnValue(name, handlePromise(new Promise((resolve, reject) => {
+      invokeApi(name, api, extend({}, options, {
+        success: resolve,
+=======
     return wrapperReturnValue(name, handlePromise(new Promise((resolve2, reject) => {
       invokeApi(name, api, extend({}, options, {
         success: resolve2,
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
         fail: reject
       }), rest);
     })));
@@ -1512,8 +1622,12 @@ function initWrapper(protocols2) {
 <<<<<<< HEAD
         if (hasOwn(argsOption, key)) {
 =======
+<<<<<<< HEAD
+        if (hasOwn(argsOption, key)) {
+=======
         if (hasOwn$1(argsOption, key)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
           let keyOption = argsOption[key];
           if (isFunction(keyOption)) {
             keyOption = keyOption(fromArgs[key], fromArgs, toArgs);
@@ -1534,8 +1648,12 @@ function initWrapper(protocols2) {
 <<<<<<< HEAD
           if (!keepFromArgs && !hasOwn(toArgs, key)) {
 =======
+<<<<<<< HEAD
+          if (!keepFromArgs && !hasOwn(toArgs, key)) {
+=======
           if (!keepFromArgs && !hasOwn$1(toArgs, key)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
             toArgs[key] = fromArgs[key];
           }
         }
@@ -1556,8 +1674,12 @@ function initWrapper(protocols2) {
 <<<<<<< HEAD
     if (!hasOwn(protocols2, methodName)) {
 =======
+<<<<<<< HEAD
+    if (!hasOwn(protocols2, methodName)) {
+=======
     if (!hasOwn$1(protocols2, methodName)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       return method;
     }
     const protocol = protocols2[methodName];
@@ -1853,6 +1975,9 @@ function initUni(api, protocols2, platform = wx) {
     get(target, key) {
 <<<<<<< HEAD
       if (hasOwn(target, key)) {
+=======
+<<<<<<< HEAD
+      if (hasOwn(target, key)) {
         return target[key];
       }
       if (hasOwn(api, key)) {
@@ -1861,13 +1986,18 @@ function initUni(api, protocols2, platform = wx) {
       if (hasOwn(baseApis, key)) {
 =======
       if (hasOwn$1(target, key)) {
+>>>>>>> main
         return target[key];
       }
-      if (hasOwn$1(api, key)) {
+      if (hasOwn(api, key)) {
         return promisify(key, api[key]);
       }
+<<<<<<< HEAD
+      if (hasOwn(baseApis, key)) {
+=======
       if (hasOwn$1(baseApis, key)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
         return promisify(key, baseApis[key]);
       }
       return promisify(key, wrapper(key, platform[key]));
@@ -2882,8 +3012,12 @@ class BaseReactiveHandler2 {
 <<<<<<< HEAD
       if (targetIsArray && hasOwn(arrayInstrumentations, key)) {
 =======
+<<<<<<< HEAD
+      if (targetIsArray && hasOwn(arrayInstrumentations, key)) {
+=======
       if (targetIsArray && hasOwn$1(arrayInstrumentations, key)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
         return Reflect.get(arrayInstrumentations, key, receiver);
       }
       if (key === "hasOwnProperty") {
@@ -2906,8 +3040,12 @@ class BaseReactiveHandler2 {
 <<<<<<< HEAD
     if (isObject(res)) {
 =======
+<<<<<<< HEAD
+    if (isObject(res)) {
+=======
     if (isObject$1(res)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       return isReadonly2 ? readonly(res) : reactive(res);
     }
     return res;
@@ -2937,8 +3075,12 @@ class MutableReactiveHandler2 extends BaseReactiveHandler2 {
 <<<<<<< HEAD
     const hadKey = isArray(target) && isIntegerKey(key) ? Number(key) < target.length : hasOwn(target, key);
 =======
+<<<<<<< HEAD
+    const hadKey = isArray(target) && isIntegerKey(key) ? Number(key) < target.length : hasOwn(target, key);
+=======
     const hadKey = isArray(target) && isIntegerKey(key) ? Number(key) < target.length : hasOwn$1(target, key);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     const result = Reflect.set(target, key, value, receiver);
     if (target === toRaw(receiver)) {
       if (!hadKey) {
@@ -2953,8 +3095,12 @@ class MutableReactiveHandler2 extends BaseReactiveHandler2 {
 <<<<<<< HEAD
     const hadKey = hasOwn(target, key);
 =======
+<<<<<<< HEAD
+    const hadKey = hasOwn(target, key);
+=======
     const hadKey = hasOwn$1(target, key);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     const oldValue = target[key];
     const result = Reflect.deleteProperty(target, key);
     if (result && hadKey) {
@@ -3262,8 +3408,12 @@ function createInstrumentationGetter(isReadonly2, shallow) {
 <<<<<<< HEAD
       hasOwn(instrumentations, key) && key in target ? instrumentations : target,
 =======
+<<<<<<< HEAD
+      hasOwn(instrumentations, key) && key in target ? instrumentations : target,
+=======
       hasOwn$1(instrumentations, key) && key in target ? instrumentations : target,
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       key,
       receiver
     );
@@ -3354,8 +3504,12 @@ function createReactiveObject(target, isReadonly2, baseHandlers, collectionHandl
 <<<<<<< HEAD
   if (!isObject(target)) {
 =======
+<<<<<<< HEAD
+  if (!isObject(target)) {
+=======
   if (!isObject$1(target)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     {
       warn$2(`value cannot be made reactive: ${String(target)}`);
     }
@@ -3393,10 +3547,13 @@ function isShallow(value) {
 }
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 function isProxy(value) {
   return isReactive(value) || isReadonly(value);
 }
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 function toRaw(observed) {
   const raw = observed && observed["__v_raw"];
   return raw ? toRaw(raw) : observed;
@@ -3411,9 +3568,14 @@ function markRaw(value) {
 const toReactive = (value) => isObject(value) ? reactive(value) : value;
 const toReadonly = (value) => isObject(value) ? readonly(value) : value;
 =======
+<<<<<<< HEAD
+const toReactive = (value) => isObject(value) ? reactive(value) : value;
+const toReadonly = (value) => isObject(value) ? readonly(value) : value;
+=======
 const toReactive = (value) => isObject$1(value) ? reactive(value) : value;
 const toReadonly = (value) => isObject$1(value) ? readonly(value) : value;
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 const COMPUTED_SIDE_EFFECT_WARN = `Computed is still dirty after getter evaluation, likely because a computed is mutating its own dependency in its getter. State mutations in computed getters should be avoided.  Check the docs for more details: https://vuejs.org/guide/essentials/computed.html#getters-should-be-side-effect-free`;
 class ComputedRefImpl {
   constructor(getter, _setter, isReadonly2, isSSR) {
@@ -4170,8 +4332,12 @@ function normalizeEmitsOptions(comp, appContext, asMixin = false) {
 <<<<<<< HEAD
     if (isObject(comp)) {
 =======
+<<<<<<< HEAD
+    if (isObject(comp)) {
+=======
     if (isObject$1(comp)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       cache.set(comp, null);
     }
     return null;
@@ -4184,8 +4350,12 @@ function normalizeEmitsOptions(comp, appContext, asMixin = false) {
 <<<<<<< HEAD
   if (isObject(comp)) {
 =======
+<<<<<<< HEAD
+  if (isObject(comp)) {
+=======
   if (isObject$1(comp)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     cache.set(comp, normalized);
   }
   return normalized;
@@ -4198,8 +4368,12 @@ function isEmitListener(options, key) {
 <<<<<<< HEAD
   return hasOwn(options, key[0].toLowerCase() + key.slice(1)) || hasOwn(options, hyphenate(key)) || hasOwn(options, key);
 =======
+<<<<<<< HEAD
+  return hasOwn(options, key[0].toLowerCase() + key.slice(1)) || hasOwn(options, hyphenate(key)) || hasOwn(options, key);
+=======
   return hasOwn$1(options, key[0].toLowerCase() + key.slice(1)) || hasOwn$1(options, hyphenate(key)) || hasOwn$1(options, key);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 }
 let currentRenderingInstance = null;
 function setCurrentRenderingInstance(instance) {
@@ -4208,6 +4382,8 @@ function setCurrentRenderingInstance(instance) {
   instance && instance.type.__scopeId || null;
   return prev;
 }
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 const COMPONENTS = "components";
@@ -4252,6 +4428,7 @@ function resolve(registry, name) {
   return registry && (registry[name] || registry[camelize(name)] || registry[capitalize(camelize(name))]);
 }
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 const INITIAL_WATCHER_VALUE = {};
 function watch(source, cb, options) {
   if (!isFunction(cb)) {
@@ -4456,8 +4633,12 @@ function traverse(value, depth, currentDepth = 0, seen) {
 <<<<<<< HEAD
   if (!isObject(value) || value["__v_skip"]) {
 =======
+<<<<<<< HEAD
+  if (!isObject(value) || value["__v_skip"]) {
+=======
   if (!isObject$1(value) || value["__v_skip"]) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     return value;
   }
   if (depth && depth > 0) {
@@ -4523,8 +4704,12 @@ function createAppAPI(render, hydrate) {
 <<<<<<< HEAD
     if (rootProps != null && !isObject(rootProps)) {
 =======
+<<<<<<< HEAD
+    if (rootProps != null && !isObject(rootProps)) {
+=======
     if (rootProps != null && !isObject$1(rootProps)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       warn$1(`root props passed to app.mount() must be an object.`);
       rootProps = null;
     }
@@ -4736,21 +4921,21 @@ function injectHook(type, hook, target = currentInstance, prepend = false) {
     );
   }
 }
-const createHook = (lifecycle) => (hook, target = currentInstance) => (
+const createHook$1 = (lifecycle) => (hook, target = currentInstance) => (
   // post-create lifecycle registrations are noops during SSR (except for serverPrefetch)
   (!isInSSRComponentSetup || lifecycle === "sp") && injectHook(lifecycle, (...args) => hook(...args), target)
 );
-const onBeforeMount = createHook("bm");
-const onMounted = createHook("m");
-const onBeforeUpdate = createHook("bu");
-const onUpdated = createHook("u");
-const onBeforeUnmount = createHook("bum");
-const onUnmounted = createHook("um");
-const onServerPrefetch = createHook("sp");
-const onRenderTriggered = createHook(
+const onBeforeMount = createHook$1("bm");
+const onMounted = createHook$1("m");
+const onBeforeUpdate = createHook$1("bu");
+const onUpdated = createHook$1("u");
+const onBeforeUnmount = createHook$1("bum");
+const onUnmounted = createHook$1("um");
+const onServerPrefetch = createHook$1("sp");
+const onRenderTriggered = createHook$1(
   "rtg"
 );
-const onRenderTracked = createHook(
+const onRenderTracked = createHook$1(
   "rtc"
 );
 function onErrorCaptured(hook, target = currentInstance) {
@@ -4792,8 +4977,12 @@ const isReservedPrefix = (key) => key === "_" || key === "$";
 <<<<<<< HEAD
 const hasSetupBinding = (state, key) => state !== EMPTY_OBJ && !state.__isScriptSetup && hasOwn(state, key);
 =======
+<<<<<<< HEAD
+const hasSetupBinding = (state, key) => state !== EMPTY_OBJ && !state.__isScriptSetup && hasOwn(state, key);
+=======
 const hasSetupBinding = (state, key) => state !== EMPTY_OBJ && !state.__isScriptSetup && hasOwn$1(state, key);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 const PublicInstanceProxyHandlers = {
   get({ _: instance }, key) {
     const { ctx, setupState, data, props, accessCache, type, appContext } = instance;
@@ -4820,13 +5009,24 @@ const PublicInstanceProxyHandlers = {
 <<<<<<< HEAD
       } else if (data !== EMPTY_OBJ && hasOwn(data, key)) {
 =======
+<<<<<<< HEAD
+      } else if (data !== EMPTY_OBJ && hasOwn(data, key)) {
+=======
       } else if (data !== EMPTY_OBJ && hasOwn$1(data, key)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
         accessCache[key] = 2;
         return data[key];
       } else if (
         // only cache other properties when instance has declared (thus stable)
         // props
+<<<<<<< HEAD
+        (normalizedProps = instance.propsOptions[0]) && hasOwn(normalizedProps, key)
+      ) {
+        accessCache[key] = 3;
+        return props[key];
+      } else if (ctx !== EMPTY_OBJ && hasOwn(ctx, key)) {
+=======
 <<<<<<< HEAD
         (normalizedProps = instance.propsOptions[0]) && hasOwn(normalizedProps, key)
       ) {
@@ -4840,6 +5040,7 @@ const PublicInstanceProxyHandlers = {
         return props[key];
       } else if (ctx !== EMPTY_OBJ && hasOwn$1(ctx, key)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
         accessCache[key] = 4;
         return ctx[key];
       } else if (shouldCacheAccess) {
@@ -4863,8 +5064,12 @@ const PublicInstanceProxyHandlers = {
 <<<<<<< HEAD
     } else if (ctx !== EMPTY_OBJ && hasOwn(ctx, key)) {
 =======
+<<<<<<< HEAD
+    } else if (ctx !== EMPTY_OBJ && hasOwn(ctx, key)) {
+=======
     } else if (ctx !== EMPTY_OBJ && hasOwn$1(ctx, key)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       accessCache[key] = 4;
       return ctx[key];
     } else if (
@@ -4872,8 +5077,12 @@ const PublicInstanceProxyHandlers = {
 <<<<<<< HEAD
       globalProperties = appContext.config.globalProperties, hasOwn(globalProperties, key)
 =======
+<<<<<<< HEAD
+      globalProperties = appContext.config.globalProperties, hasOwn(globalProperties, key)
+=======
       globalProperties = appContext.config.globalProperties, hasOwn$1(globalProperties, key)
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     ) {
       {
         return globalProperties[key];
@@ -4884,8 +5093,12 @@ const PublicInstanceProxyHandlers = {
 <<<<<<< HEAD
       if (data !== EMPTY_OBJ && isReservedPrefix(key[0]) && hasOwn(data, key)) {
 =======
+<<<<<<< HEAD
+      if (data !== EMPTY_OBJ && isReservedPrefix(key[0]) && hasOwn(data, key)) {
+=======
       if (data !== EMPTY_OBJ && isReservedPrefix(key[0]) && hasOwn$1(data, key)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
         warn$1(
           `Property ${JSON.stringify(
             key
@@ -4905,6 +5118,9 @@ const PublicInstanceProxyHandlers = {
       return true;
 <<<<<<< HEAD
     } else if (setupState.__isScriptSetup && hasOwn(setupState, key)) {
+=======
+<<<<<<< HEAD
+    } else if (setupState.__isScriptSetup && hasOwn(setupState, key)) {
       warn$1(`Cannot mutate <script setup> binding "${key}" from Options API.`);
       return false;
     } else if (data !== EMPTY_OBJ && hasOwn(data, key)) {
@@ -4913,13 +5129,18 @@ const PublicInstanceProxyHandlers = {
     } else if (hasOwn(instance.props, key)) {
 =======
     } else if (setupState.__isScriptSetup && hasOwn$1(setupState, key)) {
+>>>>>>> main
       warn$1(`Cannot mutate <script setup> binding "${key}" from Options API.`);
       return false;
-    } else if (data !== EMPTY_OBJ && hasOwn$1(data, key)) {
+    } else if (data !== EMPTY_OBJ && hasOwn(data, key)) {
       data[key] = value;
       return true;
+<<<<<<< HEAD
+    } else if (hasOwn(instance.props, key)) {
+=======
     } else if (hasOwn$1(instance.props, key)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       warn$1(`Attempting to mutate prop "${key}". Props are readonly.`);
       return false;
     }
@@ -4948,8 +5169,12 @@ const PublicInstanceProxyHandlers = {
 <<<<<<< HEAD
     return !!accessCache[key] || data !== EMPTY_OBJ && hasOwn(data, key) || hasSetupBinding(setupState, key) || (normalizedProps = propsOptions[0]) && hasOwn(normalizedProps, key) || hasOwn(ctx, key) || hasOwn(publicPropertiesMap, key) || hasOwn(appContext.config.globalProperties, key);
 =======
+<<<<<<< HEAD
+    return !!accessCache[key] || data !== EMPTY_OBJ && hasOwn(data, key) || hasSetupBinding(setupState, key) || (normalizedProps = propsOptions[0]) && hasOwn(normalizedProps, key) || hasOwn(ctx, key) || hasOwn(publicPropertiesMap, key) || hasOwn(appContext.config.globalProperties, key);
+=======
     return !!accessCache[key] || data !== EMPTY_OBJ && hasOwn$1(data, key) || hasSetupBinding(setupState, key) || (normalizedProps = propsOptions[0]) && hasOwn$1(normalizedProps, key) || hasOwn$1(ctx, key) || hasOwn$1(publicPropertiesMap, key) || hasOwn$1(appContext.config.globalProperties, key);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
   },
   defineProperty(target, key, descriptor) {
     if (descriptor.get != null) {
@@ -4957,8 +5182,12 @@ const PublicInstanceProxyHandlers = {
 <<<<<<< HEAD
     } else if (hasOwn(descriptor, "value")) {
 =======
+<<<<<<< HEAD
+    } else if (hasOwn(descriptor, "value")) {
+=======
     } else if (hasOwn$1(descriptor, "value")) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       this.set(target, key, descriptor.value, null);
     }
     return Reflect.defineProperty(target, key, descriptor);
@@ -5135,8 +5364,12 @@ function applyOptions$1(instance) {
 <<<<<<< HEAD
     if (!isObject(data)) {
 =======
+<<<<<<< HEAD
+    if (!isObject(data)) {
+=======
     if (!isObject$1(data)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       warn$1(`data() should return an object.`);
     } else {
       instance.data = reactive(data);
@@ -5257,8 +5490,12 @@ function resolveInjections(injectOptions, ctx, checkDuplicateProperties = NOOP) 
 <<<<<<< HEAD
     if (isObject(opt)) {
 =======
+<<<<<<< HEAD
+    if (isObject(opt)) {
+=======
     if (isObject$1(opt)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       if ("default" in opt) {
         injected = inject(
           opt.from || key,
@@ -5307,8 +5544,12 @@ function createWatcher(raw, ctx, publicThis, key) {
 <<<<<<< HEAD
   } else if (isObject(raw)) {
 =======
+<<<<<<< HEAD
+  } else if (isObject(raw)) {
+=======
   } else if (isObject$1(raw)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     if (isArray(raw)) {
       raw.forEach((r2) => createWatcher(r2, ctx, publicThis, key));
     } else {
@@ -5351,8 +5592,12 @@ function resolveMergedOptions(instance) {
 <<<<<<< HEAD
   if (isObject(base)) {
 =======
+<<<<<<< HEAD
+  if (isObject(base)) {
+=======
   if (isObject$1(base)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     cache.set(base, resolved);
   }
   return resolved;
@@ -5526,8 +5771,12 @@ function updateProps(instance, rawProps, rawPrevProps, optimized) {
 <<<<<<< HEAD
           if (hasOwn(attrs, key)) {
 =======
+<<<<<<< HEAD
+          if (hasOwn(attrs, key)) {
+=======
           if (hasOwn$1(attrs, key)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
             if (value !== attrs[key]) {
               attrs[key] = value;
               hasAttrsChanged = true;
@@ -5563,10 +5812,16 @@ function updateProps(instance, rawProps, rawPrevProps, optimized) {
       // and converted to camelCase (#955)
       ((kebabKey = hyphenate(key)) === key || !hasOwn(rawProps, kebabKey))) {
 =======
+<<<<<<< HEAD
+      !hasOwn(rawProps, key) && // it's possible the original props was passed in as kebab-case
+      // and converted to camelCase (#955)
+      ((kebabKey = hyphenate(key)) === key || !hasOwn(rawProps, kebabKey))) {
+=======
       !hasOwn$1(rawProps, key) && // it's possible the original props was passed in as kebab-case
       // and converted to camelCase (#955)
       ((kebabKey = hyphenate(key)) === key || !hasOwn$1(rawProps, kebabKey))) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
         if (options) {
           if (rawPrevProps && // for camelCase
           (rawPrevProps[key] !== void 0 || // for kebab-case
@@ -5590,8 +5845,12 @@ function updateProps(instance, rawProps, rawPrevProps, optimized) {
 <<<<<<< HEAD
         if (!rawProps || !hasOwn(rawProps, key) && true) {
 =======
+<<<<<<< HEAD
+        if (!rawProps || !hasOwn(rawProps, key) && true) {
+=======
         if (!rawProps || !hasOwn$1(rawProps, key) && true) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
           delete attrs[key];
           hasAttrsChanged = true;
         }
@@ -5619,8 +5878,12 @@ function setFullProps(instance, rawProps, props, attrs) {
 <<<<<<< HEAD
       if (options && hasOwn(options, camelKey = camelize(key))) {
 =======
+<<<<<<< HEAD
+      if (options && hasOwn(options, camelKey = camelize(key))) {
+=======
       if (options && hasOwn$1(options, camelKey = camelize(key))) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
         if (!needCastKeys || !needCastKeys.includes(camelKey)) {
           props[camelKey] = value;
         } else {
@@ -5648,8 +5911,12 @@ function setFullProps(instance, rawProps, props, attrs) {
 <<<<<<< HEAD
         !hasOwn(castValues, key)
 =======
+<<<<<<< HEAD
+        !hasOwn(castValues, key)
+=======
         !hasOwn$1(castValues, key)
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       );
     }
   }
@@ -5661,8 +5928,12 @@ function resolvePropValue(options, props, key, value, instance, isAbsent) {
 <<<<<<< HEAD
     const hasDefault = hasOwn(opt, "default");
 =======
+<<<<<<< HEAD
+    const hasDefault = hasOwn(opt, "default");
+=======
     const hasDefault = hasOwn$1(opt, "default");
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     if (hasDefault && value === void 0) {
       const defaultValue = opt.default;
       if (opt.type !== Function && !opt.skipFactory && isFunction(defaultValue)) {
@@ -5729,8 +6000,12 @@ function normalizePropsOptions(comp, appContext, asMixin = false) {
 <<<<<<< HEAD
     if (isObject(comp)) {
 =======
+<<<<<<< HEAD
+    if (isObject(comp)) {
+=======
     if (isObject$1(comp)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       cache.set(comp, EMPTY_ARR);
     }
     return EMPTY_ARR;
@@ -5749,8 +6024,12 @@ function normalizePropsOptions(comp, appContext, asMixin = false) {
 <<<<<<< HEAD
     if (!isObject(raw)) {
 =======
+<<<<<<< HEAD
+    if (!isObject(raw)) {
+=======
     if (!isObject$1(raw)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       warn$1(`invalid props options`, raw);
     }
     for (const key in raw) {
@@ -5772,8 +6051,12 @@ function normalizePropsOptions(comp, appContext, asMixin = false) {
 <<<<<<< HEAD
           if (booleanIndex > -1 || hasOwn(prop, "default")) {
 =======
+<<<<<<< HEAD
+          if (booleanIndex > -1 || hasOwn(prop, "default")) {
+=======
           if (booleanIndex > -1 || hasOwn$1(prop, "default")) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
             needCastKeys.push(normalizedKey);
           }
         }
@@ -5784,8 +6067,12 @@ function normalizePropsOptions(comp, appContext, asMixin = false) {
 <<<<<<< HEAD
   if (isObject(comp)) {
 =======
+<<<<<<< HEAD
+  if (isObject(comp)) {
+=======
   if (isObject$1(comp)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     cache.set(comp, res);
   }
   return res;
@@ -5836,8 +6123,12 @@ function validateProps(rawProps, props, instance) {
 <<<<<<< HEAD
       !hasOwn(rawProps, key) && !hasOwn(rawProps, hyphenate(key))
 =======
+<<<<<<< HEAD
+      !hasOwn(rawProps, key) && !hasOwn(rawProps, hyphenate(key))
+=======
       !hasOwn$1(rawProps, key) && !hasOwn$1(rawProps, hyphenate(key))
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     );
   }
 }
@@ -5884,8 +6175,12 @@ function assertType(value, type) {
 <<<<<<< HEAD
     valid = isObject(value);
 =======
+<<<<<<< HEAD
+    valid = isObject(value);
+=======
     valid = isObject$1(value);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
   } else if (expectedType === "Array") {
     valid = isArray(value);
   } else if (expectedType === "null") {
@@ -5981,6 +6276,8 @@ function isVNode(value) {
 }
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 const InternalObjectKey = `__vInternal`;
 function guardReactiveProps(props) {
   if (!props)
@@ -5988,6 +6285,7 @@ function guardReactiveProps(props) {
   return isProxy(props) || InternalObjectKey in props ? extend({}, props) : props;
 }
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 const emptyAppContext = createAppContext();
 let uid = 0;
 function createComponentInstance(vnode, parent, suspense) {
@@ -6195,8 +6493,12 @@ function handleSetupResult(instance, setupResult, isSSR) {
 <<<<<<< HEAD
   } else if (isObject(setupResult)) {
 =======
+<<<<<<< HEAD
+  } else if (isObject(setupResult)) {
+=======
   } else if (isObject$1(setupResult)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     if (isVNode(setupResult)) {
       warn$1(
         `setup() should not return VNodes directly - return a render function instead.`
@@ -6544,8 +6846,12 @@ function clone(src, seen) {
 <<<<<<< HEAD
         if (hasOwn(src, name)) {
 =======
+<<<<<<< HEAD
+        if (hasOwn(src, name)) {
+=======
         if (hasOwn$1(src, name)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
           copy[name] = clone(src[name], seen);
         }
       }
@@ -6668,8 +6974,12 @@ function toSkip(value) {
 <<<<<<< HEAD
   if (isObject(value)) {
 =======
+<<<<<<< HEAD
+  if (isObject(value)) {
+=======
   if (isObject$1(value)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     markRaw(value);
   }
   return value;
@@ -6713,8 +7023,12 @@ function setTemplateRef({ r: r2, f: f2 }, refValue, setupState) {
 <<<<<<< HEAD
         if (hasOwn(setupState, r2)) {
 =======
+<<<<<<< HEAD
+        if (hasOwn(setupState, r2)) {
+=======
         if (hasOwn$1(setupState, r2)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
           setupState[r2] = refValue;
         }
       } else if (isRef(r2)) {
@@ -7190,12 +7504,15 @@ function initApp(app) {
 const propsCaches = /* @__PURE__ */ Object.create(null);
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 function renderProps(props) {
   const { uid: uid2, __counter } = getCurrentInstance();
   const propsId = (propsCaches[uid2] || (propsCaches[uid2] = [])).push(guardReactiveProps(props)) - 1;
   return uid2 + "," + propsId + "," + __counter;
 }
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 function pruneComponentPropsCache(uid2) {
   delete propsCaches[uid2];
 }
@@ -7301,14 +7618,14 @@ function patchMPEvent(event) {
     event.preventDefault = NOOP;
     event.stopPropagation = NOOP;
     event.stopImmediatePropagation = NOOP;
-    if (!hasOwn$1(event, "detail")) {
+    if (!hasOwn(event, "detail")) {
       event.detail = {};
     }
-    if (hasOwn$1(event, "markerId")) {
+    if (hasOwn(event, "markerId")) {
       event.detail = typeof event.detail === "object" ? event.detail : {};
       event.detail.markerId = event.markerId;
     }
-    if (isPlainObject(event.detail) && hasOwn$1(event.detail, "checked") && !hasOwn$1(event.detail, "value")) {
+    if (isPlainObject(event.detail) && hasOwn(event.detail, "checked") && !hasOwn(event.detail, "value")) {
       event.detail.value = event.detail.checked;
     }
     if (isPlainObject(event.detail)) {
@@ -7328,29 +7645,46 @@ function patchStopImmediatePropagation(e2, value) {
     return value;
   }
 }
-function stringifyStyle(value) {
-  if (isString(value)) {
-    return value;
-  }
-  return stringify(normalizeStyle(value));
-}
-function stringify(styles) {
-  let ret = "";
-  if (!styles || isString(styles)) {
-    return ret;
-  }
-  for (const key in styles) {
-    ret += `${key.startsWith(`--`) ? key : hyphenate(key)}:${styles[key]};`;
+function vFor(source, renderItem) {
+  let ret;
+  if (isArray(source) || isString(source)) {
+    ret = new Array(source.length);
+    for (let i = 0, l = source.length; i < l; i++) {
+      ret[i] = renderItem(source[i], i, i);
+    }
+  } else if (typeof source === "number") {
+    if (!Number.isInteger(source)) {
+      warn(`The v-for range expect an integer value but got ${source}.`);
+      return [];
+    }
+    ret = new Array(source);
+    for (let i = 0; i < source; i++) {
+      ret[i] = renderItem(i + 1, i, i);
+    }
+  } else if (isObject(source)) {
+    if (source[Symbol.iterator]) {
+      ret = Array.from(source, (item, i) => renderItem(item, i, i));
+    } else {
+      const keys = Object.keys(source);
+      ret = new Array(keys.length);
+      for (let i = 0, l = keys.length; i < l; i++) {
+        const key = keys[i];
+        ret[i] = renderItem(source[key], key, i);
+      }
+    }
+  } else {
+    ret = [];
   }
   return ret;
 }
 const o = (value, key) => vOn(value, key);
-const s = (value) => stringifyStyle(value);
-const e = (target, ...sources) => extend(target, ...sources);
-const n = (value) => normalizeClass(value);
+const f = (source, renderItem) => vFor(source, renderItem);
 const t = (val) => toDisplayString(val);
+<<<<<<< HEAD
+=======
 const p = (props) => renderProps(props);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 function createApp$1(rootComponent, rootProps = null) {
   rootComponent && (rootComponent.mpType = "app");
   return createVueApp(rootComponent, rootProps).use(plugin);
@@ -7420,8 +7754,12 @@ function initMocks(instance, mpInstance, mocks2) {
 <<<<<<< HEAD
     if (hasOwn(mpInstance, mock)) {
 =======
+<<<<<<< HEAD
+    if (hasOwn(mpInstance, mock)) {
+=======
     if (hasOwn$1(mpInstance, mock)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       instance[mock] = ctx[mock] = mpInstance[mock];
     }
   });
@@ -7480,8 +7818,12 @@ function initHook(mpOptions, hook, excludes) {
 <<<<<<< HEAD
   if (excludes.indexOf(hook) === -1 && !hasOwn(mpOptions, hook)) {
 =======
+<<<<<<< HEAD
+  if (excludes.indexOf(hook) === -1 && !hasOwn(mpOptions, hook)) {
+=======
   if (excludes.indexOf(hook) === -1 && !hasOwn$1(mpOptions, hook)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
     mpOptions[hook] = function(args) {
       return this.$vm && this.$vm.$callHook(hook, args);
     };
@@ -7517,8 +7859,12 @@ const findMixinRuntimeHooks = /* @__PURE__ */ once(() => {
 <<<<<<< HEAD
           if (hasOwn(mixin, hook) && !runtimeHooks.includes(hook)) {
 =======
+<<<<<<< HEAD
+          if (hasOwn(mixin, hook) && !runtimeHooks.includes(hook)) {
+=======
           if (hasOwn$1(mixin, hook) && !runtimeHooks.includes(hook)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
             runtimeHooks.push(hook);
           }
         });
@@ -7598,8 +7944,12 @@ function initCreateSubpackageApp(parseAppOptions) {
 <<<<<<< HEAD
         if (!hasOwn(globalData, name)) {
 =======
+<<<<<<< HEAD
+        if (!hasOwn(globalData, name)) {
+=======
         if (!hasOwn$1(globalData, name)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
           globalData[name] = appOptions.globalData[name];
         }
       });
@@ -7608,8 +7958,12 @@ function initCreateSubpackageApp(parseAppOptions) {
 <<<<<<< HEAD
       if (!hasOwn(app, name)) {
 =======
+<<<<<<< HEAD
+      if (!hasOwn(app, name)) {
+=======
       if (!hasOwn$1(app, name)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
         app[name] = appOptions[name];
       }
     });
@@ -7662,8 +8016,12 @@ function initExtraOptions(miniProgramComponentOptions, vueOptions) {
 <<<<<<< HEAD
     if (hasOwn(vueOptions, name)) {
 =======
+<<<<<<< HEAD
+    if (hasOwn(vueOptions, name)) {
+=======
     if (hasOwn$1(vueOptions, name)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
       miniProgramComponentOptions[name] = vueOptions[name];
     }
   });
@@ -7973,8 +8331,12 @@ function applyOptions(componentOptions, vueOptions) {
 <<<<<<< HEAD
 function parseComponent(vueOptions, { parse, mocks: mocks2, isPage: isPage2, initRelation: initRelation2, handleLink: handleLink2, initLifetimes: initLifetimes2 }) {
 =======
+<<<<<<< HEAD
+function parseComponent(vueOptions, { parse, mocks: mocks2, isPage: isPage2, initRelation: initRelation2, handleLink: handleLink2, initLifetimes: initLifetimes2 }) {
+=======
 function parseComponent(vueOptions, { parse: parse2, mocks: mocks2, isPage: isPage2, initRelation: initRelation2, handleLink: handleLink2, initLifetimes: initLifetimes2 }) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
   vueOptions = vueOptions.default || vueOptions;
   const options = {
     multipleSlots: true,
@@ -7987,8 +8349,12 @@ function parseComponent(vueOptions, { parse: parse2, mocks: mocks2, isPage: isPa
 <<<<<<< HEAD
       if (isObject(item.options)) {
 =======
+<<<<<<< HEAD
+      if (isObject(item.options)) {
+=======
       if (isObject$1(item.options)) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
         extend(options, item.options);
       }
     });
@@ -8028,9 +8394,14 @@ function parseComponent(vueOptions, { parse: parse2, mocks: mocks2, isPage: isPa
   if (parse) {
     parse(mpComponentOptions, { handleLink: handleLink2 });
 =======
+<<<<<<< HEAD
+  if (parse) {
+    parse(mpComponentOptions, { handleLink: handleLink2 });
+=======
   if (parse2) {
     parse2(mpComponentOptions, { handleLink: handleLink2 });
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
   }
   return mpComponentOptions;
 }
@@ -8061,8 +8432,12 @@ function parsePage(vueOptions, parseOptions2) {
 <<<<<<< HEAD
   const { parse, mocks: mocks2, isPage: isPage2, initRelation: initRelation2, handleLink: handleLink2, initLifetimes: initLifetimes2 } = parseOptions2;
 =======
+<<<<<<< HEAD
+  const { parse, mocks: mocks2, isPage: isPage2, initRelation: initRelation2, handleLink: handleLink2, initLifetimes: initLifetimes2 } = parseOptions2;
+=======
   const { parse: parse2, mocks: mocks2, isPage: isPage2, initRelation: initRelation2, handleLink: handleLink2, initLifetimes: initLifetimes2 } = parseOptions2;
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
   const miniProgramPageOptions = parseComponent(vueOptions, {
     mocks: mocks2,
     isPage: isPage2,
@@ -8088,8 +8463,12 @@ function parsePage(vueOptions, parseOptions2) {
 <<<<<<< HEAD
   parse && parse(miniProgramPageOptions, { handleLink: handleLink2 });
 =======
+<<<<<<< HEAD
+  parse && parse(miniProgramPageOptions, { handleLink: handleLink2 });
+=======
   parse2 && parse2(miniProgramPageOptions, { handleLink: handleLink2 });
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
   return miniProgramPageOptions;
 }
 function initCreatePage(parseOptions2) {
@@ -8227,6 +8606,10 @@ const createSubpackageApp = initCreateSubpackageApp();
   wx.createPluginApp = global.createPluginApp = createPluginApp;
   wx.createSubpackageApp = global.createSubpackageApp = createSubpackageApp;
 }
+<<<<<<< HEAD
+const createHook = (lifecycle) => (hook, target = getCurrentInstance()) => {
+  !isInSSRComponentSetup && injectHook(lifecycle, hook, target);
+=======
 <<<<<<< HEAD
 exports._export_sfc = _export_sfc;
 exports.createSSRApp = createSSRApp;
@@ -8893,18 +9276,22 @@ const messages = {
   en,
   "zh-Hans": zhHans,
   "zh-Hant": zhHant
+>>>>>>> main
 };
+const onLoad = /* @__PURE__ */ createHook(ON_LOAD);
 exports._export_sfc = _export_sfc;
 exports.createSSRApp = createSSRApp;
-exports.e = e;
-exports.fontData = fontData;
+exports.f = f;
 exports.index = index;
-exports.initVueI18n = initVueI18n;
-exports.messages = messages;
-exports.n = n;
+exports.nextTick$1 = nextTick$1;
 exports.o = o;
+<<<<<<< HEAD
+exports.onLoad = onLoad;
+exports.ref = ref;
+=======
 exports.p = p;
 exports.resolveComponent = resolveComponent;
 exports.s = s;
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 exports.t = t;

@@ -18,7 +18,21 @@
 			"path" : "pages/mine/mine",
 			"style" : 
 			{
-				"navigationBarTitleText" : ""
+				"navigationBarTitleText" : "我的音乐"
+			}
+		},
+		{
+			"path" : "pages/toplist/toplist",
+			"style" : 
+			{
+				"navigationBarTitleText" : "排行榜"
+			}
+		},
+		{
+			"path" : "pages/songlist/songlist",
+			"style" : 
+			{
+				"navigationBarTitleText" : "歌单"
 			}
 		},
 		{

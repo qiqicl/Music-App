@@ -23,7 +23,7 @@
     "projectname": "MusicApp",
     "condition": {},
     "editorSetting": {
-        "tabIndent": "insertSpaces",
+        "tabIndent": "auto",
         "tabSize": 4
     }
 }

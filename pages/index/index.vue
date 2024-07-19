@@ -1,4 +1,3 @@
-
 <template>
 	<view class="app">
 		<view class="search">
@@ -10,6 +9,7 @@
 		</view>
 	</view>
 </template>
+
 
 <script>
 	export default {
@@ -26,6 +26,7 @@
 		}
 	}
 </script>
+
 
 <style lang="scss">
 	.app {
@@ -48,3 +49,4 @@
 		height: 60rpx;
 	}
 </style>
+

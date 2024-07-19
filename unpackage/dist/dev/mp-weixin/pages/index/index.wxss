@@ -1,10 +1,33 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
 
 .content {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+<<<<<<< HEAD
+}
+.logo {
+		height: 200rpx;
+		width: 200rpx;
+		margin-top: 200rpx;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 50rpx;
+}
+.text-area {
+		display: flex;
+		justify-content: center;
+}
+.title {
+		font-size: 36rpx;
+		color: #8f8f94;
+}
+
+=======
 }
 .logo {
 		height: 200rpx;
@@ -68,3 +91,4 @@
   height: 60rpx;
 }
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
