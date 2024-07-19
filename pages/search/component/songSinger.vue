@@ -11,11 +11,7 @@
 </template>
 
 <script setup>
-	// import { uesSearchStore } from "../../Music-App/stroe/searchDate/"
-	// const searchStore = uesSearchStore()
 	const props = defineProps(['songsData'])
-	// const songsList = props.songsData
-	// console.log(props.songsData.result)
 </script>
 
 <style  lang="scss" scoped>
@@ -24,7 +20,7 @@
 	}
 	.songLast{
 		width: 100%;
-		height: 130rpx;
+		height: 150rpx;
 		padding: 0 40rpx;
 		border-bottom: 4rpx dashed #ccc;
 	}

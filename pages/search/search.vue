@@ -10,7 +10,7 @@
 		<uni-icons type="trash" size="25" color="#666" @click="delAll"></uni-icons>
 	</view>
 	<view class="historyCon">
-		<view class="text" v-for="item in searchMemory"  @click="memoryPushInp(item.name)">{{item.name}}</view>
+		<view class="text" v-for="item in searchMemory" @click="memoryPushInp(item.name)">{{item.name}}</view>
 	</view>
 	<view class="history">
 		<view class="hotHistory">热门搜索</view>
@@ -32,8 +32,8 @@
 	import { ref } from "vue"
 	import  searchList from "./component/searchList.vue"
 	import  songSinger from "./component/songSinger.vue"
-	import { uesSearchStore } from "../../../MusicApp/stroe/searchDate"
-	const searchStore = uesSearchStore()
+	import { useSearchStore } from "../../stroe/searchDate.js"
+	const searchStore = useSearchStore()
 	const flag = ref(0)
 	const searchMemory =ref(JSON.parse(localStorage.getItem("searchMemory")) || [])
 	searchStore.getCode()

@@ -58,8 +58,8 @@ const goDetail = ref((id) => {
 	<view class="mine" v-if="storage">
 		<view class="header">
 			<view class="user"  :style="{backgroundImage:`url(${detailData.profile?.backgroundUrl})`}">
-				<image :src="data.data?.data.profile.avatarUrl" mode=""></image>
-				<view class="nickname">{{data.data?.data.profile.nickname}}</view>
+				<image :src="data?.data?.data.profile.avatarUrl" mode=""></image>
+				<view class="nickname">{{data?.data?.data.profile.nickname}}</view>
 				<view class="desc">
 					<view class="desc_tag"><text>{{detailData.profile?.follows}}</text>关注</view>
 					<view class="desc_tag"><text>{{detailData.profile?.followeds}}</text>粉丝</view>

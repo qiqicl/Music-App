@@ -47,13 +47,13 @@
 	import zhuanshu from '../components/zhuanshu.vue'
 	import heji from '../components/heji.vue'
 	import {
-		uesSearchStore
+		useSearchStore
 	} from "../../../MusicApp/stroe/searchDate"
 	import {
 		useRouter,
 		useRoute
 	} from "vue-router"
-	const searchStore = uesSearchStore()
+	const searchStore = useSearchStore()
 	const router = useRouter()
 	const route = useRoute()
 	const goSearch = () => {
