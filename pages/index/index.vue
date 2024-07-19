@@ -1,8 +1,9 @@
+
 <template>
 	<view class="app">
 		<view class="search">
 			<uni-icons type="bars" size="30"></uni-icons>
-			<uni-search-bar @confirm="search" @input="input" class="input"></uni-search-bar>
+			<view class="input" @click="goSearch"></view>
 		</view>
 		<view class="content">
 			
@@ -11,20 +12,16 @@
 </template>
 
 
-<script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
-		}
-	}
+<script setup>
+	import { ref } from "vue"
+	import { uesSearchStore } from "../../../MusicApp/stroe/searchDate"
+	import { useRouter, useRoute } from "vue-router"
+	const searchStore = uesSearchStore()
+	const router = useRouter()
+	const route = useRoute()
+	const goSearch = () => {
+		router.push("/pages/search/search")
+    }
 </script>
 
 
@@ -47,6 +44,7 @@
 	.input{
 		width: 600rpx;
 		height: 60rpx;
+	    border: 2rpx solid #005500;
 	}
 </style>
 

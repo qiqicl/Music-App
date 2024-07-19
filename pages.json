@@ -1,4 +1,3 @@
-
 {
 	"easycom": {
 		"autoscan": true,
@@ -15,48 +14,51 @@
 			}
 		},
 		{
-			"path" : "pages/mine/mine",
-			"style" : 
-			{
-				"navigationBarTitleText" : "我的音乐"
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的音乐"
 			}
 		},
 		{
-			"path" : "pages/toplist/toplist",
-			"style" : 
-			{
-				"navigationBarTitleText" : "排行榜"
+			"path": "pages/toplist/toplist",
+			"style": {
+				"navigationBarTitleText": "排行榜"
 			}
 		},
 		{
-			"path" : "pages/songlist/songlist",
-			"style" : 
-			{
-				"navigationBarTitleText" : "歌单"
+			"path": "pages/songlist/songlist",
+			"style": {
+				"navigationBarTitleText": "歌单"
 			}
 		},
 		{
-			"path" : "pages/login/login",
-			"style" : 
-			{
-				"navigationBarTitleText" : "登录",
-				"navigationBarBackgroundColor":"#BA4D47",
-				"navigationBarTextStyle":"white"
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"navigationBarBackgroundColor": "#BA4D47",
+				"navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#C94442"
 			}
 		}
 	],
-	 "tabBar": {
-	    "list": [
-	      {
-	        "pagePath": "pages/index/index",
-	        "text": "首页"
-	      },
-	      {
-	        "pagePath": "pages/mine/mine",
-	        "text": "我的"
-	      }
-	    ]
-	  },
+	"tabBar": {
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"text": "我的"
+			}
+		]
+	},
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
@@ -65,8 +67,7 @@
 	},
 	"uniIdRouter": {},
 	"usingComponents": {
-	  "van-tab": "@vant/weapp/tab/index",
-	  "van-tabs": "@vant/weapp/tabs/index"
+		"van-tab": "@vant/weapp/tab/index",
+		"van-tabs": "@vant/weapp/tabs/index"
 	}
 }
-

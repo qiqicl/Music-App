@@ -1,13 +1,24 @@
 {
+<<<<<<< HEAD
   "hash": "c71a5333",
   "configHash": "48243dac",
   "lockfileHash": "2f972b44",
   "browserHash": "39f499b3",
+=======
+  "hash": "03eec616",
+  "configHash": "48243dac",
+  "lockfileHash": "d17ae6c6",
+  "browserHash": "be8b3b61",
+>>>>>>> main
   "optimized": {
     "vant": {
       "src": "../../../../../node_modules/vant/es/index.mjs",
       "file": "vant.js",
+<<<<<<< HEAD
       "fileHash": "609b17cf",
+=======
+      "fileHash": "122d0127",
+>>>>>>> main
       "needsInterop": false
     }
   },
