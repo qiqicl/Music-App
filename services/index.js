@@ -34,6 +34,10 @@
   export const getJingpinApi = () => {
     return request('https://zyxcl.xyz/music/api/related/playlist')
   }
+  // 排行榜接口
+  export const getTopListApi = () => {
+    return request('https://zyxcl.xyz/music/api/toplist/detail')
+  }
   
   // 视频合辑
   export const getHejiApi = () => {
