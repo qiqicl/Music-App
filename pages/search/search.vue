@@ -5,18 +5,18 @@
 		<view class="close" @click="searchStore.con=''"  v-if="searchStore.con!==''">x</view>
 		<view class="cancal" v-if="searchStore.con!==''" @click="cancalInp">取消</view>
 	</view>
-	<view class="history">
+	<view class="history" v-if="searchMemory.length!==0">
 		<view class="searchHistory">搜索历史</view>
-		<uni-icons type="trash" size="25" color="#666" v-if="searchMemory.length!==0"  @click="delAll"></uni-icons>
+		<uni-icons type="trash" size="25" color="#666" @click="delAll"></uni-icons>
 	</view>
 	<view class="historyCon">
-		<view class="text" @click="memory" v-for="item in searchMemory">{{item.name}}</view>
+		<view class="text" v-for="item in searchMemory"  @click="memoryPushInp(item.name)">{{item.name}}</view>
 	</view>
 	<view class="history">
 		<view class="hotHistory">热门搜索</view>
 	</view>
 	<view class="hotCon">
-		<view v-for="(item, index) in searchStore.data.data" class="hotText" ><view :class="[ 'hotNum','num' + (index + 1)]">{{index + 1}}.</view>{{item.searchWord}}</view>
+		<view v-for="(item, index) in searchStore.data?.data" class="hotText"><view :class="[ 'hotNum','num' + (index + 1)]">{{index + 1}}.</view><view @click="pushInp(item.searchWord)">{{item.searchWord}}</view></view>
 	</view>
 	
 	<view class="sL" v-if="flag===1">
@@ -32,25 +32,27 @@
 	import { ref } from "vue"
 	import  searchList from "./component/searchList.vue"
 	import  songSinger from "./component/songSinger.vue"
-	import { uesSearchStore } from "../../../Music-App/stroe/searchDate"
+	import { uesSearchStore } from "../../../MusicApp/stroe/searchDate"
 	const searchStore = uesSearchStore()
 	const flag = ref(0)
-	
 	const searchMemory =ref(JSON.parse(localStorage.getItem("searchMemory")) || [])
 	searchStore.getCode()
+	const enter = () => {
+		const existingItem = searchMemory.value.find(item => item.name === searchStore.con);
+		if (existingItem) {
+		  existingItem.name = searchStore.con;
+		} else {
+		  searchMemory.value.push({ name: searchStore.con });
+		  localStorage.setItem('searchMemory' , JSON.stringify(searchMemory.value))
+		  console.log(searchMemory.value)
+		}
+	}
 	 const keydowns = async(e) => {
 	 	const key = e.code
 		flag.value = 2
 		await searchStore.getSongsData()
 		if (key === "Enter") {
-		    const existingItem = searchMemory.value.find(item => item.name === searchStore.con);
-		    if (existingItem) {
-		      existingItem.name = searchStore.con;
-		    } else {
-		      searchMemory.value.push({ name: searchStore.con });
-			  localStorage.setItem('searchMemory' , JSON.stringify(searchMemory.value))
-		      console.log(searchMemory.value)
-		    }
+		    enter()
 		  }
 	 }
 	 const focus = () =>{
@@ -65,6 +67,27 @@
 	 const cancalInp = () => {
 		 flag.value = 0
 		 searchStore.con = ''
+	 }
+	 const pushInp = async(el) => {
+		 flag.value = 2
+		 searchStore.con = el
+		 await searchStore.getSongsData()
+		 enter()
+		 // if(searchStore.con.length !== 0) {
+			// await searchStore.getSearchData()
+		 //    console.log(searchStore.con) 
+		 // }
+		 
+	 }
+	 const memoryPushInp = async(el) => {
+		 flag.value = 2
+		 searchStore.con = el
+		 await searchStore.getSongsData()
+		 enter()
+		 // if(searchStore.con.length !== 0) {
+		 // 	await searchStore.getSearchData()
+		 //    console.log(searchStore.con) 
+		 // }
 	 }
 </script>
 
@@ -117,7 +140,8 @@
 	}
 	.text{
 		height: 50rpx;
-		width: 100rpx;
+		// width: 100rpx;
+		padding: 0 20rpx;
 		background: #DDDDDD;
 		border-radius: 100rpx;
 		line-height: 50rpx;
@@ -134,6 +158,8 @@
 	}
 	.hotCon{
 		margin-top: 50rpx;
+		height: calc(100% - 350rpx);
+		overflow-y: auto;
 	}
 	.hotText{
 		display: flex;
@@ -148,11 +174,29 @@
 	.num3{
 		color: #C94442;
 	}
-	.sL, .songs{
+	.sL{
 		position: absolute;
 		top: 100rpx;
 		width: 100%;
 		height: calc(100% - 100rpx);
 		background: #ffffff;
+	}
+	// .sL{
+	// 	position: absolute;
+	// 	top: 100rpx;
+	// 	width: 100%;
+	// 	height: calc(100% - 350rpx);
+	// 	overflow-y: auto;
+	// 	background: #ffffff;
+	// }
+	.songs{
+		// @extend .sL;
+		position: absolute;
+		top: 100rpx;
+		width: 100%;
+		height: calc(100% - 350rpx);
+		overflow-y: auto;
+		background: #ffffff;
+		height: 100%;
 	}
 </style>
