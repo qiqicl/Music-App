@@ -14,7 +14,7 @@
 
 <script setup>
 	import { ref } from "vue"
-	import { uesSearchStore } from "../../../Music-App/stroe/searchDate"
+	import { uesSearchStore } from "../../../MusicApp/stroe/searchDate"
 	import { useRouter, useRoute } from "vue-router"
 	const searchStore = uesSearchStore()
 	const router = useRouter()
