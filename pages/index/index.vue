@@ -48,7 +48,7 @@
 	import heji from '../components/heji.vue'
 	import {
 		useSearchStore
-	} from "../../../MusicApp/stroe/searchDate"
+	} from "../../../MusicApp/store/searchDate"
 	import {
 		useRouter,
 		useRoute
