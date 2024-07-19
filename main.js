@@ -9,15 +9,26 @@ App.mpType = 'app'
 const app = new Vue({
   ...App
 })
+
 app.$mount()
 // #endif
 
 // #ifdef VUE3
 import { createSSRApp } from 'vue'
+<<<<<<< HEAD
 import * as Pinia from 'pinia'
 export function createApp() {
   const app = createSSRApp(App)
   app.use(Pinia.createPinia());
+=======
+import 'vant/lib/index.css';
+import { Tab, Tabs } from 'vant';
+export function createApp() {
+  const app = createSSRApp(App)
+  
+  app.use(Tab);
+  app.use(Tabs);
+>>>>>>> main
   return {
     app,
 	Pinia,

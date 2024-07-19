@@ -11,6 +11,7 @@
 	</view>
 </template>
 
+
 <script setup>
 	import { ref } from "vue"
 	import { uesSearchStore } from "../../../Music-App/stroe/searchDate"
@@ -20,15 +21,17 @@
 	const route = useRoute()
 	const goSearch = () => {
 		router.push("/pages/search/search")
-	}
+    }
 </script>
 
-<style lang="scss" scoped>
+
+<style lang="scss">
 	.app {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		height: 100%;
+		width: 750rpx;
 	}
 	.search{
 		width: 100%;
@@ -43,5 +46,5 @@
 		height: 60rpx;
 	    border: 2rpx solid #005500;
 	}
-
 </style>
+

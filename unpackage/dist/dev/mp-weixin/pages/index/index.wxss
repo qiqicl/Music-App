@@ -1,3 +1,51 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
+
+.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+<<<<<<< HEAD
+}
+.logo {
+		height: 200rpx;
+		width: 200rpx;
+		margin-top: 200rpx;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 50rpx;
+}
+.text-area {
+		display: flex;
+		justify-content: center;
+}
+.title {
+		font-size: 36rpx;
+		color: #8f8f94;
+}
+
+=======
+}
+.logo {
+		height: 200rpx;
+		width: 200rpx;
+		margin-top: 200rpx;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 50rpx;
+}
+.text-area {
+		display: flex;
+		justify-content: center;
+}
+.title {
+		font-size: 36rpx;
+		color: #8f8f94;
+}
+=======
 /**
  * 这里是uni-app内置的常用样式变量
  *
@@ -23,13 +71,14 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.app.data-v-1cf27b2a {
+.app {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  width: 750rpx;
 }
-.search.data-v-1cf27b2a {
+.search {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -37,7 +86,9 @@
   align-items: center;
   height: 100rpx;
 }
-.input.data-v-1cf27b2a {
+.input {
   width: 600rpx;
   height: 60rpx;
 }
+>>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
