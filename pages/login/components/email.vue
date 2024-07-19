@@ -9,7 +9,7 @@
 				<uni-easyinput type="text" v-model="formData.pwd" placeholder="请输入密码" />
 			</uni-forms-item>
 		</uni-forms>
-		<button @click="submit">提交</button>
+		<button @click="submit" class="submit">提交</button>
 	</view>
 </template>
 
@@ -106,6 +106,12 @@
 	}
 </script>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+	.submit {
+		color: white;
+		background: #BA4D47;
+		height: 100rpx;
+		line-height: 100rpx;
+		padding: 0;
+	}
 </style>

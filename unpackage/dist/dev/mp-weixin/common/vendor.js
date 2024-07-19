@@ -611,8 +611,12 @@ function normalizeLocale(locale, messages) {
 <<<<<<< HEAD
 function normalizeLocale(locale, messages) {
 =======
+<<<<<<< HEAD
+function normalizeLocale(locale, messages) {
+=======
 function normalizeLocale(locale, messages2) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 >>>>>>> main
   if (!locale) {
     return;
@@ -624,8 +628,12 @@ function normalizeLocale(locale, messages2) {
 <<<<<<< HEAD
   if (messages && messages[locale]) {
 =======
+<<<<<<< HEAD
+  if (messages && messages[locale]) {
+=======
   if (messages2 && messages2[locale]) {
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 >>>>>>> main
     return locale;
   }
@@ -654,9 +662,14 @@ function normalizeLocale(locale, messages2) {
   if (messages && Object.keys(messages).length > 0) {
     locales = Object.keys(messages);
 =======
+<<<<<<< HEAD
+  if (messages && Object.keys(messages).length > 0) {
+    locales = Object.keys(messages);
+=======
   if (messages2 && Object.keys(messages2).length > 0) {
     locales = Object.keys(messages2);
 >>>>>>> 9faf4a4b05d61c6715c4b29bbdf54e16823c734b
+>>>>>>> main
 >>>>>>> main
   }
   const lang = startsWith(locale, locales);
@@ -669,7 +682,7 @@ function normalizeLocale(locale, messages2) {
 <<<<<<< HEAD
 =======
 class I18n {
-  constructor({ locale, fallbackLocale, messages: messages2, watcher, formater: formater2 }) {
+  constructor({ locale, fallbackLocale, messages, watcher, formater: formater2 }) {
     this.locale = LOCALE_EN;
     this.fallbackLocale = LOCALE_EN;
     this.message = {};
@@ -679,7 +692,7 @@ class I18n {
       this.fallbackLocale = fallbackLocale;
     }
     this.formater = formater2 || defaultFormatter;
-    this.messages = messages2 || {};
+    this.messages = messages || {};
     this.setLocale(locale || LOCALE_EN);
     if (watcher) {
       this.watchLocale(watcher);
@@ -761,14 +774,14 @@ function getDefaultLocale() {
   }
   return LOCALE_EN;
 }
-function initVueI18n(locale, messages2 = {}, fallbackLocale, watcher) {
+function initVueI18n(locale, messages = {}, fallbackLocale, watcher) {
   if (typeof locale !== "string") {
     const options = [
-      messages2,
+      messages,
       locale
     ];
     locale = options[0];
-    messages2 = options[1];
+    messages = options[1];
   }
   if (typeof locale !== "string") {
     locale = getDefaultLocale();
@@ -779,7 +792,7 @@ function initVueI18n(locale, messages2 = {}, fallbackLocale, watcher) {
   const i18n = new I18n({
     locale,
     fallbackLocale,
-    messages: messages2,
+    messages,
     watcher
   });
   let t2 = (key, values) => {
@@ -8607,6 +8620,14 @@ const createSubpackageApp = initCreateSubpackageApp();
   wx.createSubpackageApp = global.createSubpackageApp = createSubpackageApp;
 }
 <<<<<<< HEAD
+exports._export_sfc = _export_sfc;
+exports.createSSRApp = createSSRApp;
+exports.e = e;
+exports.index = index;
+exports.initVueI18n = initVueI18n;
+exports.n = n;
+=======
+<<<<<<< HEAD
 const createHook = (lifecycle) => (hook, target = getCurrentInstance()) => {
   !isInSSRComponentSetup && injectHook(lifecycle, hook, target);
 =======
@@ -9284,6 +9305,7 @@ exports.createSSRApp = createSSRApp;
 exports.f = f;
 exports.index = index;
 exports.nextTick$1 = nextTick$1;
+>>>>>>> main
 exports.o = o;
 <<<<<<< HEAD
 exports.onLoad = onLoad;
