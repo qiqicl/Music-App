@@ -20,7 +20,7 @@
 				</view>
 				
 			</view>
-			<view class="Com-d">
+			<view class="Com-d" @click="goTopList()">
 				<view class="itemCom">
 					<image src="https://p1.music.126.net/SDFC6A3X2wzUCavYyeGIOg==/109951163986649670.jpg"></image>
 					<view class="text">排行榜</view>
@@ -50,6 +50,12 @@ const getSongs = async () =>{
 	
 	// song.value = res.data.data
 	// console.log(song.value)
+}
+
+const goTopList = () => {
+	uni.navigateTo({
+		url: `/pages/toplist/toplist`
+	});
 }
 
 // getSongs()
