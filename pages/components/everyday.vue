@@ -22,7 +22,7 @@
 			</view>
 			<view class="Com-d">
 				<view class="itemCom">
-					<image src="https://p1.music.126.net/SDFC6A3X2wzUCavYyeGIOg==/109951163986649670.jpg"></image>
+					<image src="https://p1.music.126.net/SDFC6A3X2wzUCavYyeGIOg==/109951163986649670.jpg"@click="getPaihang"></image>
 					<view class="text">排行榜</view>
 				</view>
 			</view>
@@ -40,22 +40,26 @@
 <script setup>
 import { nextTick, ref } from 'vue'
 const song = ref([])
-import { getSongsApi } from '../../services'
+import { getSongsApi, getPaihangApi } from '../../services'
 
 const getSongs = async () =>{
 	const res = await getSongsApi()
 	nextTick(()=>{
 		console.log(res);
 	})
-	
-	// song.value = res.data.data
-	// console.log(song.value)
+}
+const getPaihang = async () =>{
+	const res = await getPaihangApi()
+	nextTick(()=>{
+		console.log(res);
+	})
 }
 
 // getSongs()
+getPaihang()
 </script>
 
-<style>
+<style lang="scss" scoped>
 	.Com {
 		width: 100%;
 		height: 160rpx;

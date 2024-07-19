@@ -7,7 +7,6 @@
 					<uni-icons type="search" size="20" color="rgb(192, 196, 204)"></uni-icons>
 					<view class="sousuo">搜索</view>
 				</view>
-				
 			</view>
 		</view>
 		<view class="uni-margin-wrap" style="border-radius: 20rpx;">
@@ -34,12 +33,8 @@
 </template>
 
 <script setup>
-	import {
-		ref
-	} from 'vue'
-	import {
-		getBannersApi
-	} from '../../services'
+	import {ref} from 'vue'
+	import {getBannersApi, getAllApi} from '../../services'
 	import songs from '../components/songs.vue'
 	import liuxing from '../components/liuxing.vue'
 	import everyday from '../components/everyday.vue'
@@ -68,7 +63,7 @@
 	const duration = ref(500)
 
 	const banners = ref([])
-
+    const all = ref([])
 
 	const changeIndicatorDots = e => {
 		indicatorDots.value = !indicatorDots.value
@@ -82,6 +77,14 @@
 	const durationChange = e => {
 		duration.value = e.target.value
 	}
+	
+	
+	const getAll = async () => {
+		const res = await getAllApi()
+		console.log(res);
+		all.value = res.data.data.blocks
+		console.log(all.value)
+	}
 	// 调banners的接口
 	const getBanners = async () => {
 		const res = await getBannersApi()
@@ -92,6 +95,7 @@
 
 
 
+    getAll()
 	getBanners()
 </script>
 
@@ -137,6 +141,10 @@
 		width: 750rpx;
 		border-radius: 10rpx;
 		overflow: hidden;
+		::v-deep img{
+			width: 710rpx;
+		}
+		// padding:30rpx
 	}
 
 	.img {
@@ -153,6 +161,7 @@
 
 	.swiper {
 		height: 550rpx;
+
 	}
 
 	.swiper-item {
@@ -184,6 +193,7 @@
 	}
 
 	.app1 {
-		padding-bottom: 110rpx;
+		padding: 0 0 110rpx;
 	}
+
 </style>
