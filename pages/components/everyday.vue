@@ -20,7 +20,7 @@
 				</view>
 				
 			</view>
-			<view class="Com-d">
+			<view class="Com-d" @click="goTopList()">
 				<view class="itemCom">
 					<image src="https://p1.music.126.net/SDFC6A3X2wzUCavYyeGIOg==/109951163986649670.jpg"@click="getPaihang"></image>
 					<view class="text">排行榜</view>
@@ -50,6 +50,7 @@ const getSongs = async () =>{
 		console.log(res);
 	})
 }
+<<<<<<< HEAD
 const getPaihang = async () =>{
 	// const res = await getPaihangApi()
 	nextTick(()=>{
@@ -65,6 +66,15 @@ watch(props.everyDay1,()=>{
 	everyDay.value = props.everyDay1
 	console.log(everyDay.value)
 },{deep:true})
+=======
+
+const goTopList = () => {
+	uni.navigateTo({
+		url: `/pages/toplist/toplist`
+	});
+}
+
+>>>>>>> main
 // getSongs()
 // getPaihang()
 </script>

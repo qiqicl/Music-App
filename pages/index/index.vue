@@ -41,10 +41,15 @@
 	import leida from '../components/leida.vue'
 	import zhuanshu from '../components/zhuanshu.vue'
 	import heji from '../components/heji.vue'
-	import {uesSearchStore} from "../../../MusicApp/stroe/searchDate"
 
-	import {useRouter,useRoute} from "vue-router"
-	const searchStore = uesSearchStore()
+	import {
+		useSearchStore
+	} from "../../../MusicApp/store/searchDate"
+	import {
+		useRouter,
+		useRoute
+	} from "vue-router"
+	const searchStore = useSearchStore()
 	const router = useRouter()
 	const route = useRoute()
 	const goSearch = () => {

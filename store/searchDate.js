@@ -1,7 +1,7 @@
 import { defineStore } from "pinia"
 import { ref } from 'vue'
 
-export const uesSearchStore = defineStore('searchStore', () => {
+export const useSearchStore = defineStore('searchStore', () => {
 	const con = ref("")
 	const data = ref()
 	const getCode = async() => {

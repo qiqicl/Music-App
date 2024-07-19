@@ -14,21 +14,30 @@
 			}
 		},
 		{
-			"path": "pages/mine/mine",
-			"style": {
-				"navigationBarTitleText": "我的音乐"
+			"path" : "pages/mine/mine",
+			"style" : 
+			{
+				"navigationBarTitleText" : "我的音乐",
+				"navigationBarBackgroundColor":"#BA4D47",
+				"navigationBarTextStyle":"white"
 			}
 		},
 		{
-			"path": "pages/toplist/toplist",
-			"style": {
-				"navigationBarTitleText": "排行榜"
+			"path" : "pages/toplist/toplist",
+			"style" : 
+			{
+				"navigationBarTitleText" : "排行榜",
+				"navigationBarBackgroundColor":"#BA4D47",
+				"navigationBarTextStyle":"white"
 			}
 		},
 		{
-			"path": "pages/songlist/songlist",
-			"style": {
-				"navigationBarTitleText": "歌单"
+			"path" : "pages/songlist/songlist",
+			"style" : 
+			{
+				"navigationBarTitleText" : "歌单",
+				"navigationBarBackgroundColor":"#BA4D47",
+				"navigationBarTextStyle":"white"
 			}
 		},
 		{
