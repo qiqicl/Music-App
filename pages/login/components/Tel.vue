@@ -83,10 +83,6 @@
 </script>
 
 <style lang="scss">
-	::v-deep .van-tabs__wrap {
-		margin-bottom: 20rpx;
-	}
-
 	.code {
 		display: flex;
 		justify-content: space-between;

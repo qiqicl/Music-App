@@ -3,13 +3,13 @@
 		<view class="tab">
 			<van-tabs v-model:active="active">
 				<van-tab title="手机号登录" class="tab">
-					<Tel/>
+					<Tel />
 				</van-tab>
 				<van-tab title="邮箱登录" class="tab">
-					<Email/>
+					<Email />
 				</van-tab>
 				<van-tab title="扫码登录" class="tab">
-					<Scan/>
+					<Scan />
 				</van-tab>
 			</van-tabs>
 		</view>
@@ -24,7 +24,6 @@
 	import Email from './components/Email.vue'
 	import Scan from './components/Scan.vue'
 	const active = ref(0)
-	
 </script>
 
 <style lang="scss">
@@ -32,5 +31,7 @@
 		padding: 20rpx;
 	}
 
-	
+	::v-deep .van-tabs__wrap {
+		margin-bottom: 20rpx;
+	}
 </style>
