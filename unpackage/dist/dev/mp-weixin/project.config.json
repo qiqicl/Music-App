@@ -1,4 +1,33 @@
 {
+<<<<<<< HEAD
+  "description": "项目配置文件。",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "postcss": false,
+    "minified": false,
+    "newFeature": true,
+    "bigPackageSizeSupport": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.5.0",
+  "appid": "touristappid",
+  "projectname": "MusicApp",
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+=======
     "description": "项目配置文件。",
     "packOptions": {
         "ignore": [],
@@ -23,7 +52,8 @@
     "projectname": "MusicApp",
     "condition": {},
     "editorSetting": {
-        "tabIndent": "insertSpaces",
+        "tabIndent": "auto",
         "tabSize": 4
     }
+>>>>>>> main
 }

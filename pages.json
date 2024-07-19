@@ -1,3 +1,4 @@
+
 {
 	"easycom": {
 		"autoscan": true,
@@ -17,7 +18,39 @@
 			"path" : "pages/mine/mine",
 			"style" : 
 			{
-				"navigationBarTitleText" : ""
+				"navigationBarTitleText" : "我的音乐"
+			}
+		},
+		{
+			"path" : "pages/toplist/toplist",
+			"style" : 
+			{
+				"navigationBarTitleText" : "排行榜"
+			}
+		},
+		{
+			"path" : "pages/songlist/songlist",
+			"style" : 
+			{
+				"navigationBarTitleText" : "歌单"
+			}
+		},
+		{
+			"path" : "pages/login/login",
+			"style" : 
+			{
+				"navigationBarTitleText" : "登录",
+				"navigationBarBackgroundColor":"#BA4D47",
+				"navigationBarTextStyle":"white"
+			}
+		},
+		{
+			"path" : "pages/search/search",
+			"style" : 
+			{
+				"navigationBarTitleText" : "搜索",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#C94442"
 			}
 		}
 	],
@@ -44,6 +77,10 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-	"uniIdRouter": {}
+	"uniIdRouter": {},
+	"usingComponents": {
+	  "van-tab": "@vant/weapp/tab/index",
+	  "van-tabs": "@vant/weapp/tabs/index"
+	}
 }
 
