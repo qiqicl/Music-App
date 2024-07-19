@@ -18,9 +18,14 @@
 		img.value = data.data.qrimg
 		const time = setInterval(async () => {
 			const check = await getCheckApi(key.data.unikey)
+			console.log(check)
 			if (check.code === 803) {
 				// 这一步会返回cookie
+				uni.setStorageSync('key', `${encodeURIComponent(check.cookie)}`);
 				clearInterval(time)
+				uni.switchTab({
+					url: '/pages/index/index'
+				});
 			}
 		}, 1000)
 
@@ -62,8 +67,9 @@
 	}
 	const getCheckApi = (key) => {
 		return new Promise((resolve, reject) => {
+			const time = new Date() * 1
 			const xhr = new XMLHttpRequest()
-			xhr.open('get', `https://zyxcl.xyz/music/api/login/qr/check?key=${key}`)
+			xhr.open('get', `https://zyxcl.xyz/music/api/login/qr/check?timestamp=${time}&key=${key}`)
 			xhr.onreadystatechange = () => {
 				// 请求完成且响应状态为 200 表示成功
 				if (xhr.readyState == 4 && xhr.status == 200) {
