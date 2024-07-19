@@ -46,19 +46,33 @@
 				"navigationBarTextStyle": "white",
 				"navigationBarBackgroundColor": "#C94442"
 			}
+		},
+		{
+			"path": "pages/player/player",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#C94442"
+			}
 		}
 	],
-	"tabBar": {
-		"list": [{
-				"pagePath": "pages/index/index",
-				"text": "首页"
-			},
-			{
-				"pagePath": "pages/mine/mine",
-				"text": "我的"
-			}
-		]
-	},
+	 "tabBar": {
+	    "list": [
+	      {
+	        "pagePath": "pages/index/index",
+			"iconPath": "https://zyxcl.github.io/music/static/icon/faxian.png",
+			"selectedIconPath": "https://zyxcl.github.io/music/static/icon/faxian_1.png",
+	        "text": "发现"
+			
+	      },
+	      {
+	        "pagePath": "pages/mine/mine",
+			"iconPath": "https://zyxcl.github.io/music/static/icon/wode.png",
+			"selectedIconPath": "https://zyxcl.github.io/music/static/icon/wode_1.png",
+	        "text": "我的"
+	      }
+	    ]
+	  },
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
