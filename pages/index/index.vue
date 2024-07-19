@@ -7,22 +7,21 @@
 					<uni-icons type="search" size="20" color="rgb(192, 196, 204)"></uni-icons>
 					<view class="sousuo">搜索</view>
 				</view>
-				
 			</view>
 		</view>
 		<view class="uni-margin-wrap" style="border-radius: 20rpx;">
 			<swiper class="swiper" circular :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 				:duration="duration" style="width: 100%;height: 240rpx !important ;">
-				<swiper-item v-for="item in banners" :key="item.encodeID"
+				<swiper-item v-for="item in banners" :key="item.bannerId"
 					style="width: 100%;height: 260rpx !important ;">
 					<view class="swiper-item uni-bg-red">
-						<image :src="item.imageUrl" mode="widthFix" class="img"></image>
+						<image :src="item.pic" mode="widthFix" class="img"></image>
 					</view>
 				</swiper-item>
 			</swiper>
 		</view>
 
-		<everyday />
+		<everyday :everyDay1="everyDay"/>
 		<songs />
 		<liuxing />
 		<leida />
@@ -34,26 +33,25 @@
 </template>
 
 <script setup>
-	import {
-		ref
-	} from 'vue'
-	import {
-		getBannersApi
-	} from '../../services'
+	import {ref} from 'vue'
+	import {getBannersApi} from '../../services'
 	import songs from '../components/songs.vue'
 	import liuxing from '../components/liuxing.vue'
 	import everyday from '../components/everyday.vue'
 	import leida from '../components/leida.vue'
 	import zhuanshu from '../components/zhuanshu.vue'
 	import heji from '../components/heji.vue'
+
 	import {
-		uesSearchStore
-	} from "../../../MusicApp/stroe/searchDate"
+		useSearchStore
+	} from "../../../MusicApp/store/searchDate"
 	import {
 		useRouter,
 		useRoute
 	} from "vue-router"
-	const searchStore = uesSearchStore()
+	import {useEveryStore}from "../../store/everyData.js"
+	const everyStore = useEveryStore()
+	const searchStore = useSearchStore()
 	const router = useRouter()
 	const route = useRoute()
 	const goSearch = () => {
@@ -66,8 +64,6 @@
 	const autoplay = ref(true)
 	const interval = ref(2000)
 	const duration = ref(500)
-
-	const banners = ref([])
 
 
 	const changeIndicatorDots = e => {
@@ -82,17 +78,21 @@
 	const durationChange = e => {
 		duration.value = e.target.value
 	}
-	// 调banners的接口
-	const getBanners = async () => {
-		const res = await getBannersApi()
-		// console.log(res);
-		banners.value = res.data.banners
-		// console.log(banners.value)
-	}
+	
+	
+
+	// // 调banners的接口
+	// const getBanners = async () => {
+	// 	const res = await getBannersApi()
+	// 	// console.log(res);
+	// 	banners.value = res.data.banners
+	// 	// console.log(banners.value)
+	// }
 
 
 
-	getBanners()
+    everyStore.getAll()
+	// getBanners()
 </script>
 
 <style lang="scss">
@@ -137,6 +137,10 @@
 		width: 750rpx;
 		border-radius: 10rpx;
 		overflow: hidden;
+		::v-deep img{
+			width: 710rpx;
+		}
+		// padding:30rpx
 	}
 
 	.img {
@@ -153,6 +157,7 @@
 
 	.swiper {
 		height: 550rpx;
+
 	}
 
 	.swiper-item {
@@ -184,6 +189,7 @@
 	}
 
 	.app1 {
-		padding-bottom: 110rpx;
+		padding: 0 0 110rpx;
 	}
+
 </style>

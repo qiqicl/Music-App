@@ -7,8 +7,7 @@
 <script setup>
 	import {ref} from "vue"
 	const props = defineProps(['searchData'])
-	// const searchList = ref(props.searchData.value)
-	// console.log(searchList.value)
+
 </script>
 
 <style  lang="scss" scoped>

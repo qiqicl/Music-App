@@ -39,7 +39,7 @@ const goPlayer = (index) => {
 	// });
 	playList.playList = data.value.playlist.tracks
 	playList.playIndex = index
-	console.log("列表",playList.playList,"下标",playList.playIndex,"id",playList.playId)
+	console.log("列表",playList.playList,"下标",playList.playIndex,"id",playList.playItem)
 	
 }
 

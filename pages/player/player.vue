@@ -1,6 +1,17 @@
 <template>
 	<view class="player">
+
 	
+
+
+		<view class="title">
+
+		</view>
+		<view class="section" style="background-image: url(&quot;http://p1.music.126.net/uicjMeijprOJqVYEwY2ZQw==/109951169524907299.jpg&quot;);">
+			<view class="disc">
+				
+			</view>
+		</view>
 
 	</view>
 </template>
