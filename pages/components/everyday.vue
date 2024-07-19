@@ -38,11 +38,11 @@
 </template>
 
 <script setup>
-import { nextTick, ref,watch } from 'vue'
+import { nextTick, ref,watch,onMounted } from 'vue'
 
 import { getSongsApi, getPaihangApi } from '../../services'
-
-
+import {useEveryStore}from "../../store/everyData.js"
+const everyStore = useEveryStore()
 const song = ref([])
 const getSongs = async () =>{
 	const res = await getSongsApi()
@@ -50,7 +50,7 @@ const getSongs = async () =>{
 		console.log(res);
 	})
 }
-<<<<<<< HEAD
+
 const getPaihang = async () =>{
 	// const res = await getPaihangApi()
 	nextTick(()=>{
@@ -66,7 +66,7 @@ watch(props.everyDay1,()=>{
 	everyDay.value = props.everyDay1
 	console.log(everyDay.value)
 },{deep:true})
-=======
+
 
 const goTopList = () => {
 	uni.navigateTo({
@@ -74,7 +74,9 @@ const goTopList = () => {
 	});
 }
 
->>>>>>> main
+onMounted(()=>{
+	everyStore.getAll()
+})
 // getSongs()
 // getPaihang()
 </script>

@@ -49,6 +49,8 @@
 		useRouter,
 		useRoute
 	} from "vue-router"
+	import {useEveryStore}from "../../store/everyData.js"
+	const everyStore = useEveryStore()
 	const searchStore = useSearchStore()
 	const router = useRouter()
 	const route = useRoute()
@@ -89,7 +91,7 @@
 
 
 
-    getAll()
+    everyStore.getAll()
 	// getBanners()
 </script>
 

@@ -1,6 +1,6 @@
 import { defineStore } from "pinia"
 import { ref } from 'vue'
-import { getAllApi} from '../../services'
+import { getAllApi} from '../services'
 export const useEveryStore = defineStore('everyStore', () => {
 	    const all = ref([])
 		const banners = ref([])
@@ -18,6 +18,7 @@ export const useEveryStore = defineStore('everyStore', () => {
 		
 	  return{
 		  banners,
-		  everyDay
+		  everyDay,
+		  getAll
 	}
 })
