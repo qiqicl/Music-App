@@ -2,7 +2,7 @@
 	<view class="content">
 		<view class="Com">
 			<view class="Com-a">
-				<view class="itemCom">
+				<view class="itemCom" @click="getSongs">
 					<image src="https://p1.music.126.net/4DpSgAVpJny4Ewf-Xw_WQQ==/109951163986641971.jpg"></image>
 					<view class="text">每日推荐</view>
 				</view>
@@ -36,17 +36,20 @@
 
 </template>
 
-<script>
-import { ref } from 'vue'
+<script setup>
+import { nextTick, ref } from 'vue'
 const song = ref([])
 import { getSongsApi } from '../../services'
 
-// const getSongs = async () =>{
-// 	const res = await getSongsApi()
-// 	console.log(res);
-// 	// song.value = res.data.data
-// 	// console.log(song.value)
-// }
+const getSongs = async () =>{
+	const res = await getSongsApi()
+	nextTick(()=>{
+		console.log(res);
+	})
+	
+	// song.value = res.data.data
+	// console.log(song.value)
+}
 
 // getSongs()
 </script>

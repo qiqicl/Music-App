@@ -1,5 +1,5 @@
 <template>
-	<view class="app">
+	<view class="app1">
 		<view class="search">
 			<uni-icons type="bars" size="30"></uni-icons>
 			<uni-search-bar @confirm="search" @input="input" class="input"></uni-search-bar>
@@ -14,10 +14,14 @@
 				</swiper-item>
 			</swiper>
 		</view>
+		
 		<everyday />
 		<songs />
 		<liuxing />
 		<leida />
+		
+		<!-- <zhuanshu />
+		<heji /> -->
 		
 	</view>
 </template>
@@ -29,6 +33,8 @@ import songs from '../components/songs.vue'
 import liuxing from '../components/liuxing.vue'
 import everyday from '../components/everyday.vue'
 import leida from '../components/leida.vue'
+import zhuanshu from '../components/zhuanshu.vue'
+import heji from '../components/heji.vue'
 
 const title = ref('Hello')
 const background = ref(['color1', 'color2', 'color3'])
@@ -55,9 +61,9 @@ const durationChange = e => {
 // 调banners的接口
 const getBanners = async () =>{
 	const res = await getBannersApi()
-	console.log(res);
+	// console.log(res);
 	banners.value = res.data.banners
-	console.log(banners.value)
+	// console.log(banners.value)
 }
 
 
@@ -69,15 +75,15 @@ getBanners()
 </script>
 
 <style lang="scss" scoped>
-	.app {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		// height: 100%;
-		overflow-y: scroll;
-		padding-bottom: 120rpx;
-		// width: 100%;
-	}
+	// .app {
+	// 	display: flex;
+	// 	flex-direction: column;
+	// 	justify-content: space-between;
+	// 	// height: 100%;
+	// 	overflow-y: scroll;
+	// 	padding-bottom: 120rpx;
+	// 	// width: 100%;
+	// }
 	.search{
 		width: 100%;
 		display: flex;
@@ -133,6 +139,9 @@ getBanners()
 	.uni-padding-wrap {
 		width: 550rpx;
 		padding: 0 100rpx;
+	}
+	.app1 {
+		padding-bottom: 110rpx;
 	}
 	
 </style>

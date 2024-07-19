@@ -1,14 +1,14 @@
 <template>
 
 	<view class="songs">
-		<view class="top"><view class="line"></view>xxx的雷达歌单</view>
-		<view class="boxAll">
+		<view class="top"><view class="line"></view>专属场景歌单</view>
+		<!-- <view class="boxAll">
 			<view class="box" v-for="item in list" :key="item.id">
 				<image :src="item.picUrl" ></image>
 				<view class="text">{{item.name}}</view>
 			</view>
 			
-		</view>
+		</view> -->
 		
 		
 	</view>

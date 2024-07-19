@@ -1,14 +1,14 @@
 <template>
 
 	<view class="songs">
-		<view class="top"><view class="line"></view>xxx的雷达歌单</view>
-		<view class="boxAll">
+		<view class="top"><view class="line"></view>视频合辑</view>
+		<!-- <view class="boxAll">
 			<view class="box" v-for="item in list" :key="item.id">
 				<image :src="item.picUrl" ></image>
 				<view class="text">{{item.name}}</view>
 			</view>
 			
-		</view>
+		</view> -->
 		
 		
 	</view>
@@ -16,19 +16,20 @@
 
 <script setup>
 import { ref } from 'vue'
-import { getTuijianApi } from '../../services'
+import { getHejiApi } from '../../services'
 const list = ref([])
 
 
-// 调tuijian的接口
-const getTuijian = async () =>{
-	const res = await getTuijianApi()
-	// console.log(res);
-	list.value = res.data.result
+// 调heji的接口
+const getHeji = async () =>{
+	const res = await getHejiApi()
+	console.log(res);
+	// list.value = res.data.result
 	// console.log(list.value)
 }
-getTuijian()
-	
+
+getHeji()
+
 </script>
 
 <style lang="scss" scoped>

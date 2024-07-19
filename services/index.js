@@ -20,3 +20,17 @@
   export const getPaihangApi = () => {
     return request('https://zyxcl.xyz/music/api/toplist/detail')
   }
+  // 推荐歌单
+  export const getTuijianApi = () => {
+    return request('https://zyxcl.xyz/music/api/personalized?limit=6')
+  }
+
+  // 雷达歌单   精品歌单接口
+  export const getJingpinApi = () => {
+    return request('https://zyxcl.xyz/music/api/related/playlist')
+  }
+  
+  // 视频合辑
+  export const getHejiApi = () => {
+    return request('https://zyxcl.xyz/music/api/video/timeline/recommend')
+  }

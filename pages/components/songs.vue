@@ -3,41 +3,9 @@
 	<view class="songs">
 		<view class="top"><view class="line"></view>推荐歌单</view>
 		<view class="boxAll">
-			<view class="box">
-				<image src="../../assets/tu1.png" mode=""></image>
-				<view class="text">
-					一人一首成名曲|90后话语经典怀旧老歌
-				</view>
-			</view>
-			<view class="box">
-				<image src="../../assets/tu1.png" mode=""></image>
-				<view class="text">
-					一人一首成名曲|90后话语经典怀旧老歌
-				</view>
-			</view>
-			<view class="box">
-				<image src="../../assets/tu1.png" mode=""></image>
-				<view class="text">
-					一人一首成名曲|90后话语经典怀旧老歌
-				</view>
-			</view>
-			<view class="box">
-				<image src="../../assets/tu1.png" mode=""></image>
-				<view class="text">
-					一人一首成名曲|90后话语经典怀旧老歌
-				</view>
-			</view>
-			<view class="box">
-				<image src="../../assets/tu1.png" mode=""></image>
-				<view class="text">
-					一人一首成名曲|90后话语经典怀旧老歌
-				</view>
-			</view>
-			<view class="box">
-				<image src="../../assets/tu1.png" mode=""></image>
-				<view class="text">
-					一人一首成名曲|90后话语经典怀旧老歌
-				</view>
+			<view class="box" v-for="item in list" :key="item.id">
+				<image :src="item.picUrl" ></image>
+				<view class="text">{{item.name}}</view>
 			</view>
 			
 		</view>
@@ -46,7 +14,20 @@
 	</view>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
+import { getTuijianApi } from '../../services'
+const list = ref([])
+
+
+// 调tuijian的接口
+const getTuijian = async () =>{
+	const res = await getTuijianApi()
+	// console.log(res);
+	list.value = res.data.result
+	// console.log(list.value)
+}
+getTuijian()
 	
 </script>
 
