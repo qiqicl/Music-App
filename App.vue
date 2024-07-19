@@ -15,7 +15,7 @@
 <style lang="scss">
 	/*每个页面公共css */
 	page,body{
-		height: 750rpx;
+		height: 100%;
 		width: 100%;
 		padding: 0;
 	}
