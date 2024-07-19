@@ -47,11 +47,13 @@ const everyStore = useEveryStore()
 const song = ref([])
 const getSongs = async () =>{
 	const res = await getSongsApi()
+	uni.navigateTo({
+		url:"/pages/toplist/toplist"
+	})
 	nextTick(()=>{
 		console.log(res);
 	})
 }
-
 const getPaihang = async () =>{
 	// const res = await getPaihangApi()
 	nextTick(()=>{
