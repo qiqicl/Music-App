@@ -57,7 +57,10 @@
 	const interval = ref(2000)
 	const duration = ref(500)
 	const goSearch = () => {
-		router.push("/pages/search/search")
+		// router.push("/pages/search/search")
+		uni.navigateTo({
+			url:"/pages/search/search"
+		})
 	}
 	const changeIndicatorDots = e => {
 		indicatorDots.value = !indicatorDots.value
