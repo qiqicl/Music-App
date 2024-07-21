@@ -1,7 +1,7 @@
 <template>
 	<view class="player">
 		<view class="section"
-			style="background-image: url(&quot;http://p1.music.126.net/uicjMeijprOJqVYEwY2ZQw==/109951169524907299.jpg&quot;);">
+			:style="backImg">
 		</view>
 		<view class="disc">
 			<view class="song">
@@ -18,6 +18,7 @@
 		</view>
 		<view>
 			<view class="audio">
+				
 			</view>
 		</view>
 	</view>
@@ -35,49 +36,57 @@
 	console.log(play.playList)
 	console.log(play.playItem)
 	console.log(play.playIndex)
-	// const innerAudioContext = uni.createInnerAudioContext();
-	// innerAudioContext.autoplay = true;
-	// innerAudioContext.src = 'https://web-ext-storage.dcloud.net.cn/uni-app/ForElise.mp3';
-	// innerAudioContext.onPlay(() => {
-	//   console.log('开始播放');
-	// });
-	// if (innerAudioContext) {
-	//   try {
-	//     innerAudioContext.pause();
-	//     innerAudioContext.destroy()
-	//     innerAudioContext = null
-	//   } catch (e) {
-	//     //TODO handle the exception
-	//   }
-	// }
+	const backImg = ref({
+		backgroundImage:`url(${play.playItem.al.picUrl})`
+	})
+	const innerAudioContext = uni.createInnerAudioContext();
+	innerAudioContext.autoplay = true;
+	innerAudioContext.src = 'https://web-ext-storage.dcloud.net.cn/uni-app/ForElise.mp3';
+	innerAudioContext.onPlay(() => {
+	  console.log('开始播放');
+	});
+	if (innerAudioContext) {
+	  try {
+	    innerAudioContext.pause();
+	    innerAudioContext.destroy()
+	    innerAudioContext = null
+	  } catch (e) {
+	    //TODO handle the exception
+	  }
+	}
 	uni.setNavigationBarTitle({
 		title: play.playItem.name,
 		success: () => {
 			console.log('标题设置成功');
 		},
 	})
-	const getImg = async () => {
-		const code = await getImgApi()
-		console.log(code)
+	// /song/url/v1?id=33894312&level=standard
+	const getSong= () => {
+		uni.request({
+		    url: `https://zyxcl.xyz/music/api/song/url/v1?id=${play.playItem.name}&level=standard`,
+		    success: (res) => {
+		        console.log(res.data);
+		    }
+		});
 	}
-	const getImgApi = () => {
-		// return new Promise((resolve, reject) => {
-		// 	const time = new Date() * 1
-		// 	const xhr = new XMLHttpRequest()
-		// 	xhr.open('get', `https://zyxcl.xyz/music/api/playlist/cover/update?id=3143833470&imgSize=200`)
-		// 	xhr.onreadystatechange = () => {
-		// 		// 请求完成且响应状态为 200 表示成功
-		// 		if (xhr.readyState == 4 && xhr.status == 200) {
-		// 			// 解析服务器响应的 JSON 数据
-		// 			let data = JSON.parse(xhr.responseText);
-		// 			resolve(data)
-		// 			// formData.value.code = data
-		// 		}
-		// 	};
-		// 	xhr.send()
-		// })
-	}
-	getImg()
+	// const getSongApi = () => {
+	// 	// return new Promise((resolve, reject) => {
+	// 	// 	const time = new Date() * 1
+	// 	// 	const xhr = new XMLHttpRequest()
+	// 	// 	xhr.open('get', `https://zyxcl.xyz/music/api/playlist/cover/update?id=3143833470&imgSize=200`)
+	// 	// 	xhr.onreadystatechange = () => {
+	// 	// 		// 请求完成且响应状态为 200 表示成功
+	// 	// 		if (xhr.readyState == 4 && xhr.status == 200) {
+	// 	// 			// 解析服务器响应的 JSON 数据
+	// 	// 			let data = JSON.parse(xhr.responseText);
+	// 	// 			resolve(data)
+	// 	// 			// formData.value.code = data
+	// 	// 		}
+	// 	// 	};
+	// 	// 	xhr.send()
+	// 	// })
+	// }
+	getSong()
 </script>
 
 <style lang="scss">
