@@ -63,6 +63,15 @@
 				"navigationBarTextStyle": "white",
 				"navigationBarBackgroundColor": "#C94442"
 			}
+		},
+		{
+			"path" : "pages/recommend/recommend",
+			"style" : 
+			{
+				"navigationBarTitleText" : "每日推荐",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#C94442"
+			}
 		}
 	],
 	 "tabBar": {

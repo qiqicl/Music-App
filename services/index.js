@@ -15,7 +15,7 @@
     return request('https://zyxcl.xyz/music/api/homepage/block/page')
   }
   export const getBannersApi = () => {
-    return request('http://121.89.213.194:5001/banner')
+    return request('https://zyxcl.xyz/music/api/banner')
   }
   // 每日推荐接口
   export const getSongsApi = () => {
@@ -27,7 +27,7 @@
   }
   // 推荐歌单
   export const getTuijianApi = () => {
-    return request('https://zyxcl.xyz/music/api/personalized?limit=6')
+    return request('https://zyxcl.xyz/music/api/top/playlist?limit=6')
   }
 
   // 雷达歌单   精品歌单接口
@@ -43,7 +43,19 @@
   export const getHejiApi = () => {
     return request('https://zyxcl.xyz/music/api/video/timeline/recommend')
   }
+
   // 流行
   export const getFashionApi = () => {
     return request('https://zyxcl.xyz/music/api/personalized/newsong')
+  
+  // 歌单详情
+
+  export const getSongListApi = (id) => {
+    return request(`https://zyxcl.xyz/music/api/playlist/detail?id=${id}`)
+  }
+  
+  // 歌单评论
+  // getCommentApi
+  export const getCommentApi = (id) => {
+    return request(`http://121.89.213.194:5001/comment/playlist?id=${id}`)
   }

@@ -9,14 +9,17 @@
 	// https://zyxcl.xyz/music/api/login/qr/create?timestamp=1721298963112&key=1e3f26dc-bcb0-4aac-8025-6bcc20e57310&qrimg=qrimg
 	// /login/qr/check
 	import {
+		onBeforeUnmount,
+		onUnmounted,
 		ref
 	} from "vue"
 	const img = ref()
+	const time = null
 	const getQRCode = async () => {
 		const key = await getKeyApi()
 		const data = await getQRCodeApi(key.data.unikey)
 		img.value = data.data.qrimg
-		const time = setInterval(async () => {
+		time.value = setInterval(async () => {
 			const check = await getCheckApi(key.data.unikey)
 			console.log(check)
 			if (check.code === 803) {
@@ -28,8 +31,10 @@
 				});
 			}
 		}, 1000)
-
 	}
+	onBeforeUnmount(()=>{
+		clearInterval(time)
+	})
 	const getKeyApi = () => {
 		return new Promise((resolve, reject) => {
 			const time = new Date() * 1
