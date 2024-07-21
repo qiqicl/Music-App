@@ -49,7 +49,7 @@
 <script>
 </script>
 
-<style>
+<style lang="scss" scoped>
 	.fashion {
 		width: 100%;
 		height: 540rpx;

@@ -1,6 +1,8 @@
 <script setup>
 import { nextTick, ref ,reactive } from 'vue'
 import { onLoad } from "@dcloudio/uni-app"
+import { playListStore } from "../../store/playList"
+const playList = playListStore()
 const data = ref([])
 
 onLoad((option) => {
@@ -8,7 +10,7 @@ onLoad((option) => {
 		// console.log(getDataApi())
 		await nextTick()
 		data.value = await getDataApi()
-		console.log(data.value)
+		// console.log(data.value)
 	}
 	const getDataApi = () =>{
 		return new Promise((resolve,reject)=>{
@@ -30,11 +32,18 @@ onLoad((option) => {
 	getData()
 })
 
-const goPlayer = () => {
+const goPlayer = (index) => {
+	// /song/detail
+	uni.navigateTo({
+		url: `/pages/player/player`,
+	});
+	playList.playList = data.value.playlist.tracks
+	playList.playIndex = index
+	// console.log("列表",playList.playList,"下标",playList.playIndex,"id",playList.playItem)
 	
 }
 
-console.log(data)
+// console.log(data)
 
 const arName = (arr) => {
 	let name = []
@@ -74,7 +83,7 @@ const arName = (arr) => {
 		</view>
 		<view class="list">
 			<view class="songList_all"> <uni-icons type="checkbox" size="25"></uni-icons> 播放全部( {{data.playlist?.tracks.length}} )</view>
-			<view class="songList_item" v-for=" (item,index) in data.playlist?.tracks " :key="item.id">
+			<view class="songList_item" v-for=" (item,index) in data.playlist?.tracks " :key="item.id" @click="goPlayer(index)">
 				<view class="songList_item_count">{{index+1}}</view>
 				<view class="songList_item_content">
 					<view class="songName">{{item.name}}</view>
@@ -191,7 +200,8 @@ view{
 	  border-bottom: 1px solid #999;
 	  transform: scale(0.5); 
 	  transform-origin: 0 0;
-	  box-sizing: border-box;		
+	  box-sizing: border-box;
+	  pointer-events: none;
 	}
 .songList_item{
 	display: flex;

@@ -8,7 +8,12 @@
       })
     })
   }
+  // 调所有的接口
   
+
+  export const getAllApi = () => {
+    return request('https://zyxcl.xyz/music/api/homepage/block/page')
+  }
   export const getBannersApi = () => {
     return request('http://121.89.213.194:5001/banner')
   }
@@ -28,6 +33,10 @@
   // 雷达歌单   精品歌单接口
   export const getJingpinApi = () => {
     return request('https://zyxcl.xyz/music/api/related/playlist')
+  }
+  // 排行榜接口
+  export const getTopListApi = () => {
+    return request('https://zyxcl.xyz/music/api/toplist/detail')
   }
   
   // 视频合辑

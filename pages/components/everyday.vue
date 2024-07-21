@@ -1,13 +1,13 @@
 <template>
 	<view class="content">
 		<view class="Com">
-			<view class="Com-a">
+			<view class="Com-a" v-for="item in everyStore.everyDay" >
 				<view class="itemCom" @click="getSongs">
-					<image src="https://p1.music.126.net/4DpSgAVpJny4Ewf-Xw_WQQ==/109951163986641971.jpg"></image>
-					<view class="text">每日推荐</view>
+					<image :src="item.uiElement.image.imageUrl"></image>
+					<view class="text">{{item.uiElement.mainTitle.title}}</view>
 				</view>
 			</view>
-			<view class="Com-b">
+			<!-- <view class="Com-b">
 				<view class="itemCom">
 					<image src="https://p1.music.126.net/Shi7cRT1bDhwpVDM7AOFXg==/109951165265330616.jpg"></image>
 					<view class="text">私人FM</view>
@@ -22,7 +22,7 @@
 			</view>
 			<view class="Com-d" @click="goTopList()">
 				<view class="itemCom">
-					<image src="https://p1.music.126.net/SDFC6A3X2wzUCavYyeGIOg==/109951163986649670.jpg"></image>
+					<image src="https://p1.music.126.net/SDFC6A3X2wzUCavYyeGIOg==/109951163986649670.jpg"@click="getPaihang"></image>
 					<view class="text">排行榜</view>
 				</view>
 			</view>
@@ -31,26 +31,45 @@
 					<image src="https://p1.music.126.net/Kb4oK0m_ocs3FR3lo-r9yg==/109951167319110429.jpg"></image>
 					<view class="text">有声书</view>
 				</view>
-			</view>
+			</view> -->
 		</view>
    </view>
 
 </template>
 
 <script setup>
-import { nextTick, ref } from 'vue'
-const song = ref([])
-import { getSongsApi } from '../../services'
+import { nextTick, ref,watch,onMounted } from 'vue'
 
+import { getSongsApi, getPaihangApi } from '../../services'
+import {useEveryStore}from "../../store/everyData.js"
+const everyStore = useEveryStore()
+
+const song = ref([])
 const getSongs = async () =>{
 	const res = await getSongsApi()
+	uni.navigateTo({
+		url:"/pages/toplist/toplist"
+	})
 	nextTick(()=>{
 		console.log(res);
 	})
-	
-	// song.value = res.data.data
-	// console.log(song.value)
 }
+const getPaihang = async () =>{
+	// const res = await getPaihangApi()
+	nextTick(()=>{
+		uni.navigateTo({
+			url: `/pages/toplist/toplist`
+		});
+	})
+}
+// const props = defineProps(["everyDay1"])
+// console.log(props.everyDay1)
+// const everyDay = ref()
+// watch(props.everyDay1,()=>{
+// 	everyDay.value = props.everyDay1
+// 	console.log(everyDay.value)
+// },{deep:true})
+
 
 const goTopList = () => {
 	uni.navigateTo({
@@ -58,10 +77,15 @@ const goTopList = () => {
 	});
 }
 
+onMounted(()=>{
+	everyStore.getAll()
+	console.log(everyStore.everyDay)
+})
 // getSongs()
+// getPaihang()
 </script>
 
-<style>
+<style lang="scss" scoped>
 	.Com {
 		width: 100%;
 		height: 160rpx;
