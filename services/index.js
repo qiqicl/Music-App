@@ -43,3 +43,7 @@
   export const getHejiApi = () => {
     return request('https://zyxcl.xyz/music/api/video/timeline/recommend')
   }
+  // 流行
+  export const getFashionApi = () => {
+    return request('https://zyxcl.xyz/music/api/personalized/newsong')
+  }
