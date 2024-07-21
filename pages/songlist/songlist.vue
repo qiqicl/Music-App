@@ -2,34 +2,43 @@
 import { nextTick, ref ,reactive } from 'vue'
 import { onLoad } from "@dcloudio/uni-app"
 import { playListStore } from "../../store/playList"
+import { getSongListApi,getCommentApi } from "../../services"
+import Comment from './components/Comment.vue'
+
+
 const playList = playListStore()
 const data = ref([])
 
+const isComment = ref(false)
+const id = ref()
+const commentData = ref({})
+
 onLoad((option) => {
+	id.value = option.id
 	const getData = async() => {
-		// console.log(getDataApi())
 		await nextTick()
 		data.value = await getDataApi()
 		// console.log(data.value)
 	}
-	const getDataApi = () =>{
-		return new Promise((resolve,reject)=>{
-			const time = new Date()*1
-			const xhr = new XMLHttpRequest()
-			xhr.open('get',`http://121.89.213.194:5001/playlist/detail?id=${option.id}`)
-			xhr.onreadystatechange = function() {
-				// 请求完成且响应状态为 200 表示成功
-				if (xhr.readyState == 4 && xhr.status == 200) {
-				  // 解析服务器响应的 JSON 数据
-				  let data = JSON.parse(xhr.responseText);
-				  // console.log(data)
-				  resolve(data)
-				}
-			  };
-			xhr.send()
-		})
+	const getDataApi = async () =>{
+		let data = await getSongListApi(id.value)
+		// console.log(data)
+		return data.data
 	}
 	getData()
+	
+	const getCommentData = async() => {
+		await nextTick()
+		commentData.value = await getCommentDataApi()
+		// console.log(commentData.value)
+	}
+	const getCommentDataApi = async () =>{
+		let data = await getCommentApi(id.value)
+		// console.log(data)
+		return data.data
+	}
+	getCommentData()
+
 })
 
 const goPlayer = (index) => {
@@ -39,7 +48,6 @@ const goPlayer = (index) => {
 	});
 	playList.playList = data.value.playlist.tracks
 	playList.playIndex = index
-	// console.log("列表",playList.playList,"下标",playList.playIndex,"id",playList.playItem)
 	
 }
 
@@ -76,7 +84,7 @@ const arName = (arr) => {
 				</view>
 				<view class="btns">
 					<view class="btn"><uni-icons type="undo-filled" size="25"></uni-icons>{{data.playlist?.shareCount}}</view>
-					<view class="btn"><uni-icons type="chat-filled" size="25"></uni-icons>{{data.playlist?.commentCount}}</view>
+					<view class="btn" @click="isComment = true"><uni-icons type="chat-filled" size="25"></uni-icons>{{data.playlist?.commentCount}}</view>
 					<view class="btn"><uni-icons type="folder-add-filled" size="25"></uni-icons>{{data.playlist?.subscribedCount}}</view>
 				</view>
 			</view>
@@ -95,6 +103,10 @@ const arName = (arr) => {
 			</view>
 		</view>
 	</view>
+	<Comment v-if="isComment && commentData.comments?.length > 0"
+	:comment = "commentData"
+	@offComment = "isComment = false"
+	/>
 </template>
 
 
