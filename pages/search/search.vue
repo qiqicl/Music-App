@@ -2,8 +2,8 @@
 	<view class="search">
 		<uni-icons type="search" size="30" color="#666"></uni-icons>
 		<input class="searchInp" placeholder="请输入要搜索的歌曲/歌手" v-model="searchStore.con" @input="focus" @keydown="keydowns"/>
-		<view class="close" @click="searchStore.con=''"  v-if="searchStore.con!==''">x</view>
-		<view class="cancal" v-if="searchStore.con!==''" @click="cancalInp">取消</view>
+		<view class="close" @click="back"  v-if="searchStore.con!==''">x</view>
+		<view class="cancal" v-if="searchStore.con!==''" @click="back">取消</view>
 	</view>
 	<view class="history" v-if="searchMemory.length!==0">
 		<view class="searchHistory">搜索历史</view>
@@ -30,8 +30,8 @@
 
 <script setup>
 	import { ref } from "vue"
-	import  searchList from "./component/searchList.vue"
-	import  songSinger from "./component/songSinger.vue"
+	import  searchList from "../components/searchList.vue"
+	import  songSinger from "../components/searchSongSinger.vue"
 	import { useSearchStore } from "../../store/searchDate.js"
 	const searchStore = useSearchStore()
 	const flag = ref(0)
@@ -66,9 +66,9 @@
 		localStorage.setItem('searchMemory' , JSON.stringify(searchMemory.value))
 		console.log(searchMemory.value)
 	 }
-	 const cancalInp = () => {
+	 const back = () => {
 		 flag.value = 0
-		 searchStore.con = ''
+		 searchStore.con=''
 	 }
 	 const pushInp = async(el) => {
 		 flag.value = 2
