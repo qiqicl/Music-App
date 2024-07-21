@@ -7,31 +7,7 @@
 					<view class="text">{{item.uiElement.mainTitle.title}}</view>
 				</view>
 			</view>
-			<!-- <view class="Com-b">
-				<view class="itemCom">
-					<image src="https://p1.music.126.net/Shi7cRT1bDhwpVDM7AOFXg==/109951165265330616.jpg"></image>
-					<view class="text">私人FM</view>
-				</view>
-			</view>
-			<view class="Com-c">
-				<view class="itemCom">
-					<image src="https://p1.music.126.net/uG5p6CnwAHrLqOkaSeRlnA==/109951163986649164.jpg"></image>
-					<view class="text">歌单</view>
-				</view>
-				
-			</view>
-			<view class="Com-d" @click="goTopList()">
-				<view class="itemCom">
-					<image src="https://p1.music.126.net/SDFC6A3X2wzUCavYyeGIOg==/109951163986649670.jpg"@click="getPaihang"></image>
-					<view class="text">排行榜</view>
-				</view>
-			</view>
-			<view class="Com-e">
-				<view class="itemCom">
-					<image src="https://p1.music.126.net/Kb4oK0m_ocs3FR3lo-r9yg==/109951167319110429.jpg"></image>
-					<view class="text">有声书</view>
-				</view>
-			</view> -->
+			
 		</view>
    </view>
 
@@ -91,9 +67,10 @@ onMounted(()=>{
 		height: 160rpx;
 		display: flex;
 		}
-	.Com-a, .Com-b, .Com-c,.Com-d,.Com-e{
+	.Com-a {
 		width: 25%;
 		height: 160rpx;
+		margin-left: 10rpx;
 	}
 	
 	.itemCom {
