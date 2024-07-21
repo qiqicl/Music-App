@@ -16,9 +16,9 @@
 	const playList = playListStore()
 	const props = defineProps(['songsData'])
 	const goPlay = (item,index) => {
-		// uni.navigateTo({
-		// 	url:'/pages/player/player'
-		// })
+		uni.navigateTo({
+			url:'/pages/player/player'
+		})
 		console.log(props.songsData.result.songs)
 		playList.playList = props.songsData.result.songs
 		playList.playIndex = index
