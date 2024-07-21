@@ -43,3 +43,15 @@
   export const getHejiApi = () => {
     return request('https://zyxcl.xyz/music/api/video/timeline/recommend')
   }
+  
+  // 歌单详情
+
+  export const getSongListApi = (id) => {
+    return request(`https://zyxcl.xyz/music/api/playlist/detail?id=${id}`)
+  }
+  
+  // 歌单评论
+  // getCommentApi
+  export const getCommentApi = (id) => {
+    return request(`http://121.89.213.194:5001/comment/playlist?id=${id}`)
+  }
