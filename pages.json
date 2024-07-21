@@ -10,7 +10,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "首页"
 			}
 		},
 		{
@@ -60,6 +60,15 @@
 			"path": "pages/player/player",
 			"style": {
 				"navigationBarTitleText": "",
+				"navigationBarTextStyle": "white",
+				"navigationBarBackgroundColor": "#C94442"
+			}
+		},
+		{
+			"path" : "pages/recommend/recommend",
+			"style" : 
+			{
+				"navigationBarTitleText" : "每日推荐",
 				"navigationBarTextStyle": "white",
 				"navigationBarBackgroundColor": "#C94442"
 			}

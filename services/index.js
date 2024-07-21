@@ -16,7 +16,7 @@
     return request(`${host}/homepage/block/page`)
   }
   export const getBannersApi = () => {
-    return request(`http://121.89.213.194:5001/banner`)
+    return request('https://zyxcl.xyz/music/api/banner')
   }
   // 每日推荐接口
   export const getSongsApi = () => {
@@ -48,3 +48,15 @@
 	export const getFashionApi = () => {
 	  return request(`${host}/personalized/newsong`)
 	}
+  
+  // 歌单详情
+  export const getSongListApi = (id) => {
+    return request(`${host}/playlist/detail?id=${id}`)
+  }
+  
+  // 歌单评论
+  // getCommentApi
+  export const getCommentApi = (id) => {
+    return request(`http://121.89.213.194:5001/comment/playlist?id=${id}`)
+  }
+

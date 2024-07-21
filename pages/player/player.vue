@@ -32,6 +32,7 @@
 	import {
 		ref
 	} from "vue"
+	const storage = ref(decodeURIComponent(uni.getStorageSync('key')))
 	const play = playListStore()
 	console.log(play.playList)
 	console.log(play.playItem)
@@ -41,7 +42,7 @@
 	})
 	const innerAudioContext = uni.createInnerAudioContext();
 	innerAudioContext.autoplay = true;
-	innerAudioContext.src = 'https://web-ext-storage.dcloud.net.cn/uni-app/ForElise.mp3';
+	innerAudioContext.src = '';
 	innerAudioContext.onPlay(() => {
 	  console.log('开始播放');
 	});
@@ -63,7 +64,7 @@
 	// /song/url/v1?id=33894312&level=standard
 	const getSong= () => {
 		uni.request({
-		    url: `https://zyxcl.xyz/music/api/song/url/v1?id=${play.playItem.name}&level=standard`,
+		    url: `https://zyxcl.xyz/music/api/song/url?curCookie=${storage.value}&id=${play.playItem.al.id}`,
 		    success: (res) => {
 		        console.log(res.data);
 		    }

@@ -1,7 +1,7 @@
 <template>
 	<view class="app1">
 		<view class="search">
-			<uni-icons type="bars" size="30" color="rgb(94, 109, 130)"></uni-icons>
+			<uni-icons type="bars" size="30" color="rgb(94, 109, 130)" @click="isAside = true"></uni-icons>
 			<view class="input" @click="goSearch">
 				<view class="inpAll">
 					<uni-icons type="search" size="20" color="rgb(192, 196, 204)"></uni-icons>
@@ -25,6 +25,7 @@
 		<songs />
 		<liuxing />
 		<leida />
+		<Aside v-if="isAside" @offUser="isAside = false"/>
 
 		<!-- <zhuanshu />
 		<heji /> -->
@@ -41,11 +42,12 @@
 	import leida from '../components/leida.vue'
 	import zhuanshu from '../components/zhuanshu.vue'
 	import heji from '../components/heji.vue'
-	import {useSearchStore} from "../../../MusicApp/store/searchDate"
+	import {useSearchStore} from "../../store/searchDate.js"
 	import {useRouter,useRoute} from "vue-router"
 	import {useEveryStore}from "../../store/everyData.js"
+	import Aside from "./aside/Aside.vue"
 	
-	
+	const isAside = ref(false)
 	const everyStore = useEveryStore()
 	const searchStore = useSearchStore()
 	const router = useRouter()

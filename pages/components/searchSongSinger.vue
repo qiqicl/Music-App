@@ -11,10 +11,11 @@
 </template>
 
 <script setup>
+	import {defineProps, defineEmits} from "vue"
 	const props = defineProps(['songsData'])
 </script>
 
-<style  lang="scss" scoped>
+<style lang="scss" scoped>
 	.songSinger{
 		padding: 20rpx;
 	}
