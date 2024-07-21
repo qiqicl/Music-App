@@ -19,7 +19,7 @@
 		const key = await getKeyApi()
 		const data = await getQRCodeApi(key.data.unikey)
 		img.value = data.data.qrimg
-		const time = setInterval(async () => {
+		time.value = setInterval(async () => {
 			const check = await getCheckApi(key.data.unikey)
 			console.log(check)
 			if (check.code === 803) {
@@ -32,9 +32,9 @@
 			}
 		}, 1000)
 	}
-	onBeforeUnmount(){
+	onBeforeUnmount(()=>{
 		clearInterval(time)
-	}
+	})
 	const getKeyApi = () => {
 		return new Promise((resolve, reject) => {
 			const time = new Date() * 1

@@ -10,7 +10,7 @@ const storage = ref(decodeURIComponent(uni.getStorageSync('key')))
 const getData = async() => {	await nextTick()
 	data.value = await getDataApi()
 	uni.request({
-		url:`https://zyxcl.xyz/music/api/user/detail?uid=${data.value.data.data.account.id}&cookie=${storage.value}`,	
+		url:`https://zyxcl.xyz/music/api/user/detail?uid=${data.value.data?.data.account?.id}&cookie=${storage.value}`,	
 		// withCredentials	:true,
 		success: (res) => {
 			// console.log(res.data);
@@ -18,7 +18,7 @@ const getData = async() => {	await nextTick()
 		}
 	})
 	uni.request({
-		url:`https://zyxcl.xyz/music/api/user/playlist?uid=${data.value.data.data.account.id}&cookie=${storage.value}`,	
+		url:`https://zyxcl.xyz/music/api/user/playlist?uid=${data.value.data?.data.account?.id}&cookie=${storage.value}`,	
 		// withCredentials	:true,
 		success: (res) => {
 			console.log(res.data);
