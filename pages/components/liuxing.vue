@@ -2,7 +2,7 @@
 	<view class="fashion">
 		<view class="top"><view class="line"></view>流行 | 经典 | 民谣 热门榜单</view>
 		<view class="con">
-			<view class="con-a" v-for="item in list" :key="item.id">
+			<view class="con-a" v-for="(item,index) in list" :key="item.id">
 				<image class="leftTu" :src="item.picUrl" mode=""></image>
 				<view class="right">
 					<view class="right1">
@@ -10,7 +10,7 @@
 						<view class="name">{{item.song.artists[0].name}} {{item.song.artists[1]?.name}}</view>
 					</view>
 					<view class="right2">
-						<view class="left-triangle" @click="goSong"></view>
+						<view class="left-triangle" @click="goSong(item,index)"></view>
 
 					</view>
 				</view>
@@ -25,8 +25,9 @@
 <script setup>
 	import { getFashionApi } from '../../services'
 	import {nextTick, ref} from 'vue'
+	import { playListStore } from "../../store/playList"
 	const list = ref([])
-	
+	const playList = playListStore()
 	// 调Fashion的接口
 	const getFashion = async () =>{
 		const res = await getFashionApi()
@@ -35,10 +36,12 @@
 			console.log(list.value) 
 	}
 	getFashion()
-	const goSong = () => {
+	const goSong = (item,index) => {
 		uni.navigateTo({
 			url:"/pages/player/player"
 		})
+		playList.playList = list.value
+		playList.playIndex = index
 	}
 </script>
 

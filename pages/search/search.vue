@@ -5,7 +5,7 @@
 		<view class="close" @click="back"  v-if="searchStore.con!==''">x</view>
 		<view class="cancal" v-if="searchStore.con!==''" @click="back">取消</view>
 	</view>
-	<view class="history" v-if="searchMemory.length!==0">
+	<view class="history" v-if="searchMemory?.length!==0">
 		<view class="searchHistory">搜索历史</view>
 		<uni-icons type="trash" size="25" color="#666" @click="delAll"></uni-icons>
 	</view>

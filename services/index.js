@@ -28,12 +28,12 @@
   }
   // 推荐歌单
   export const getTuijianApi = () => {
-    return request(`${host}/personalized?limit=6`)
+    return request(`${host}/top/playlist?limit=6`)
   }
 
   // 雷达歌单   精品歌单接口
   export const getJingpinApi = () => {
-    return request(`${host}/related/playlist`)
+    return request(`${host}/top/playlist?limit=6`)
   }
   // 排行榜接口
   export const getTopListApi = () => {
