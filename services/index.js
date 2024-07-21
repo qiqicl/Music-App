@@ -15,7 +15,7 @@
     return request('https://zyxcl.xyz/music/api/homepage/block/page')
   }
   export const getBannersApi = () => {
-    return request('http://121.89.213.194:5001/banner')
+    return request('https://zyxcl.xyz/music/api/banner')
   }
   // 每日推荐接口
   export const getSongsApi = () => {
@@ -27,7 +27,7 @@
   }
   // 推荐歌单
   export const getTuijianApi = () => {
-    return request('https://zyxcl.xyz/music/api/personalized?limit=6')
+    return request('https://zyxcl.xyz/music/api/top/playlist?limit=6')
   }
 
   // 雷达歌单   精品歌单接口

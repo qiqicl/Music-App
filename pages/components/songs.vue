@@ -4,7 +4,7 @@
 		<view class="top"><view class="line"></view>推荐歌单</view>
 		<view class="boxAll">
 			<view class="box" v-for="item in list" :key="item.id">
-				<image :src="item.picUrl" ></image>
+				<image :src="item.coverImgUrl" ></image>
 				<view class="text">{{item.name}}</view>
 			</view>
 			
@@ -24,7 +24,7 @@ const list = ref([])
 const getTuijian = async () =>{
 	const res = await getTuijianApi()
 	// console.log(res);
-	list.value = res.data.result
+	list.value = res.data.playlists
 	// console.log(list.value)
 }
 getTuijian()
