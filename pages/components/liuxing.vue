@@ -2,57 +2,50 @@
 	<view class="fashion">
 		<view class="top"><view class="line"></view>流行 | 经典 | 民谣 热门榜单</view>
 		<view class="con">
-			<view class="con-a">
-				<image class="leftTu" src="../../assets/tu1.png" mode=""></image>
+			<view class="con-a" v-for="item in list" :key="item.id">
+				<image class="leftTu" :src="item.picUrl" mode=""></image>
 				<view class="right">
 					<view class="right1">
-						<view class="tit">你想要的</view>
-						<view class="name">颜人中</view>
+						<view class="tit">{{item.name}}</view>
+						<view class="name">{{item.song.artists[0].name}} {{item.song.artists[1]?.name}}</view>
 					</view>
 					<view class="right2">
-						<view class="left-triangle"></view>
-						<image class="rightTu" src="../../assets/tu1.png" mode=""></image>
+						<view class="left-triangle" @click="goSong"></view>
+
 					</view>
 				</view>
 			</view>
-			<view class="con-a">
-				<image class="leftTu" src="../../assets/tu1.png" mode=""></image>
-				<view class="right">
-					<view class="right1">
-						<view class="tit">你想要的</view>
-						<view class="name">颜人中</view>
-					</view>
-					<view class="right2">
-						<view class="left-triangle"></view>
-						<image class="rightTu" src="../../assets/tu1.png" mode=""></image>
-					</view>
-				</view>
-			</view>
-			<view class="con-a">
-				<image class="leftTu" src="../../assets/tu1.png" mode=""></image>
-				<view class="right">
-					<view class="right1">
-						<view class="tit">你想要的</view>
-						<view class="name">颜人中</view>
-					</view>
-					<view class="right2">
-						<view class="left-triangle"></view>
-						<image class="rightTu" src="../../assets/tu1.png" mode=""></image>
-					</view>
-				</view>
-			</view>
+
+
 		</view>
 		
 	</view>
 </template>
 
-<script>
+<script setup>
+	import { getFashionApi } from '../../services'
+	import {nextTick, ref} from 'vue'
+	const list = ref([])
+	
+	// 调Fashion的接口
+	const getFashion = async () =>{
+		const res = await getFashionApi()
+		console.log(res);
+			list.value = res.data.result
+			console.log(list.value) 
+	}
+	getFashion()
+	const goSong = () => {
+		uni.navigateTo({
+			url:"/pages/player/player"
+		})
+	}
 </script>
 
 <style lang="scss" scoped>
 	.fashion {
 		width: 100%;
-		height: 540rpx;
+		height: 500rpx;
 	}
 	.top {
 		width: 100%;
@@ -80,10 +73,18 @@
 	}
 	.con {
 		width: 100%;
-		height: 522rpx;
+		height: 405rpx;
+		overflow-x: scroll;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		scrollbar-width: none;
+		scrollbar-color: transparent;
 	}
 	.con-a {
-		width: 100%;
+		box-sizing: border-box;
+		flex-shrink: 0;
+		width: 100vw;
 		height: 135rpx;
 		display: flex;
 		padding: 20rpx;

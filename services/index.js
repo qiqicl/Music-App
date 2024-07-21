@@ -9,37 +9,42 @@
     })
   }
   // 调所有的接口
-  
+
+	const host ='https://zyxcl.xyz/music/api'
 
   export const getAllApi = () => {
-    return request('https://zyxcl.xyz/music/api/homepage/block/page')
+    return request(`${host}/homepage/block/page`)
   }
   export const getBannersApi = () => {
-    return request('http://121.89.213.194:5001/banner')
+    return request(`http://121.89.213.194:5001/banner`)
   }
   // 每日推荐接口
   export const getSongsApi = () => {
-    return request('https://zyxcl.xyz/music/api/recommend/songs')
+    return request(`${host}/recommend/songs`)
   }
   // 排行榜接口
   export const getPaihangApi = () => {
-    return request('https://zyxcl.xyz/music/api/toplist/detail')
+    return request(`${host}/toplist/detail`)
   }
   // 推荐歌单
   export const getTuijianApi = () => {
-    return request('https://zyxcl.xyz/music/api/personalized?limit=6')
+    return request(`${host}/personalized?limit=6`)
   }
 
   // 雷达歌单   精品歌单接口
   export const getJingpinApi = () => {
-    return request('https://zyxcl.xyz/music/api/related/playlist')
+    return request(`${host}/related/playlist`)
   }
   // 排行榜接口
   export const getTopListApi = () => {
-    return request('https://zyxcl.xyz/music/api/toplist/detail')
+    return request(`${host}/toplist/detail`)
   }
   
   // 视频合辑
   export const getHejiApi = () => {
-    return request('https://zyxcl.xyz/music/api/video/timeline/recommend')
+    return request(`${host}/video/timeline/recommend`)
   }
+	// 流行接口
+	export const getFashionApi = () => {
+	  return request(`${host}/personalized/newsong`)
+	}
