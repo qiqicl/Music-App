@@ -41,7 +41,7 @@
 	import leida from '../components/leida.vue'
 	import zhuanshu from '../components/zhuanshu.vue'
 	import heji from '../components/heji.vue'
-	import {useSearchStore} from "../../../MusicApp/store/searchDate"
+	import {useSearchStore} from "../../store/searchDate"
 	import {useRouter,useRoute} from "vue-router"
 	import {useEveryStore}from "../../store/everyData.js"
 	

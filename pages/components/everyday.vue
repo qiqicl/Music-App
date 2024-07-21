@@ -1,8 +1,8 @@
 <template>
 	<view class="content">
 		<view class="Com">
-			<view class="Com-a" v-for="item in everyStore.everyDay" >
-				<view class="itemCom" @click="getSongs">
+			<view class="Com-a" v-for="(item,index) in everyStore.everyDay" >
+				<view class="itemCom" @click="getSongs(index)">
 					<image :src="item.uiElement.image.imageUrl"></image>
 					<view class="text">{{item.uiElement.mainTitle.title}}</view>
 				</view>
@@ -45,11 +45,17 @@ import {useEveryStore}from "../../store/everyData.js"
 const everyStore = useEveryStore()
 
 const song = ref([])
-const getSongs = async () =>{
+const getSongs = async (index) =>{
 	const res = await getSongsApi()
-	uni.navigateTo({
-		url:"/pages/toplist/toplist"
-	})
+	if(index===0){
+		uni.navigateTo({
+			url:"/pages/recommend/recommend"
+		})
+	}else if(index===3){
+		uni.navigateTo({
+			url:"/pages/toplist/toplist"
+		})
+	}
 	nextTick(()=>{
 		console.log(res);
 	})
