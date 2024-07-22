@@ -14,7 +14,7 @@
 		ref
 	} from "vue"
 	const img = ref()
-	const time = null
+	const time = ref()
 	const getQRCode = async () => {
 		const key = await getKeyApi()
 		const data = await getQRCodeApi(key.data.unikey)

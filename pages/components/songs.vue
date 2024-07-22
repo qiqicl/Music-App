@@ -20,7 +20,10 @@ const list = ref([])
 const getAll = async () => {
 	const res = await getAllApi()
 	console.log(res.data.data.blocks)
-	list.value = res.data.data.blocks[3].creatives
+	const data = res.data.data.blocks.find(item=>{
+		return item.blockCode === "HOMEPAGE_BLOCK_PLAYLIST_RCMD"
+	})
+	list.value = data.creatives
 }
 // 调tuijian的接口
 const getTuijian = async () =>{

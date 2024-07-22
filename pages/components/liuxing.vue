@@ -36,8 +36,11 @@
 	// }
 	const getAll = async () => {
 		const res = await getAllApi()
+		const data = res.data.data.blocks.find(item=>{
+			return item.blockCode === "HOMEPAGE_BLOCK_STYLE_RCMD"
+		})
 		console.log(res.data.data.blocks[4])
-		list.value = res.data.data.blocks[4]
+		list.value = data
 	}
 	getAll()
 	// getFashion()

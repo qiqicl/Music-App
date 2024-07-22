@@ -29,7 +29,11 @@ const getUserDate = async () => {
 const getAll = async () => {
 	const res = await getAllApi()
 	console.log(res.data.data.blocks)
-	list.value = res.data.data.blocks[6].creatives
+	const data = res.data.data.blocks.find(item=>{
+		return item.blockCode === "HOMEPAGE_BLOCK_MGC_PLAYLIST"
+	})
+	console.log(data)
+	list.value = data.creatives
 }
 const goDetail = (id) => {
 	console.log(id)
