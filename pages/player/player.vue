@@ -64,7 +64,7 @@
 	// /song/url/v1?id=33894312&level=standard
 	const getSong= () => {
 		uni.request({
-		    url: `https://zyxcl.xyz/music/api/song/url?curCookie=${storage.value}&id=${play.playItem.al.id}`,
+		    url: `https://zyxcl.xyz/music/api/song/url/v1?id=${play.playItem.id}&level=standard`,
 		    success: (res) => {
 		        console.log(res.data);
 		    }

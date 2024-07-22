@@ -3,30 +3,39 @@
 	<view class="songs">
 		<view class="top"><view class="line"></view>推荐歌单</view>
 		<view class="boxAll">
-			<view class="box" v-for="item in list" :key="item.id">
-				<image :src="item.coverImgUrl" ></image>
-				<view class="text">{{item.name}}</view>
+			<view class="box" v-for="item in list" :key="item.creativeId">
+				<image :src="item.uiElement.image.imageUrl" @click="goDetail(item.creativeId)"></image>
+				<view class="text">{{item.uiElement.mainTitle.title}}</view>
 			</view>
-			
 		</view>
-		
-		
 	</view>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { getTuijianApi } from '../../services'
+import { getTuijianApi,getAllApi } from '../../services'
 const list = ref([])
 
 
+const getAll = async () => {
+	const res = await getAllApi()
+	console.log(res.data.data.blocks)
+	list.value = res.data.data.blocks[2].creatives
+}
 // 调tuijian的接口
 const getTuijian = async () =>{
 	const res = await getTuijianApi()
 	// console.log(res);
-	list.value = res.data.playlists
+	// list.value = res.data.playlists
 	// console.log(list.value)
 }
+const goDetail = (id) => {
+	console.log(id)
+	uni.navigateTo({
+		url: `/pages/songlist/songlist?id=${id}`
+	});
+}
+getAll()
 getTuijian()
 	
 </script>

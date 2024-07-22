@@ -25,7 +25,7 @@
 		<songs />
 		<liuxing />
 		<leida />
-		<Aside v-if="isAside" @offUser="isAside = false"/>
+		<Aside v-show="isAside" @offUser="isAside = false" ref="aside"/>
 
 		<!-- <zhuanshu />
 		<heji /> -->
@@ -46,7 +46,6 @@
 	import {useRouter,useRoute} from "vue-router"
 	import {useEveryStore}from "../../store/everyData.js"
 	import Aside from "./aside/Aside.vue"
-	
 	const isAside = ref(false)
 	const everyStore = useEveryStore()
 	const searchStore = useSearchStore()

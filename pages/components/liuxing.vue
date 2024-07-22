@@ -11,14 +11,10 @@
 					</view>
 					<view class="right2">
 						<view class="left-triangle" @click="goSong(item,index)"></view>
-
 					</view>
 				</view>
 			</view>
-
-
 		</view>
-		
 	</view>
 </template>
 
@@ -31,9 +27,7 @@
 	// 调Fashion的接口
 	const getFashion = async () =>{
 		const res = await getFashionApi()
-		console.log(res);
 			list.value = res.data.result
-			console.log(list.value) 
 	}
 	getFashion()
 	const goSong = (item,index) => {

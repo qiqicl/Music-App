@@ -10,7 +10,9 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "首页"
+				"navigationBarTitleText": "首页",
+				"navigationBarBackgroundColor":"#BA4D47",
+				"navigationBarTextStyle":"white"
 			}
 		},
 		{

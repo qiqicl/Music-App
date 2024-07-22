@@ -13,7 +13,7 @@
 	const host ='https://zyxcl.xyz/music/api'
 
   export const getAllApi = () => {
-    return request(`${host}/homepage/block/page`)
+    return request(`${host}/homepage/block/page?cookie=${decodeURIComponent(uni.getStorageSync('key'))}`)
   }
   export const getBannersApi = () => {
     return request('https://zyxcl.xyz/music/api/banner')

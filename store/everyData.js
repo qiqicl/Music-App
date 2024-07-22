@@ -8,7 +8,6 @@ export const useEveryStore = defineStore('everyStore', () => {
 		const songs = ref([])
 		const getAll = async () => {
 			const res = await getAllApi()
-			console.log(res);
 			all.value = res.data.data.blocks
 			// 将数据存入本地存储 
 			localStorage.setItem('all', JSON.stringify(all.value))
@@ -23,7 +22,6 @@ export const useEveryStore = defineStore('everyStore', () => {
 			// console.log(everyDay.value)
 			//songs
 			songs.value=allData.value[3].creatives
-			console.log(songs.value)
 		}
 
 		

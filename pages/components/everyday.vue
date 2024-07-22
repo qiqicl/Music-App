@@ -61,7 +61,6 @@ const goTopList = () => {
 
 onMounted(()=>{
 	everyStore.getAll()
-	console.log(everyStore.everyDay)
 })
 // getSongs()
 // getPaihang()

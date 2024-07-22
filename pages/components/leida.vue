@@ -1,7 +1,7 @@
 <template>
 
 	<view class="songs">
-		<view class="top"><view class="line"></view>xxx的雷达歌单</view>
+		<view class="top"><view class="line"></view>{{data?.data.data.profile.nickname}}的雷达歌单</view>
 		<view class="boxAll">
 			<view class="box" v-for="item in list" :key="item.id">
 				<image :src="item.coverImgUrl" ></image>
@@ -18,8 +18,15 @@
 import { ref } from 'vue'
 import { getTuijianApi } from '../../services'
 const list = ref([])
-
-
+const data = ref()
+const storage = ref(decodeURIComponent(uni.getStorageSync('key')))
+const getUserDate = async () => {
+	data.value = await uni.request({
+		url:`https://zyxcl.xyz/music/api/login/status?cookie=${storage.value}`,
+		// withCredentials	:true
+	})
+}
+getUserDate()
 // 调tuijian的接口
 const getTuijian = async () =>{
 	const res = await getTuijianApi()
