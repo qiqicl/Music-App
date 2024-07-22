@@ -11,7 +11,7 @@ const getData = async() => {	await nextTick()
 	data.value = await getDataApi()
 	uni.request({
 		url:`https://zyxcl.xyz/music/api/user/detail?uid=${data.value.data?.data.account?.id}&cookie=${storage.value}`,	
-		// withCredentials	:true,
+		withCredentials	:true,
 		success: (res) => {
 			// console.log(res.data);
 			detailData.value = res.data
@@ -19,7 +19,7 @@ const getData = async() => {	await nextTick()
 	})
 	uni.request({
 		url:`https://zyxcl.xyz/music/api/user/playlist?uid=${data.value.data?.data.account?.id}&cookie=${storage.value}`,	
-		// withCredentials	:true,
+		withCredentials	:true,
 		success: (res) => {
 			console.log(res.data);
 			playList.value = res.data
@@ -29,7 +29,7 @@ const getData = async() => {	await nextTick()
 const getDataApi = () =>{	return new Promise((resolve,reject)=>{
 		let data = uni.request({
 			url:`https://zyxcl.xyz/music/api/login/status?cookie=${storage.value}`,
-			// withCredentials	:true
+			withCredentials	:true
 		})
 		resolve(data)	})}
 
