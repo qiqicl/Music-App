@@ -1,0 +1,1 @@
+import{g as a,r as l,W as e}from"./index-1jdLL0FB.js";const s=a("playList",(()=>{const a=l([]),s=l(),t=e((()=>a.value.length>0?a.value[s.value]:null));return{playList:a,playItem:t,playIndex:s}}));export{s as p};
