@@ -2,6 +2,7 @@
     return new Promise((resolve, reject) => {
       uni.request({
         url,
+		withCredentials	:true,
         ...options,
         success: resolve,
         fail: reject
