@@ -1,16 +1,20 @@
 <template>
 	<view class="fashion">
-		<view class="top"><view class="line"></view>流行 | 经典 | 民谣 热门榜单</view>
+		<view class="top"><view class="line"></view>{{list?.uiElement?.subTitle.title}}</view>
 		<view class="con">
-			<view class="con-a" v-for="(item,index) in list" :key="item.id">
-				<image class="leftTu" :src="item.picUrl" mode=""></image>
-				<view class="right">
-					<view class="right1">
-						<view class="tit">{{item.name}}</view>
-						<view class="name">{{item.song.artists[0].name}} {{item.song.artists[1]?.name}}</view>
-					</view>
-					<view class="right2">
-						<view class="left-triangle" @click="goSong(item,index)"></view>
+			<view class="con-a" v-for="(item,index) in list.creatives" :key="item.id">
+				<view class="con-b" v-for="(it,ind) in item.resources" :key="it" @click="goSong(it)">
+					<image class="leftTu" :src="it.resourceExtInfo.song.al.picUrl" mode=""></image>
+					<view class="right">
+						<view class="right1">
+							<view class="tit">{{it.resourceExtInfo.song.name}}</view>
+							<view class="allName">
+								<view class="name" v-for="(v,i) in it.resourceExtInfo.song.ar">{{v.name}}</view>
+							</view>
+						</view>
+						<view class="right2">
+							<view class="left-triangle"></view>
+						</view>
 					</view>
 				</view>
 			</view>
@@ -20,22 +24,29 @@
 
 <script setup>
 	import { getFashionApi } from '../../services'
+	import { getTuijianApi,getAllApi } from '../../services'
 	import {nextTick, ref} from 'vue'
 	import { playListStore } from "../../store/playList"
 	const list = ref([])
 	const playList = playListStore()
 	// 调Fashion的接口
-	const getFashion = async () =>{
-		const res = await getFashionApi()
-			list.value = res.data.result
+	// const getFashion = async () =>{
+	// 	const res = await getFashionApi()
+	// 		list.value = res.data.result
+	// }
+	const getAll = async () => {
+		const res = await getAllApi()
+		console.log(res.data.data.blocks[4])
+		list.value = res.data.data.blocks[4]
 	}
-	getFashion()
-	const goSong = (item,index) => {
+	getAll()
+	// getFashion()
+	const goSong = (item) => {
 		uni.navigateTo({
 			url:"/pages/player/player"
 		})
-		playList.playList = list.value
-		playList.playIndex = index
+		playList.playList = [item.resourceExtInfo.song]
+		playList.playIndex = 0
 	}
 </script>
 
@@ -78,7 +89,7 @@
 		scrollbar-width: none;
 		scrollbar-color: transparent;
 	}
-	.con-a {
+	.con-b {
 		box-sizing: border-box;
 		flex-shrink: 0;
 		width: 100vw;
@@ -86,6 +97,13 @@
 		display: flex;
 		padding: 20rpx;
 		padding-bottom:0;
+		.allName{
+			display: flex;
+			align-items: center;
+			.name{
+				margin-right: 20rpx;
+			}
+		}
 	}
 	.left-triangle {
 	  width: 0;
