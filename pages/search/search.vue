@@ -35,7 +35,7 @@
 	import { useSearchStore } from "../../store/searchDate.js"
 	const searchStore = useSearchStore()
 	const flag = ref(0)
-	const searchMemory =ref(JSON.parse(localStorage.getItem("searchMemory")))
+	const searchMemory =ref(JSON.parse(localStorage.getItem("searchMemory"))||[])
 	searchStore.getCode()
 	const enter = () => {
 		const existingItem = searchMemory.value.findIndex(item => item.name === searchStore.con);
