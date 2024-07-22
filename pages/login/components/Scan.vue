@@ -25,7 +25,7 @@
 			if (check.code === 803) {
 				// 这一步会返回cookie
 				uni.setStorageSync('key', `${encodeURIComponent(check.cookie)}`);
-				clearInterval(time)
+				clearInterval(time.value)
 				uni.switchTab({
 					url: '/pages/index/index'
 				});
@@ -33,7 +33,7 @@
 		}, 1000)
 	}
 	onBeforeUnmount(()=>{
-		clearInterval(time)
+		clearInterval(time.value)
 	})
 	const getKeyApi = () => {
 		return new Promise((resolve, reject) => {

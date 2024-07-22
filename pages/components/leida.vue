@@ -3,9 +3,9 @@
 	<view class="songs">
 		<view class="top"><view class="line"></view>{{data?.data.data.profile.nickname}}的雷达歌单</view>
 		<view class="boxAll">
-			<view class="box" v-for="item in list" :key="item.id">
-				<image :src="item.coverImgUrl" ></image>
-				<view class="text">{{item.name}}</view>
+			<view class="box" v-for="item in list" :key="item.id" @click="goDetail(item.creativeId)">
+				<image :src="item.uiElement.image.imageUrl" ></image>
+				<view class="text">{{item.uiElement.mainTitle.title}}</view>
 			</view>
 			
 		</view>
@@ -16,7 +16,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { getTuijianApi } from '../../services'
+import { getTuijianApi,getAllApi } from '../../services'
 const list = ref([])
 const data = ref()
 const storage = ref(decodeURIComponent(uni.getStorageSync('key')))
@@ -26,15 +26,27 @@ const getUserDate = async () => {
 		// withCredentials	:true
 	})
 }
-getUserDate()
-// 调tuijian的接口
-const getTuijian = async () =>{
-	const res = await getTuijianApi()
-	// console.log(res);
-	list.value = res.data.playlists
-	// console.log(list.value)
+const getAll = async () => {
+	const res = await getAllApi()
+	console.log(res.data.data.blocks)
+	list.value = res.data.data.blocks[6].creatives
 }
-getTuijian()
+const goDetail = (id) => {
+	console.log(id)
+	uni.navigateTo({
+		url: `/pages/songlist/songlist?id=${id}`
+	});
+}
+getUserDate()
+getAll()
+// 调tuijian的接口
+// const getTuijian = async () =>{
+// 	const res = await getTuijianApi()
+// 	// console.log(res);
+// 	list.value = res.data.playlists
+// 	// console.log(list.value)
+// }
+// getTuijian()
 	
 </script>
 

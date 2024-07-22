@@ -46,7 +46,7 @@
   }
 	// 流行接口
 	export const getFashionApi = () => {
-	  return request(`${host}/personalized/newsong`)
+	  return request(`${host}/personalized/newsong?cookie=${decodeURIComponent(uni.getStorageSync('key'))}`)
 	}
   
   // 歌单详情
