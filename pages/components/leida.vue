@@ -1,6 +1,6 @@
 <template>
 
-	<view class="songs">
+	<view class="songs" v-if="flag">
 		<view class="top"><view class="line"></view>{{data?.data.data.profile.nickname}}的雷达歌单</view>
 		<view class="boxAll">
 			<view class="box" v-for="item in list" :key="item.id" @click="goDetail(item.creativeId)">
@@ -18,6 +18,7 @@
 import { ref } from 'vue'
 import { getTuijianApi,getAllApi } from '../../services'
 const list = ref([])
+const flag = ref(false)
 const data = ref()
 const storage = ref(decodeURIComponent(uni.getStorageSync('key')))
 const getUserDate = async () => {
@@ -32,6 +33,9 @@ const getAll = async () => {
 	const data = res.data.data.blocks.find(item=>{
 		return item.blockCode === "HOMEPAGE_BLOCK_MGC_PLAYLIST"
 	})
+	if(data){
+		flag.value = true
+	}
 	console.log(data)
 	list.value = data.creatives
 }
