@@ -103,8 +103,11 @@
 		.allName{
 			display: flex;
 			align-items: center;
+			flex-wrap: nowrap;
 			.name{
-				margin-right: 20rpx;
+				margin-right: 10rpx;
+				flex-wrap: nowrap;
+				display: flex;
 			}
 		}
 	}

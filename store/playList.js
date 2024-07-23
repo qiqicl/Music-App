@@ -3,7 +3,8 @@ import {
 } from "pinia"
 import {
 	ref,
-	computed
+	computed,
+	watch
 } from 'vue'
 
 export const playListStore = defineStore('playList', () => {
@@ -15,12 +16,15 @@ export const playListStore = defineStore('playList', () => {
 	const playSongs = ref([])
 	const playUrl = ref('')
 	let innerAudioContext = null
+	const currentTime = ref(0)
 	const playMusic = () => {
 		innerAudioContext = uni.createInnerAudioContext();
 		innerAudioContext.autoplay = true;
 		innerAudioContext.src = playUrl.value
 		innerAudioContext.loop = true
 		// // innerAudioContext.play()
+		innerAudioContext.currentTime = currentTime.value
+		console.log(innerAudioContext.currentTime)
 		innerAudioContext.onPlay(() => {
 			console.log('开始播放');
 		});
@@ -28,6 +32,9 @@ export const playListStore = defineStore('playList', () => {
 			console.log(res.errMsg);
 			console.log(res.errCode);
 		});
+	}
+	const currentChange = () => {
+		innerAudioContext.currentTime = currentTime.value
 	}
 	const destroyMusic = () => {
 		innerAudioContext?.pause();
@@ -53,6 +60,8 @@ export const playListStore = defineStore('playList', () => {
 		destroyMusic,
 		pauseFun,
 		playFun,
-		add
+		add,
+		currentTime,
+		currentChange
 	}
 })

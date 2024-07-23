@@ -10,7 +10,7 @@
 				<view class="vinyl">
 					<image src="../../assets/disc-23c9ad09.png" mode=""></image>
 					<view class="songImg">
-						<image :src="play.playItem.al.picUrl" mode=""></image>
+						<image :src="play.playItem.al?.picUrl || play.playItem.album.artist.img1v1Url" mode=""></image>
 					</view>
 				</view>
 			</view>
@@ -18,7 +18,8 @@
 		<view>
 			<view class="range">
 				{{curTime}}
-				<input type="range" :value="count" />
+				<!-- <input type="range" :value="count" @change="change" /> -->
+				<slider :value="count" @change="change" activeColor="#FFCC33" backgroundColor="#000000" block-color="#8A6DE9" block-size="20" />
 				{{timeRange}}
 			</view>
 			<view class="audio">
@@ -61,7 +62,7 @@
 	const count = ref(0)
 	const cur = ref(0)
 	const curTime = computed(() => {
-		return parseInt(cur.value/60) + ":" + ((cur.value%60)>=10?cur.value%60:'0'+cur.value%60)
+		return parseInt(cur.value/60) + ":" + (cur.value%60>=10?cur.value%60:'0'+cur.value%60)
 	})
 	const sliderChange = (e) => {
 		console.log('value 发生变化：'+e.detail.value)
@@ -78,13 +79,31 @@
 			play.pauseFun()
 		}
 	})
+	watch(cur,()=>{
+		play.currentTime = cur.value
+		// console.log(play.currentTime)
+		if(cur.value === parseInt(allTime.value)){
+			clearInterval(time.value)
+			cur.value = 0
+			time.value = setInterval(()=>{
+				cur.value++
+				count.value = 100/(allTime.value)*cur.value
+			},1000)
+		}
+	})
+	const change = (e) => {
+		play.currentTime = Math.ceil((parseInt(allTime.value)*e.detail.value/100))
+		cur.value = play.currentTime
+		console.log(play.currentTime)
+		play.currentChange()
+	}
 	// console.log(play.playFun)
 	console.log(play.playItem)
 	console.log(play.playIndex)
 	console.log(play.playSongs)
 	// play.playSongs.push(play.playItem)
 	const backImg = ref({
-		backgroundImage: `url(${play.playItem.al.picUrl})`
+		backgroundImage: `url(${play.playItem.al?.picUrl || play.playItem.album.artist.img1v1Url})`
 	})
 	uni.setNavigationBarTitle({
 		title: play.playItem.name,
@@ -101,7 +120,7 @@
 				console.log(res.data);
 				music.value = res.data.data[0].url
 				allTime.value = res.data.data[0].time/1000
-				timeRange.value = parseInt(res.data.data[0].time/1000/60) + ":" + (res.data.data[0].time%60/1000).toFixed(2).toString().split(".")[1]
+				timeRange.value = parseInt(res.data.data[0].time/1000/60) + ":" + ((res.data.data[0].time/1000%60).toString().split(".")[0]>=10?(res.data.data[0].time/1000%60).toString().split(".")[0]:'0'+(res.data.data[0].time/1000%60).toString().split(".")[0])
 				console.log(music.value)
 				time.value = setInterval(()=>{
 					cur.value++
@@ -234,7 +253,7 @@
 		width: 600rpx;
 		color: white;
 		align-items: center;
-		input{
+		slider{
 			flex: 1;
 		}
 	}
