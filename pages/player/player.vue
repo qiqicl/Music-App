@@ -64,9 +64,6 @@
 	const curTime = computed(() => {
 		return parseInt(cur.value/60) + ":" + (cur.value%60>=10?cur.value%60:'0'+cur.value%60)
 	})
-	const sliderChange = (e) => {
-		console.log('value 发生变化：'+e.detail.value)
-	}
 	watch(run, () => {
 		if (run.value) {
 			time.value = setInterval(()=>{

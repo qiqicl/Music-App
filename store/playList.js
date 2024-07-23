@@ -24,7 +24,6 @@ export const playListStore = defineStore('playList', () => {
 		innerAudioContext.loop = true
 		// // innerAudioContext.play()
 		innerAudioContext.currentTime = currentTime.value
-		console.log(innerAudioContext.currentTime)
 		innerAudioContext.onPlay(() => {
 			console.log('开始播放');
 		});
